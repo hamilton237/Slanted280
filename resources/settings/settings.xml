@@ -1,0 +1,24 @@
+<settings>
+
+    <setting propertyKey="@Properties.Units" title="@Strings.UnitsTitle">
+		<settingConfig type="list">
+			<listEntry value="0">@Strings.Metric</listEntry>
+			<listEntry value="1">@Strings.Imperial</listEntry>
+		</settingConfig>
+	</setting>
+
+	<setting propertyKey="@Properties.TimeDisplay" title="@Strings.TimeDisplayTitle">
+		<settingConfig type="list">
+			<listEntry value="0">@Strings.TwentyFourHour</listEntry>
+			<listEntry value="1">@Strings.TwelveHour</listEntry>
+		</settingConfig>
+	</setting>
+
+	<setting propertyKey="@Properties.ShowSeconds" title="@Strings.ShowSecondsTitle">
+		<settingConfig type="list">
+			<listEntry value="0">@Strings.No</listEntry>
+			<listEntry value="1">@Strings.Yes</listEntry>
+		</settingConfig>
+	</setting>
+
+</settings>

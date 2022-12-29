@@ -1,0 +1,7 @@
+<properties>
+
+    <property id="Units" type="number">0</property>
+	<property id="TimeDisplay" type="number">0</property>
+	<property id="ShowSeconds" type="number">1</property>
+
+</properties>

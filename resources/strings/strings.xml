@@ -1,0 +1,18 @@
+<strings>
+
+    <string id="AppName">Slanted</string>
+
+    <string id="UnitsTitle">Units</string>
+    <string id="TimeDisplayTitle">Time display type</string>
+    <string id="ShowSecondsTitle">Show seconds</string>
+
+
+    <string id="Metric">Metric</string>
+    <string id="Imperial">Imperial</string>
+    <string id="TwentyFourHour">24 hour</string>
+    <string id="TwelveHour">12 hour (AM-PM)</string>
+    <string id="No">No</string>
+    <string id="Yes">Yes</string>
+    <string id="Days">d</string>
+
+</strings>
