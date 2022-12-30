@@ -73,6 +73,32 @@ function drawSmallParallelogramForBar(dc, x, y, lineColor, bgColor, isFilled){
     }
 }
 
+function getThemeColors(theme) {
+	var colors;
+	switch (theme) {
+		case 0:
+			colors = T_ENDURO2;
+			break;
+		case 1:
+			colors = T_ENDURO;
+			break;
+		case 2:
+			colors = T_NATURE;
+			break;
+		case 3:
+			colors = T_ICE;
+			break;
+		case 5:
+			colors = T_WHITE;
+			break;
+		default:
+			colors = T_ENDURO2;
+			break;
+	}
+
+	return colors;
+}
+
 
 
 

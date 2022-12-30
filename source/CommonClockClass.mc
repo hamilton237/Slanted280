@@ -78,14 +78,14 @@ class Clock {
         else{
             var hourTemp = clockTime.hour;
             if (clockTime.hour == 0) {
-                amPm = "A";
+                amPm = "AM";
                 hourTemp = 12;
             } else if (clockTime.hour < 12) {
-                amPm = "A";
+                amPm = "AM";
             } else if (clockTime.hour == 12) {
-                amPm = "P";
+                amPm = "PM";
             } else if (clockTime.hour > 12){
-                amPm = "P";
+                amPm = "PM";
                 hourTemp -= 12;
             }
             hoursString = isColon ? hourTemp.format("%02d")  + ":": hourTemp.format("%02d");

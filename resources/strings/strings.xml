@@ -1,11 +1,84 @@
 <strings>
-
-    <string id="AppName">Slanted</string>
-
+    <string id="AppName">Slanted 280</string>
+    <string id="AppVersionTitle">App Version</string>
+    <string id="TopFieldTitle">Top Field</string>
+    <string id="UpperLeftFieldTitle">Upper Left Field</string>
+    <string id="UpperRightFieldTitle">Upper Right Field</string>
+    <string id="LowerLeftFieldTitle">Lower Left Field</string>
+    <string id="LowerRightFieldTitle">Lower Right Field</string>
+    <string id="BottomFieldTitle">Bottom Field</string>
+    <string id="TopProgressBarTitle">Top Progress Bar</string>
+    <string id="BottomProgressBarTitle">Bottom Progress Bar</string>
+    <string id="MinutesColorTitle">Minutes Color</string>
+    <string id="ThemeColorTitle">Color Theme</string>
+    <string id="SecondsColorTitle">Seconds Color</string>
+    <string id="MainFieldColorTitle">Main Fields Color</string>
+    <string id="SecondaryFieldColorTitle">Secondary Fields Color</string>
+    <string id="GridColorTitle">Grid Color</string>
+    <string id="IconsColorTitle">Icons Color</string>
+    <string id="TopProgressBarColorTitle">Top Prog. Bar Color</string>
+    <string id="BottomProgressBarColorTitle">Bottom Prog. Bar Color</string>
+    <string id="ProgressBarSpacingTitle">Progress Bar Spacing</string>
+    <string id="RefreshMinutesTitle">Refresh data every X minutes</string>
     <string id="UnitsTitle">Units</string>
     <string id="TimeDisplayTitle">Time display type</string>
     <string id="ShowSecondsTitle">Show seconds</string>
+    
 
+
+    <string id="Battery">Battery (%)</string>
+    <string id="BatteryDays">Battery in days</string>
+    <string id="BodyBattery">Body Battery</string>
+    <string id="City">City</string>
+    <string id="Date">Date</string>
+    <string id="Pressure">Pressure</string>
+    <string id="Temperature">Temperature</string>
+    <string id="TempPlusFeelsLike">Temperature + Feels Like</string>
+    <string id="ThreeHourRainForecast">Rain Forecast (3 hour)</string>
+    <string id="SunEvents">Sun Events</string>
+    <string id="Humidity">Humidity</string>
+    <string id="DewPoint">Dew Point</string>
+    <string id="HumidityPlusHumidex">Humidity + Humidex</string>
+    <string id="DewPointPlusHumidex">Dew Point + Humidex</string>
+    <string id="Wind">Wind</string>
+    <string id="WindChill">Wind Chill Index</string>
+    <string id="WindPlusWindChill">Wind Speed + Wind Chill</string>
+    <string id="Steps">Steps</string>
+    <string id="Calories">Calories</string>
+    <string id="Climb">Floors climbed</string>
+    <string id="Distance">Distance</string>
+    <string id="Altitude">Altitude</string>
+    <string id="HeartRate">Heart Rate</string>
+    <string id="None">None</string>
+
+
+    <string id="ThemeEnduro2">Enduro 2</string>
+    <string id="ThemeNature">Nature</string>
+    <string id="ThemeIce">Ice</string>
+    <string id="ThemeEnduro">Enduro</string>
+    <string id="ThemeWhite">White Background</string>
+
+
+        
+    <string id="ColorBabyPoo">Baby Poo</string>
+    <string id="ColorBlue">Blue</string>
+    <string id="ColorGreen">Green</string>
+    <string id="ColorLightGray">Light Gray</string>
+    <string id="ColorOrange">Orange</string>
+    <string id="ColorPink">Pink</string>
+    <string id="ColorPurple">Purple</string>
+    <string id="ColorRed">Red</string>
+    <string id="ColorWhite">White</string>
+    <string id="ColorYellow">Yellow</string>
+    <string id="ColorDarkGray">Dark Gray</string>
+    <string id="ColorLightGreen">Light Green</string>
+    <string id="ColorDarkGreen">Dark Green</string>
+    <string id="ColorLightBlue">Light Blue</string>
+    <string id="ColorDarkBlue">Dark Blue</string>
+    <string id="ColorLightRed">Light Red</string>
+    <string id="ColorDarkRed">Dark Red</string>
+    <string id="ColorBlack">Black</string>
+    <string id="ColorTheme">Use Theme</string>
 
     <string id="Metric">Metric</string>
     <string id="Imperial">Imperial</string>
@@ -14,5 +87,4 @@
     <string id="No">No</string>
     <string id="Yes">Yes</string>
     <string id="Days">d</string>
-
 </strings>

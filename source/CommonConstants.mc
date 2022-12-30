@@ -48,3 +48,9 @@ const I_FLOORSCLIMBED = "f";// 102
 const I_DISTANCE = "k";     // 107
 const I_ALTITUDE = "m";     // 109
 const I_HEARTRATE = "r";    // 114
+
+// Custom colors
+const COLOR_LIGHT_GREEN = 0x55FF55;
+const COLOR_LIGHT_BLUE = 0x00FFFF;
+const COLOR_PINK = 0xFF55FF;
+const COLOR_BABY_POO = 0xAAFF00;

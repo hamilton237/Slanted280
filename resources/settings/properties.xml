@@ -1,7 +1,30 @@
 <properties>
+	<property id="AppVersion" type="string">1.9</property>
 
-    <property id="Units" type="number">0</property>
+	<property id="TopField" type="number">18</property>
+	<property id="UpperLeftField" type="number">7</property>
+	<property id="UpperRightField" type="number">1</property>
+	<property id="LowerLeftField" type="number">2</property>
+	<property id="LowerRightField" type="number">12</property>
+	<property id="BottomField" type="number">4</property>
+
+	<property id="TopProgressBar" type="number">0</property>
+	<property id="BottomProgressBar" type="number">4</property>
+
+	<property id="ThemeColor" type="number">0</property>
+	<property id="MinutesColor" type="number">99</property>
+	<property id="SecondsColor" type="number">99</property>
+	<property id="MainFieldColor" type="number">99</property>
+	<property id="SecondaryFieldColor" type="number">99</property>
+	<property id="GridColor" type="number">99</property>
+	<property id="IconsColor" type="number">99</property>
+	<property id="TopProgressBarColor" type="number">99</property>
+	<property id="BottomProgressBarColor" type="number">99</property>
+
+	<property id="ProgressBarSpacing" type="number">27</property>
+	<property id="RefreshMinutes" type="number">30</property>
+
+	<property id="Units" type="number">0</property>
 	<property id="TimeDisplay" type="number">0</property>
 	<property id="ShowSeconds" type="number">1</property>
-
 </properties>

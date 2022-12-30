@@ -1,0 +1,86 @@
+<strings>
+    <string id="AppName">Slanted 280</string>
+    <string id="AppVersionTitle">Version</string>
+    <string id="TopFieldTitle">Champ du haut</string>
+    <string id="UpperLeftFieldTitle">Champ supérieur gauche</string>
+    <string id="UpperRightFieldTitle">Champ supérieur droit</string>
+    <string id="LowerLeftFieldTitle">Champ inférieur gauche</string>
+    <string id="LowerRightFieldTitle">Champ inférieur droit</string>
+    <string id="BottomFieldTitle">Champ du bas</string>
+    <string id="TopProgressBarTitle">Barre de progression du haut</string>
+    <string id="BottomProgressBarTitle">Barre de progression du bas</string>
+    <string id="ThemeColorTitle">Thème de couleurs</string>
+    <string id="MinutesColorTitle">Couleur minutes</string>
+    <string id="SecondsColorTitle">Couleur secondes</string>
+    <string id="MainFieldColorTitle">Couleur champs principaux</string>
+    <string id="SecondaryFieldColorTitle">Couleur champs secondaires</string>
+    <string id="GridColorTitle">Couleur grille</string>
+    <string id="IconsColorTitle">Couleur des icônes</string>
+    <string id="TopProgressBarColorTitle">Couleur barre progression du haut</string>
+    <string id="BottomProgressBarColorTitle">Couleur barre progression du bas</string>
+    <string id="ProgressBarSpacingTitle">Espacement barres de progression</string>
+    <string id="RefreshMinutesTitle">Rafraichissement des données aux X minutes</string>
+    <string id="UnitsTitle">Unités</string>
+    <string id="TimeDisplayTitle">Type d'affichage de l'heure</string>
+    <string id="ShowSecondsTitle">Afficher les secondes</string>
+
+    <string id="Battery">Pile (%)</string>
+    <string id="BatteryDays">Pile (jours)</string>
+    <string id="BodyBattery">Énergie du corps</string>
+    <string id="City">Ville</string>
+    <string id="Date">Date</string>
+    <string id="Pressure">Pression</string>
+    <string id="Temperature">Température</string>
+    <string id="TempPlusFeelsLike">Température + Ressenti</string>
+    <string id="ThreeHourRainForecast">Probabilité de pluie (3 heures)</string>
+    <string id="SunEvents">Événements solaires</string>
+    <string id="Humidity">Humidité</string>
+    <string id="DewPoint">Point de rosée</string>
+    <string id="HumidityPlusHumidex">Humidité + Humidex</string>
+    <string id="DewPointPlusHumidex">Pt. de rosée + Humidex</string>
+    <string id="Wind">Vent</string>
+    <string id="WindChill">Indice de refroidissement éolien</string>
+    <string id="WindPlusWindChill">Vent + refroidissement éolien</string>
+    <string id="Steps">Pas</string>
+    <string id="Calories">Calories</string>
+    <string id="Climb">Étages montées</string>
+    <string id="Distance">Distance</string>
+    <string id="Altitude">Altitude</string>
+    <string id="HeartRate">Rythme cardiaque</string>
+    <string id="None">Aucun</string>
+
+    <string id="ThemeEnduro2">Enduro 2</string>
+    <string id="ThemeNature">Nature</string>
+    <string id="ThemeIce">Ice</string>
+    <string id="ThemeEnduro">Enduro</string>
+    <string id="ThemeWhite">Fond Blanc</string>
+        
+    <string id="ColorBabyPoo">Caca de bébé</string>
+    <string id="ColorBlue">Bleu</string>
+    <string id="ColorGreen">Vert</string>
+    <string id="ColorLightGray">Gris pâle</string>
+    <string id="ColorOrange">Orange</string>
+    <string id="ColorPink">Rose</string>
+    <string id="ColorPurple">Mauve</string>
+    <string id="ColorRed">Rouge</string>
+    <string id="ColorWhite">Blanc</string>
+    <string id="ColorYellow">Jaune</string>
+    <string id="ColorDarkGray">Gris foncé</string>
+    <string id="ColorLightGreen">Vert pâle</string>
+    <string id="ColorDarkGreen">Vert foncé</string>
+    <string id="ColorLightBlue">Bleu pâle</string>
+    <string id="ColorDarkBlue">Bleu foncé</string>
+    <string id="ColorLightRed">Rouge pâle</string>
+    <string id="ColorDarkRed">Rouge foncé</string>
+    <string id="ColorBlack">Noir</string>
+    <string id="ColorTheme">Utiliser thème</string>
+
+    <string id="Metric">Métrique</string>
+    <string id="Imperial">Impérial</string>
+    <string id="TwentyFourHour">24 heures</string>
+    <string id="TwelveHour">12 heures (AM-PM)</string>
+    <string id="No">Non</string>
+    <string id="Yes">Oui</string>
+    <string id="Days">j</string>
+
+</strings>

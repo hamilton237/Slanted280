@@ -117,7 +117,7 @@ function drawStatusIcon(dc, x, y, color, bgColor, dimension, iconsFont){
 	if (settings.phoneConnected){
 		if (settings.notificationCount > 0){
 			//drawMessagesIcon(dc, x, y, color);
-			drawStr(dc, x+4, y+5, iconsFont, color, I_NOTIFICATIONS, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+			drawStr(dc, x+6, y+5, iconsFont, color, I_NOTIFICATIONS, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 		}
 		else{
 			drawBluetoothIcon(dc, x, y, Graphics.COLOR_BLUE, bgColor);
@@ -129,4 +129,92 @@ function drawStatusIcon(dc, x, y, color, bgColor, dimension, iconsFont){
 function drawStr(dc, x, y, font, color, str, alignment) {
 	dc.setColor(color, Graphics.COLOR_TRANSPARENT);
 	dc.drawText(x, y, font, str, alignment);
+}
+
+function getColorCode(color, themeColor){
+	/*
+	<listEntry value="0">@Strings.ColorBabyPoo</listEntry>
+		<listEntry value="1">@Strings.ColorWhite</listEntry>
+		<listEntry value="2">@Strings.ColorLightGray</listEntry>
+		<listEntry value="3">@Strings.ColorYellow</listEntry>
+		<listEntry value="4">@Strings.ColorRed</listEntry>
+		<listEntry value="5">@Strings.ColorBlue</listEntry>
+		<listEntry value="6">@Strings.ColorGreen</listEntry>
+		<listEntry value="7">@Strings.ColorOrange</listEntry>
+		<listEntry value="8">@Strings.ColorPink</listEntry>
+		<listEntry value="9">@Strings.ColorPurple</listEntry>
+		<listEntry value="11">@Strings.ColorLightGreen</listEntry>
+		<listEntry value="12">@Strings.ColorDarkGreen</listEntry>
+		<listEntry value="13">@Strings.ColorLightBlue</listEntry>
+		<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
+		<listEntry value="15">@Strings.ColorLightRed</listEntry>
+		<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+		<listEntry value="30">@Strings.ColorBlack</listEntry>
+		<listEntry value="99">@Strings.ColorTheme</listEntry>
+	*/
+	var colorCode = Graphics.COLOR_WHITE;
+	switch (color){
+		case 0:
+			colorCode = COLOR_BABY_POO;
+			break;
+		case 1:
+			colorCode = Graphics.COLOR_WHITE;
+			break;
+		case 2:
+			colorCode = Graphics.COLOR_LT_GRAY;
+			break;
+		case 3:
+			colorCode = Graphics.COLOR_YELLOW;
+			break;
+		case 4:
+			colorCode = Graphics.COLOR_RED;
+			break;
+		case 5:
+			colorCode = Graphics.COLOR_BLUE;
+			break;
+		case 6:
+			colorCode = Graphics.COLOR_GREEN;
+			break;
+		case 7:
+			colorCode = Graphics.COLOR_ORANGE;
+			break;
+		case 8:
+			colorCode = COLOR_PINK;
+			break;
+		case 9:
+			colorCode = Graphics.COLOR_PURPLE;
+			break;
+		case 10:
+			colorCode = Graphics.COLOR_DK_GRAY;
+			break;
+		case 11:
+			colorCode =  COLOR_LIGHT_GREEN;
+			break;
+		case 12:
+			colorCode = Graphics.COLOR_DK_GREEN;
+			break;
+		case 13:
+			colorCode =  COLOR_LIGHT_BLUE;
+			break;
+		case 14:
+			colorCode = Graphics.COLOR_DK_BLUE;
+			break;
+		case 15:
+			colorCode = 0xFF0055; // Light Red
+			break;
+		case 16:
+			colorCode = Graphics.COLOR_DK_RED;
+			break;
+		case 30:
+			colorCode = Graphics.COLOR_BLACK;
+			break;
+		case 99:
+			colorCode = getColorCode(themeColor, themeColor);
+			break;
+		default:
+			colorCode = Graphics.COLOR_WHITE;
+			break; 
+	}
+
+	return colorCode;
 }

@@ -4,68 +4,6 @@ using Toybox.Lang;
 using Toybox.System;
 using Toybox.WatchUi;
 using Toybox.Time;
-//using Toybox.Timer;
-
-const TIME_FONT = Graphics.FONT_NUMBER_THAI_HOT;
-const SECONDS_FONT = Graphics.FONT_SYSTEM_SMALL;
-const FIELD_FONT = Graphics.FONT_SYSTEM_TINY;
-
-
-const TIME_Y_POS = 50;
-const AMPM_X_POS = 96;
-const AMPM_Y_POS = 50;
-const PROGBAR_UPPER_Y_POS = 32;
-const PROGBAR_LOWER_Y_POS = 65;
-const PROGBAR_THICKNESS = 2;
-const GRID_LINE_WIDTH = 2;
-
-const TOP_X = 50;
-const TOP_Y = 6;
-
-const UPPER_LEFT_X = 29;
-const UPPER_LEFT_Y = 28;
-
-const UPPER_RIGHT_X = 79;
-const UPPER_RIGHT_Y = 31;
-
-const LOWER_LEFT_X = 22;
-const LOWER_LEFT_Y = 69;
-
-const LOWER_RIGHT_X = 70;
-const LOWER_RIGHT_Y = 72;
-
-const BOTTOM_X = 50;
-const BOTTOM_Y = 92;
-
-const UPPER_BAR_Y = 16;
-const LOWER_BAR_Y = 83;
-
-const IS_ICONS = true; // watchface specific
-
-
-const P_BGCOLOR = Graphics.COLOR_BLACK;
-//const P_BGCOLOR = Graphics.COLOR_WHITE;
-const P_ICONSCOLOR = Graphics.COLOR_LT_GRAY;
-const P_GRIDCOLOR = Graphics.COLOR_LT_GRAY;
-const P_FIELDCOLOR = Graphics.COLOR_WHITE;
-const P_BARCOLOR = Graphics.COLOR_DK_GRAY;
-const P_BARONCOLOR = Graphics.COLOR_BLUE;
-const P_IS24HOUR = false;
-const P_ISCOLON = false;
-const P_ISMETRIC = true;
-const P_MINUTESCOLOR = Graphics.COLOR_BLUE;
-const P_SECONDSCOLOR = Graphics.COLOR_BLUE;
-const P_BATSAVERTHOLD = 30;
-const P_TOPFIELD = C_BATTERY;
-const P_UPPERLEFTFIELD = C_THREEHOURFORECAST;
-const P_UPPERRIGHTFIELD = C_DATE;
-const P_LOWERLEFTFIELD = C_BODYBATTERY;
-const P_LOWERRIGHTFIELD = C_ALTITUDE;
-const P_BOTTOMFIELD = C_BODYBATTERY;
-const P_TOPBAR = C_BATTERY;
-const P_BOTTOMBAR = C_BODYBATTERY;
-const P_PROGRESSBARSPACING = 30;
-var bgColor;
 
 class Slanted280View extends WatchUi.WatchFace {
 
@@ -78,9 +16,12 @@ class Slanted280View extends WatchUi.WatchFace {
     private const LOWER_RIGHT_FIELD = 4;
     private const BOTTOM_FIELD = 5;
 
+    var bgColor;
+
     var fieldQty = 6;
     var field = new [fieldQty];
-    var fieldValue = ["NA", "NA", "NA", "NA", "NA", "NA"];
+    var oneField = ["NA", I_NOICON];
+    var fieldValue = [oneField, oneField, oneField, oneField, oneField, oneField];
     var topBar, topBarValue, bottomBar, bottomBarValue, progressBarSpacing;
 
     // Misc variables
@@ -90,10 +31,11 @@ class Slanted280View extends WatchUi.WatchFace {
     var batSaverThold, batSaverTime, lastDailyRefresh;
     var dayString;
     var iconsFont, iconsColor;
-    var topFieldColor, upperLeftFieldColor, upperRightFieldColor, lowerLeftFieldColor, lowerRightFieldColor, bottomFieldColor;
+    var mainColor, secondaryColor;
+    var secondsColor, minutesColor, hourColor;
     var barColor, topProgressBarColor, bottomProgressBarColor;
-
-    var isMetric;
+    var showSeconds;
+    var isMetric, is24Hour;
 
     function initialize() {
         WatchFace.initialize();
@@ -108,8 +50,7 @@ class Slanted280View extends WatchUi.WatchFace {
         iconsFont = WatchUi.loadResource(Rez.Fonts.IconsFont);
         // Before loadSettings()
         clock.setDc(dc);
-        dayString = "j";
-        //dayString = WatchUi.loadResource(Rez.Strings.Days);
+        dayString = WatchUi.loadResource(Rez.Strings.Days);
 
         loadSettings();
  
@@ -127,69 +68,70 @@ class Slanted280View extends WatchUi.WatchFace {
 
     function loadSettings() as Void {
         
-        // Loading the colors of the display
-        bgColor = P_BGCOLOR;
-        gridColor = P_GRIDCOLOR;
-        iconsColor = P_ICONSCOLOR;
-        topFieldColor = P_FIELDCOLOR;
-        upperLeftFieldColor = P_FIELDCOLOR;
-        upperRightFieldColor = P_FIELDCOLOR;
-        lowerLeftFieldColor = P_FIELDCOLOR;
-        lowerRightFieldColor = P_FIELDCOLOR;
-        bottomFieldColor = P_FIELDCOLOR;
-        barColor = P_BARCOLOR;
-        topProgressBarColor = P_BARONCOLOR;
-        bottomProgressBarColor = P_BARONCOLOR;
+        // Theme colors - Makes the whole display change in one setting
+        // unless specifics are overridden
+        var theme = Application.getApp().getProperty("ThemeColor");
+        var themeColors = getThemeColors(theme);
+        
+        // Color overrides
+        // Reference to theme colors
+        // [MinutesColor, SecondsColor, MainColor, SecondaryColor, GridColor, IconsColor, TopBarColor, BottomBarColor]
+        minutesColor = getColorCode(Application.getApp().getProperty("MinutesColor"), themeColors[0]);
+        secondsColor = getColorCode(Application.getApp().getProperty("SecondsColor"), themeColors[1]);
+        mainColor = getColorCode(Application.getApp().getProperty("MainFieldColor"), themeColors[2]);
+        secondaryColor = getColorCode(Application.getApp().getProperty("SecondaryFieldColor"), themeColors[3]);
+        gridColor = getColorCode(Application.getApp().getProperty("GridColor"), themeColors[4]);
+        iconsColor = getColorCode(Application.getApp().getProperty("IconsColor"), themeColors[5]);
+        topProgressBarColor = getColorCode(Application.getApp().getProperty("TopProgressBarColor"), themeColors[6]);
+        bottomProgressBarColor = getColorCode(Application.getApp().getProperty("BottomProgressBarColor"), themeColors[7]);
+        bgColor = getColorCode(themeColors[8], themeColors[8]);
+        hourColor = (bgColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_WHITE : Graphics.COLOR_BLACK;
+        barColor = (bgColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_LT_GRAY : Graphics.COLOR_DK_GRAY;
 
+        // Load field values     
+        field[TOP_FIELD] = Application.getApp().getProperty("TopField");
+        field[UPPER_LEFT_FIELD] = Application.getApp().getProperty("UpperLeftField");
+        field[UPPER_RIGHT_FIELD] = Application.getApp().getProperty("UpperRightField");
+        field[LOWER_LEFT_FIELD] = Application.getApp().getProperty("LowerLeftField");
+        field[LOWER_RIGHT_FIELD] = Application.getApp().getProperty("LowerRightField");
+        field[BOTTOM_FIELD] = Application.getApp().getProperty("BottomField");
+
+        topBar = Application.getApp().getProperty("TopProgressBar");
+        bottomBar = Application.getApp().getProperty("BottomProgressBar");
+        progressBarSpacing = Application.getApp().getProperty("ProgressBarSpacing");
 
         // Random settings
-        isMetric = P_ISMETRIC;
+        isMetric = Application.getApp().getProperty("Units") == 0 ? true : false;
+        is24Hour = Application.getApp().getProperty("TimeDisplay") == 0 ? true : false;
+        showSeconds = Application.getApp().getProperty("ShowSeconds") == 1 ? true : false;
         
-
         // Most data is only refreshed every X minutes to save battery, 
         // and some data, like the date, only needs refreshing once every day
-        batSaverThold = new Time.Duration(P_BATSAVERTHOLD * 60);
+        batSaverThold = new Time.Duration(Application.getApp().getProperty("RefreshMinutes") * 60);
         //batSaverThold = new Time.Duration(Application.getApp().getProperty("RefreshMinutes") * 60);
         batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
         lastDailyRefresh = batSaverTime.day;
-
-        // Setting up the clock object, that gives time
-        clock.set24Hour(P_IS24HOUR);
-        clock.setColon(P_ISCOLON);
-        clock.hourColor = (bgColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_WHITE : Graphics.COLOR_BLACK;
-        clock.minutesColor = P_MINUTESCOLOR;
-        clock.secondsColor = P_SECONDSCOLOR;
-
-        // Load field values
-        field[TOP_FIELD] = P_TOPFIELD;
-        field[UPPER_LEFT_FIELD] = P_UPPERLEFTFIELD;
-        field[UPPER_RIGHT_FIELD] = P_UPPERRIGHTFIELD;
-        field[LOWER_LEFT_FIELD] = P_LOWERLEFTFIELD;
-        field[LOWER_RIGHT_FIELD] = P_LOWERRIGHTFIELD;
-        field[BOTTOM_FIELD] = P_BOTTOMFIELD;
-        //field[UPPER_LEFT_FIELD] = Application.getApp().getProperty("UpperLeftField");
-        //field[UPPER_RIGHT_FIELD] = Application.getApp().getProperty("UpperRightField");
-        //field[LOWER_LEFT_FIELD] = Application.getApp().getProperty("LowerLeftField");
-        //fleld[LOWER_RIGHT_FIELD] = Application.getApp().getProperty("LowerRightField");
-
-        topBar = P_TOPBAR;
-        bottomBar = P_BOTTOMBAR;
-        progressBarSpacing = P_PROGRESSBARSPACING;
-        //topBar = Application.getApp().getProperty("TopProgressBar");
-        //bottomBar = Application.getApp().getProperty("BottomProgressBar");
-        //progressBarSpacing = Application.getApp().getProperty("ProgressBarSpacing");
         
+        // Setting up the clock object, that gives time
+        clock.set24Hour(is24Hour);
+        clock.setColon(P_ISCOLON);
+        clock.hourColor = hourColor;
+        clock.minutesColor = minutesColor;
+        clock.secondsColor = secondsColor;
     }
 
     function onSettingsChanged() as Void {
         loadSettings();
         // Recule d'un an pour être certain qu'un update aura lieu
-        //batSaverTime.year = batSaverTime.year.toNumber() - 1;
+        batSaverTime.year = batSaverTime.year.toNumber() - 1;
         //lastDailyRefresh = lastDailyRefresh - 1;
     }
 
     // Update the view
     function onUpdate(dc as Dc) as Void {
+        // Necessary for refreshing after updates while in low power mode
+        dc.clearClip();
+
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
 
@@ -231,12 +173,12 @@ class Slanted280View extends WatchUi.WatchFace {
         var color = Graphics.COLOR_WHITE;
         var alignment = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
 
-        drawField (fieldValue[TOP_FIELD], TOP_X, TOP_Y, topFieldColor, iconsFont, iconsColor, dc); 
-        drawField (fieldValue[UPPER_LEFT_FIELD], UPPER_LEFT_X, UPPER_LEFT_Y, upperLeftFieldColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[UPPER_RIGHT_FIELD], UPPER_RIGHT_X, UPPER_RIGHT_Y, upperRightFieldColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[LOWER_LEFT_FIELD], LOWER_LEFT_X, LOWER_LEFT_Y, lowerLeftFieldColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[LOWER_RIGHT_FIELD], LOWER_RIGHT_X, LOWER_RIGHT_Y, lowerRightFieldColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[BOTTOM_FIELD], BOTTOM_X, BOTTOM_Y, bottomFieldColor, iconsFont, iconsColor, dc); 
+        drawField (fieldValue[TOP_FIELD], TOP_X, TOP_Y, secondaryColor, iconsFont, iconsColor, dc); 
+        drawField (fieldValue[UPPER_LEFT_FIELD], UPPER_LEFT_X, UPPER_LEFT_Y, secondaryColor, iconsFont, iconsColor, dc);
+        drawField (fieldValue[UPPER_RIGHT_FIELD], UPPER_RIGHT_X, UPPER_RIGHT_Y, mainColor, iconsFont, iconsColor, dc);
+        drawField (fieldValue[LOWER_LEFT_FIELD], LOWER_LEFT_X, LOWER_LEFT_Y, mainColor, iconsFont, iconsColor, dc);
+        drawField (fieldValue[LOWER_RIGHT_FIELD], LOWER_RIGHT_X, LOWER_RIGHT_Y, secondaryColor, iconsFont, iconsColor, dc);
+        drawField (fieldValue[BOTTOM_FIELD], BOTTOM_X, BOTTOM_Y, secondaryColor, iconsFont, iconsColor, dc); 
 
         // Bluetooth/Notifications
         drawStatusIcon(dc, getPosFromPercent(3, W), getPosFromPercent(50, H), iconsColor, bgColor, 1, iconsFont);
@@ -245,6 +187,19 @@ class Slanted280View extends WatchUi.WatchFace {
         drawStatusBar(dc, getPosFromPercent(UPPER_BAR_Y, H), progressBarSpacing, topBarValue.toNumber(), barColor, topProgressBarColor, bgColor, W);
         // Bottom progress bar 
         drawStatusBar(dc, getPosFromPercent(LOWER_BAR_Y, H), progressBarSpacing, bottomBarValue.toNumber(), barColor, bottomProgressBarColor, bgColor, W);
+    }
+
+    // 
+    function onPartialUpdate(dc as Dc) as Void{
+        /*
+        if (isHeartRate && !showSeconds) {
+            drawHeartRate(hrClipCoordinates, hrCoordinates,  gIconsFont, iconsColor, isEconomyMode, bgColor, dc);
+        }
+        */
+        
+        if (showSeconds) {
+            drawTime(dc,false); 
+        }
     }
 
     // Draws a field with an Icon and a String
@@ -299,7 +254,7 @@ class Slanted280View extends WatchUi.WatchFace {
 
         if(!isFull) {
             //Only seconds
-  			var y = getPosFromPercent(50, H)-clock.secondsHeight/2;
+  			var y = getPosFromPercent(SEC_Y_POS, H)-clock.secondsHeight/2;
   			dc.setClip(clock.secStringXPosition, y, W-clock.secStringXPosition, clock.secondsHeight);
   			dc.setColor(bgColor,bgColor);
             //dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_BLUE);
@@ -307,19 +262,21 @@ class Slanted280View extends WatchUi.WatchFace {
   			dc.clear();  
 
             // Draw seconds only
-            drawStr(dc, clock.secStringXPosition, getPosFromPercent(50, H), SECONDS_FONT, clock.secondsColor, clock.secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);  	
+            drawStr(dc, clock.secStringXPosition, getPosFromPercent(42, H), SECONDS_FONT, clock.secondsColor, clock.secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);  	
      	} 
         // Affiche l'heure au complet
      	else {
             // Draw Time
             drawStr(dc, clock.hourStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, clock.hourColor, clock.hoursString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             drawStr(dc, clock.minStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, clock.minutesColor, clock.minutesString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            drawStr(dc, clock.secStringXPosition, getPosFromPercent(TIME_Y_POS, H), SECONDS_FONT, clock.secondsColor, clock.secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            if (clock.is24Hour){
-                drawStr(dc,getPosFromPercent(AMPM_X_POS, W), getPosFromPercent(AMPM_Y_POS, H), Graphics.FONT_SYSTEM_XTINY, clock.secondsColor, clock.amPm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            if (showSeconds) {
+                drawStr(dc, clock.secStringXPosition, getPosFromPercent(SEC_Y_POS, H), SECONDS_FONT, clock.secondsColor, clock.secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            }
+            if (!clock.is24Hour){
+                drawStr(dc, clock.secStringXPosition, getPosFromPercent(AMPM_Y_POS, H), Graphics.FONT_SYSTEM_XTINY, clock.secondsColor, clock.amPm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             }
             
-        }
+        } 
     }
 
     // Draws the watch face grid
@@ -596,6 +553,11 @@ class Slanted280View extends WatchUi.WatchFace {
                     break;
                 case C_ALTITUDE:
                     fieldValue[i] = getAltitudeField(isMetric, isIcons);
+                    break;
+
+                case C_HEARTRATE:
+                case C_NONE:
+                    fieldValue[i] = ["", I_NOICON];
                     break;
                 default:
                     break;
