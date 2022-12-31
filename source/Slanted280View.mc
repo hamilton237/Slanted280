@@ -16,26 +16,31 @@ class Slanted280View extends WatchUi.WatchFace {
     private const LOWER_RIGHT_FIELD = 4;
     private const BOTTOM_FIELD = 5;
 
-    var bgColor;
-
-    var fieldQty = 6;
-    var field = new [fieldQty];
-    var oneField = ["NA", I_NOICON];
-    var fieldValue = [oneField, oneField, oneField, oneField, oneField, oneField];
-    var topBar, topBarValue, bottomBar, bottomBarValue, progressBarSpacing;
-
-    // Misc variables
-    var H, W;
-    var gridColor;
-    var clock;
-    var batSaverThold, batSaverTime, lastDailyRefresh;
-    var dayString;
-    var iconsFont, iconsColor;
+    // Color variables
+    var bgColor, gridColor, iconsColor;
     var mainColor, secondaryColor;
     var secondsColor, minutesColor, hourColor;
     var barColor, topProgressBarColor, bottomProgressBarColor;
-    var showSeconds;
-    var isMetric, is24Hour;
+
+    // Fields
+    var fieldQty = 6;
+    var field = new [fieldQty];
+    //var oneField = ["NA", I_NOICON];
+    //var fieldValue = [oneField, oneField, oneField, oneField, oneField, oneField];
+    var fieldValue = [ ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON] ];
+    // Progress bars
+    var topBar, topBarValue, bottomBar, bottomBarValue, progressBarSpacing;
+
+    // Logic stuff and settings
+    var batSaverThold, batSaverTime, lastDailyRefresh;
+    var showSeconds, isMetric, is24Hour;
+    var dayString;
+    var iconsFont;
+    var H, W;
+
+    // Clock object (Clock class)
+    var clock;
+    
 
     function initialize() {
         WatchFace.initialize();
@@ -55,9 +60,9 @@ class Slanted280View extends WatchUi.WatchFace {
         loadSettings();
  
         // After loadSettings
+        lastDailyRefresh -= 1; // Force a daily refresh as watch face is loading in this method
         refreshBatSaverData(dc);
-        //calculateDailyData(dc); 
-        clock.calculatePositions(TIME_FONT, SECONDS_FONT, 30);
+        clock.calculatePositions(TIME_FONT, SECONDS_FONT, 30); 
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -108,7 +113,6 @@ class Slanted280View extends WatchUi.WatchFace {
         // Most data is only refreshed every X minutes to save battery, 
         // and some data, like the date, only needs refreshing once every day
         batSaverThold = new Time.Duration(Application.getApp().getProperty("RefreshMinutes") * 60);
-        //batSaverThold = new Time.Duration(Application.getApp().getProperty("RefreshMinutes") * 60);
         batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
         lastDailyRefresh = batSaverTime.day;
         
@@ -124,7 +128,7 @@ class Slanted280View extends WatchUi.WatchFace {
         loadSettings();
         // Recule d'un an pour être certain qu'un update aura lieu
         batSaverTime.year = batSaverTime.year.toNumber() - 1;
-        //lastDailyRefresh = lastDailyRefresh - 1;
+        lastDailyRefresh = lastDailyRefresh - 1;
     }
 
     // Update the view
@@ -157,12 +161,9 @@ class Slanted280View extends WatchUi.WatchFace {
             //isRefreshNeeded = true;
         }
 
-        /*
-        if (tempTime.day != lastDailyRefresh){
-            calculateDailyData(dc);
-            lastDailyRefresh = tempTime.day;
-        }
-        */
+        
+        
+        
 
         // Draw the watch face
         // Time
@@ -535,15 +536,20 @@ class Slanted280View extends WatchUi.WatchFace {
                     fieldValue[i] = GarminWeather.getThreeHourPrecipitation(isIcons);
                     break;
                 case C_SUNEVENTS:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
+                    if (lastDailyRefresh != batSaverTime.day) {
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getSunEvents();
                     }
-                    fieldValue[i] = garminWeather.getSunEvents();
                     break;
+                
 
                 // Misc section
                 case C_DATE:
-                    fieldValue[i] = getDate(batSaverTime, isIcons);
+                    if (lastDailyRefresh != batSaverTime.day) {
+                        fieldValue[i] = getDate(batSaverTime, isIcons);
+                    }
                     break;
                 case C_BODYBATTERY:
                     fieldValue[i] = getBodyBatteryField(isIcons);
@@ -562,6 +568,11 @@ class Slanted280View extends WatchUi.WatchFace {
                 default:
                     break;
             }
+        }
+
+        // If one day has passed, change date
+        if (lastDailyRefresh != batSaverTime.day) {
+            lastDailyRefresh = batSaverTime.day;
         }
 
         // Get values for progress bars

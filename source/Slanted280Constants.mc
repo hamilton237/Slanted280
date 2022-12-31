@@ -57,11 +57,10 @@ const P_ISCOLON = true;
 <listEntry value="99">@Strings.ColorTheme</listEntry>
 */
 // [MinutesCoor, SecondsColor, MainColor, SecondaryColor, GridColor, IconsColor, TopBarColor, BottomBarColor, BackColor]
-const T_ENDURO2 = [0,0,1,2,2,10,8,6,30];
+const T_ENDURO2 = [0,0,1,2,2,10,4,6,30];
 const T_NATURE = [1,11,11,11,12,6,3,4,30];
 const T_ICE = [1,13,1,13,2,13,13,13,30];
 const T_ENDURO = [5,5,1,1,10,2,5,5,30];
-//const T_FIRE = [7,7,1,4,7,4,3,3,30];
 const T_WHITE = [30,30,30,30,10,10,16,12,1];
 
 
