@@ -2,26 +2,26 @@ using Toybox.Weather;
 using Toybox.Test;
 
 class GarminWeather {
-    private var garminWeather;
-    private var isMetric;
-    private var isIcons;
+    private var _garminWeather;
+    private var _isMetric;
+    private var _isIcons;
 
     //const DEGREE_SYMBOL = "\u00B0";
 
-    public function initialize(p_isMetric, p_isIcons){
-        garminWeather = Weather.getCurrentConditions();
-        isMetric = p_isMetric;
-        isIcons = p_isIcons;
+    public function initialize(isMetric, isIcons){
+        _garminWeather = Weather.getCurrentConditions();
+        _isMetric = isMetric;
+        _isIcons = isIcons;
     }
 
     public function getTemperature() {
         var returnString = "NA";
-        if (garminWeather != null && garminWeather.temperature != null) {
-            var temp = isMetric ? garminWeather.temperature : celciusToFarenheit(garminWeather.temperature);
+        if (_garminWeather != null && _garminWeather.temperature != null) {
+            var temp = _isMetric ? _garminWeather.temperature : celciusToFarenheit(_garminWeather.temperature);
             returnString = temp.format("%.0f") + DEGREE_SYMBOL;
         }
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_TEMPERATURE];
         }
         else {
@@ -32,16 +32,16 @@ class GarminWeather {
     public function getTemperatureAndFeelsLike() {
         var temp = "NA";
         var feelsLike = "NA";
-        if (garminWeather != null && garminWeather.temperature != null) {
-            temp = isMetric ? garminWeather.temperature : celciusToFarenheit(garminWeather.temperature);
+        if (_garminWeather != null && _garminWeather.temperature != null) {
+            temp = _isMetric ? _garminWeather.temperature : celciusToFarenheit(_garminWeather.temperature);
         }
-        if (garminWeather != null && garminWeather.feelsLikeTemperature != null) {
-            feelsLike = isMetric ? garminWeather.feelsLikeTemperature : celciusToFarenheit(garminWeather.feelsLikeTemperature);
+        if (_garminWeather != null && _garminWeather.feelsLikeTemperature != null) {
+            feelsLike = _isMetric ? _garminWeather.feelsLikeTemperature : celciusToFarenheit(_garminWeather.feelsLikeTemperature);
         }
         //returnString = temp.format("%.0f") + DEGREE_SYMBOL + "-" + feelsLike.format("%.0f");
         var returnString = temp.format("%.0f") + "/" + feelsLike.format("%.0f");
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_TEMPERATURE];
         }
         else {
@@ -50,11 +50,11 @@ class GarminWeather {
     }
 
     public function getHumidity() {
-         var returnString = (garminWeather != null && garminWeather.relativeHumidity != null )
-                ? garminWeather.relativeHumidity.format("%.0f") + "%" 
+         var returnString = (_garminWeather != null && _garminWeather.relativeHumidity != null )
+                ? _garminWeather.relativeHumidity.format("%.0f") + "%" 
                 : "NA";
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_HUMIDITY];
         }
         else {
@@ -64,13 +64,13 @@ class GarminWeather {
 
     public function getDewPoint() {
         var returnString = "NA";
-        if (garminWeather != null && garminWeather.relativeHumidity != null && garminWeather.temperature != null) {
-            var dp = calcDewPoint(garminWeather.temperature, garminWeather.relativeHumidity);
-            var dpUnit = isMetric ? dp : celciusToFarenheit(dp);
+        if (_garminWeather != null && _garminWeather.relativeHumidity != null && _garminWeather.temperature != null) {
+            var dp = calcDewPoint(_garminWeather.temperature, _garminWeather.relativeHumidity);
+            var dpUnit = _isMetric ? dp : celciusToFarenheit(dp);
             returnString = dpUnit.format("%.0f") + DEGREE_SYMBOL;
         }
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_DEWPOINT];
         }
         else {
@@ -80,14 +80,14 @@ class GarminWeather {
 
     public function getWindAndWindchill() {
         var returnString = "NA";
-        if (garminWeather != null && garminWeather.windSpeed != null && garminWeather.temperature != null) {
-            var windSpeed = convertMsToSpeed(garminWeather.windSpeed, isMetric);
-            var metricWindChill = calcWindchill (garminWeather.temperature, windSpeed);
-            var windChill = isMetric ? metricWindChill : celciusToFarenheit(metricWindChill);
+        if (_garminWeather != null && _garminWeather.windSpeed != null && _garminWeather.temperature != null) {
+            var windSpeed = convertMsToSpeed(_garminWeather.windSpeed, _isMetric);
+            var metricWindChill = calcWindchill (_garminWeather.temperature, windSpeed);
+            var windChill = _isMetric ? metricWindChill : celciusToFarenheit(metricWindChill);
             returnString = windSpeed.format("%.0f") + "/" + windChill.format("%.0f");
         }
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_WINDCHILL];
         }
         else {
@@ -96,16 +96,16 @@ class GarminWeather {
     }
 
     public function getHumidityAndHumidex() {
-        var humid = (garminWeather != null && garminWeather.relativeHumidity != null )
-                        ? garminWeather.relativeHumidity.format("%.0f") + "%" 
+        var humid = (_garminWeather != null && _garminWeather.relativeHumidity != null )
+                        ? _garminWeather.relativeHumidity.format("%.0f") + "%" 
                         : "NA";
-        var humidex = (garminWeather != null && garminWeather.relativeHumidity != null && garminWeather.temperature != null)
-                        ? calcHumidex(garminWeather.temperature, garminWeather.relativeHumidity).format("%.0f")
+        var humidex = (_garminWeather != null && _garminWeather.relativeHumidity != null && _garminWeather.temperature != null)
+                        ? calcHumidex(_garminWeather.temperature, _garminWeather.relativeHumidity).format("%.0f")
                         : "NA";
-        humidex = isMetric ? humidex : celciusToFarenheit(humidex);
+        humidex = _isMetric ? humidex : celciusToFarenheit(humidex);
         var returnString = humid + "/" + humidex;
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_HUMIDITY];
         }
         else {
@@ -116,15 +116,15 @@ class GarminWeather {
 
     public function getDewpointAndHumidex() {
         var returnString = "NA";
-        if (garminWeather != null && garminWeather.relativeHumidity != null && garminWeather.temperature != null) {
-            var dp = calcDewPoint(garminWeather.temperature, garminWeather.relativeHumidity);
-            var dpUnit = isMetric ? dp : celciusToFarenheit(dp);
-            var humidex = calcHumidex(garminWeather.temperature, garminWeather.relativeHumidity);
-            humidex = isMetric ? humidex : celciusToFarenheit(humidex);
+        if (_garminWeather != null && _garminWeather.relativeHumidity != null && _garminWeather.temperature != null) {
+            var dp = calcDewPoint(_garminWeather.temperature, _garminWeather.relativeHumidity);
+            var dpUnit = _isMetric ? dp : celciusToFarenheit(dp);
+            var humidex = calcHumidex(_garminWeather.temperature, _garminWeather.relativeHumidity);
+            humidex = _isMetric ? humidex : celciusToFarenheit(humidex);
             returnString = dpUnit.format("%.0f") + DEGREE_SYMBOL + "/" + humidex.format("%.0f");
         }
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_DEWPOINT];
         }
         else {
@@ -134,8 +134,8 @@ class GarminWeather {
 
     public function getCity() {
         var returnString = "Garmin";
-        if (garminWeather != null && garminWeather.observationLocationName != null){
-            var cityLong = garminWeather.observationLocationName;
+        if (_garminWeather != null && _garminWeather.observationLocationName != null){
+            var cityLong = _garminWeather.observationLocationName;
             var cityShort = "";
             var commaPos = cityLong.find(",");
             if (commaPos != null){
@@ -148,7 +148,7 @@ class GarminWeather {
             returnString = cityShort.substring(0, 10);
         }
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_NOICON];
         }
         else {
@@ -158,12 +158,12 @@ class GarminWeather {
 
     public function getWind() {
         var returnString = "NA";
-        if (garminWeather != null && garminWeather.windSpeed != null) {
-            var windSpeed = convertMsToSpeed(garminWeather.windSpeed, isMetric);
+        if (_garminWeather != null && _garminWeather.windSpeed != null) {
+            var windSpeed = convertMsToSpeed(_garminWeather.windSpeed, _isMetric);
             returnString = windSpeed.format("%.0f");
         }
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_WIND];
         }
         else {
@@ -173,14 +173,14 @@ class GarminWeather {
 
     public function getWindchill() {
         var returnString = "NA";
-        if (garminWeather != null && garminWeather.windSpeed != null && garminWeather.temperature != null) {
-            var windSpeed = convertMsToSpeed(garminWeather.windSpeed, isMetric);
-            var metricWindChill = calcWindchill (garminWeather.temperature, windSpeed);
-            var windChill = isMetric ? metricWindChill : celciusToFarenheit(metricWindChill);
+        if (_garminWeather != null && _garminWeather.windSpeed != null && _garminWeather.temperature != null) {
+            var windSpeed = convertMsToSpeed(_garminWeather.windSpeed, _isMetric);
+            var metricWindChill = calcWindchill (_garminWeather.temperature, windSpeed);
+            var windChill = _isMetric ? metricWindChill : celciusToFarenheit(metricWindChill);
             returnString = windChill.format("%.0f");
         }
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_WINDCHILL];
         }
         else {
@@ -313,8 +313,8 @@ class GarminWeather {
     // May return null
     private function getSunRise() {
         var sunRise = null;
-        if (garminWeather != null && garminWeather.observationLocationPosition != null) {
-            sunRise = Weather.getSunrise(garminWeather.observationLocationPosition, Time.now());
+        if (_garminWeather != null && _garminWeather.observationLocationPosition != null) {
+            sunRise = Weather.getSunrise(_garminWeather.observationLocationPosition, Time.now());
         }
         return sunRise;
     }
@@ -322,8 +322,8 @@ class GarminWeather {
     // May return null
     private function getSunSet() {
         var sunSet = null;
-        if (garminWeather != null && garminWeather.observationLocationPosition != null) {
-            sunSet = Weather.getSunset(garminWeather.observationLocationPosition, Time.now());
+        if (_garminWeather != null && _garminWeather.observationLocationPosition != null) {
+            sunSet = Weather.getSunset(_garminWeather.observationLocationPosition, Time.now());
         }
         return sunSet;
     }

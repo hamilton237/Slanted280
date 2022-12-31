@@ -25,8 +25,6 @@ class Slanted280View extends WatchUi.WatchFace {
     // Fields
     var fieldQty = 6;
     var field = new [fieldQty];
-    //var oneField = ["NA", I_NOICON];
-    //var fieldValue = [oneField, oneField, oneField, oneField, oneField, oneField];
     var fieldValue = [ ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON], ["NA", I_NOICON] ];
     // Progress bars
     var topBar, topBarValue, bottomBar, bottomBarValue, progressBarSpacing;

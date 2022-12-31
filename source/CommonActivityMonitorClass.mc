@@ -1,19 +1,19 @@
 import Toybox.ActivityMonitor;
 
 class ActivityMon {
-    private var activityMonitor;
-    private var isIcons;
+    private var _activityMonitor;
+    private var _isIcons;
 
-    public function initialize(p_isIcons) {
+    public function initialize(isIcons) {
         // Doc says this call will not return null, but the fields in the class may return null
-        activityMonitor = ActivityMonitor.getInfo();
-        isIcons = p_isIcons;
+        _activityMonitor = ActivityMonitor.getInfo();
+        _isIcons = isIcons;
     }
 
     public function getSteps() {
-        var returnString = activityMonitor.steps != null ? activityMonitor.steps.format("%.0f") : "NA";
+        var returnString = _activityMonitor.steps != null ? _activityMonitor.steps.format("%.0f") : "NA";
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_STEPS];
         }
         else {
@@ -22,9 +22,9 @@ class ActivityMon {
     }
 
     public function getCalories() {
-        var returnString = activityMonitor.calories != null ? activityMonitor.calories.format("%.0f") : "NA";
+        var returnString = _activityMonitor.calories != null ? _activityMonitor.calories.format("%.0f") : "NA";
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_CALORIES];
         }
         else {
@@ -33,9 +33,9 @@ class ActivityMon {
     }
 
     public function getFloorsClimbed () {
-        var returnString = activityMonitor.floorsClimbed != null ? activityMonitor.floorsClimbed.format("%.0f") : "NA";
+        var returnString = _activityMonitor.floorsClimbed != null ? _activityMonitor.floorsClimbed.format("%.0f") : "NA";
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_FLOORSCLIMBED];
         }
         else {
@@ -45,13 +45,13 @@ class ActivityMon {
     }
 
     public function getDistance (isMetric) {
-        var distance = activityMonitor.distance != null ? activityMonitor.distance / 100000 : 0; // from cm to km
+        var distance = _activityMonitor.distance != null ? _activityMonitor.distance / 100000 : 0; // from cm to km
         if (!isMetric){
             distance = distance * 0.62137119;
         }
         var returnString = distance.format("%.0f");
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_DISTANCE];
         }
         else {

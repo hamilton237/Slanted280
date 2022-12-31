@@ -1,19 +1,19 @@
 using Toybox.System;
 
 class SysStats {
-    private var systemStats;
-    private var isIcons;
+    private var _systemStats;
+    private var _isIcons;
 
-    public function initialize(p_isIcons) {
+    public function initialize(isIcons) {
         // Doc says this call will not return null;
-        systemStats = System.getSystemStats();
-        isIcons = p_isIcons;
+        _systemStats = System.getSystemStats();
+        _isIcons = isIcons;
     }
 
     public function getBattery() {
-        var returnString = systemStats.battery != null ? systemStats.battery.format("%.0f") + "%" : "NA";
+        var returnString = _systemStats.battery != null ? _systemStats.battery.format("%.0f") + "%" : "NA";
 
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_BATTERY];
         }
         else {
@@ -23,11 +23,11 @@ class SysStats {
 
     public function getBatteryInDays(dayString) {
         var returnString = "NA";
-        if (systemStats has :batteryInDays) {
-            returnString = systemStats.batteryInDays != null ? systemStats.batteryInDays.format("%.1f") +  dayString : "NA";  
+        if (_systemStats has :batteryInDays) {
+            returnString = _systemStats.batteryInDays != null ? _systemStats.batteryInDays.format("%.1f") +  dayString : "NA";  
         }
         
-        if (isIcons) {
+        if (_isIcons) {
             return [returnString, I_BATTERY];
         }
         else {

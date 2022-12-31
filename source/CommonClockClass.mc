@@ -1,9 +1,9 @@
 import Toybox.Graphics;
 class Clock {
-    private var dc;
+    private var _dc;
     private var H;
     private var W;
-    private var isColon;
+    private var _isColon;
     
     public var is24Hour;
     public var amPm;
@@ -24,39 +24,39 @@ class Clock {
     public function initialize() {
         is24Hour    = false;
         amPm        = "";
-        isColon     = true;
+        _isColon     = true;
     }
 
-    public function setDc(pDc as Dc) {
-        dc = pDc;
-        W = dc.getWidth();
-        H = dc.getHeight();
+    public function setDc(dc as Dc) {
+        _dc = dc;
+        W = _dc.getWidth();
+        H = _dc.getHeight();
     }
 
     public function set24Hour(pIs24Hour) {
         is24Hour = pIs24Hour;
     }
 
-    public function setColon(pIsColon) {
-        isColon = pIsColon;
+    public function setColon(isColon) {
+        _isColon = isColon;
     }
 
     public function calculatePositions (pHourFont, pSecondsFont, pHourXPosPerc) {  
         //Hour position
-        var tempString = isColon ? "88:" : "88";
-        var stringWidth = dc.getTextWidthInPixels(tempString, pHourFont);
+        var tempString = _isColon ? "88:" : "88";
+        var stringWidth = _dc.getTextWidthInPixels(tempString, pHourFont);
         hourStringXPosition = getStringPosition (stringWidth, pHourXPosPerc, W);
 
         //Minute position
         tempString = "88";
-        var minStringWidth = dc.getTextWidthInPixels(tempString, pHourFont);
+        var minStringWidth = _dc.getTextWidthInPixels(tempString, pHourFont);
         minStringXPosition = hourStringXPosition + 1 + stringWidth;
 
         // Seconds position
         secStringXPosition = minStringXPosition + 1 + minStringWidth;
 
         // Seconds height
-        secondsHeight = dc.getFontHeight(pSecondsFont);
+        secondsHeight = _dc.getFontHeight(pSecondsFont);
     }
 
     public function setTime() {
@@ -73,7 +73,7 @@ class Clock {
         secondsString = clockTime.sec.format("%02d");
 
         if (is24Hour){
-            hoursString = isColon ? clockTime.hour.format("%02d") + ":" : clockTime.hour.format("%02d") ;  
+            hoursString = _isColon ? clockTime.hour.format("%02d") + ":" : clockTime.hour.format("%02d") ;  
         }
         else{
             var hourTemp = clockTime.hour;
@@ -88,7 +88,7 @@ class Clock {
                 amPm = "PM";
                 hourTemp -= 12;
             }
-            hoursString = isColon ? hourTemp.format("%02d")  + ":": hourTemp.format("%02d");
+            hoursString = _isColon ? hourTemp.format("%02d")  + ":": hourTemp.format("%02d");
         }
 
         minutesString = clockTime.min.format("%02d");
