@@ -1,10 +1,11 @@
 import Toybox.ActivityMonitor;
+import Toybox.Lang;
 
 class ActivityMon {
-    private var _activityMonitor;
-    private var _isIcons;
+    private var _activityMonitor as ActivityMonitor.Info;
+    private var _isIcons as Boolean;
 
-    public function initialize(isIcons) {
+    public function initialize(isIcons as Boolean) {
         // Doc says this call will not return null, but the fields in the class may return null
         _activityMonitor = ActivityMonitor.getInfo();
         _isIcons = isIcons;

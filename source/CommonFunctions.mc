@@ -2,12 +2,13 @@ using Toybox.Time.Gregorian;
 using Toybox.System;
 using Toybox.System;
 using Toybox.Graphics;
+using Toybox.Activity;
+using Toybox.Lang;
 
-// Si on veut la string au milieu, desiredPosition est 50
+// To have the string in the midle, desiredPosition is 50
 function getStringPosition (stringWidth, desiredPosition, watchWidth){
     var stringPosition = (desiredPosition * watchWidth / 100) - (stringWidth / 2);
     return stringPosition;
-    //return Math.round(stringPosition * 100 / watchWidth);
 }
 
 // Size is either height or width
@@ -25,7 +26,7 @@ function getTimeDiff(time1, time2){
         :minute => time1.min,
         :second => time1.sec
     };
-    var date1 as Gregorian = Gregorian.moment(options1); 
+    var date1 = Gregorian.moment(options1); 
 
     var options2 = {
         :year   => time2.year,
@@ -44,6 +45,8 @@ function getTimeDiff(time1, time2){
 }
 
 /*
+// Old function that draws the envelope message
+// without using the font icons
 function drawMessagesIcon(dc, x, y, color){
 	dc.setColor(color, Graphics.COLOR_BLACK);
 	dc.setPenWidth(2);
@@ -57,6 +60,7 @@ function drawMessagesIcon(dc, x, y, color){
 }
 */
 
+// Draws the bluetooth icon without using the icon fonts
 function drawBluetoothIcon(dc, x, y, color, bgColor){
 	dc.setColor(color, bgColor);
 	dc.setPenWidth(2);
@@ -117,7 +121,7 @@ function drawStatusIcon(dc, x, y, color, bgColor, dimension, iconsFont){
 	if (settings.phoneConnected){
 		if (settings.notificationCount > 0){
 			//drawMessagesIcon(dc, x, y, color);
-			drawStr(dc, x+6, y+5, iconsFont, color, I_NOTIFICATIONS, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+			drawStr(dc, x+5, y+5, iconsFont, color, I_NOTIFICATIONS, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 		}
 		else{
 			drawBluetoothIcon(dc, x, y, Graphics.COLOR_BLUE, bgColor);
@@ -131,7 +135,7 @@ function drawStr(dc, x, y, font, color, str, alignment) {
 	dc.drawText(x, y, font, str, alignment);
 }
 
-function getColorCode(color, themeColor){
+function getColorCode(color, themeColor) as Lang.Number{
 	/*
 	<listEntry value="0">@Strings.ColorBabyPoo</listEntry>
 		<listEntry value="1">@Strings.ColorWhite</listEntry>
@@ -205,6 +209,12 @@ function getColorCode(color, themeColor){
 		case 16:
 			colorCode = Graphics.COLOR_DK_RED;
 			break;
+		case 20:
+			colorCode = COLOR_TURQUOISE;
+			break;
+		case 21:
+			colorCode = COLOR_AQUA;
+			break;
 		case 30:
 			colorCode = Graphics.COLOR_BLACK;
 			break;
@@ -218,3 +228,30 @@ function getColorCode(color, themeColor){
 
 	return colorCode;
 }
+
+function getHeartRate() {
+	var hr = 0;
+	var temp = Activity.getActivityInfo().currentHeartRate;
+	if (temp != null) {
+		hr = temp;
+	}
+	return hr;
+}
+
+function drawHeartRate (hrClipCoordinates, hrCoordinates, iconsFont, iconsColor, isEconomyMode, bgColor, dc) {
+
+    var heartRate = getHeartRate();
+    var hrString = heartRate.format("%.0f");
+
+    //var hrClipCoordinates; //clipXPosition, clipYPosition, clipXSize, clipYSize
+    //var hrCoordinates; // iconXPosition, strXPosition, YPosition, strFont, strColor
+    if (isEconomyMode) {
+        dc.setClip(hrClipCoordinates[0], hrClipCoordinates[1], hrClipCoordinates[2], hrClipCoordinates[3]);
+        dc.setColor(bgColor,bgColor);
+        //dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_BLUE);
+        dc.clear();  
+    }
+    drawStr(dc, hrCoordinates[0], hrCoordinates[2], iconsFont, iconsColor, I_HEARTRATE, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+    drawStr(dc, hrCoordinates[1], hrCoordinates[2], hrCoordinates[3], hrCoordinates[4], hrString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+}
+

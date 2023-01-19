@@ -158,9 +158,10 @@
 	<setting propertyKey="@Properties.ThemeColor" title="@Strings.ThemeColorTitle">
 		<settingConfig type="list">
 			<listEntry value="0">@Strings.ThemeEnduro2</listEntry>
-			<listEntry value="1">@Strings.ThemeEnduro</listEntry>
+			<listEntry value="1">@Strings.ThemeSharks</listEntry>
 			<listEntry value="2">@Strings.ThemeNature</listEntry>
 			<listEntry value="3">@Strings.ThemeIce</listEntry>
+			<listEntry value="4">@Strings.ThemeFire</listEntry>
 			<listEntry value="5">@Strings.ThemeWhite</listEntry>
 		</settingConfig>
 	</setting>
@@ -183,6 +184,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -206,6 +209,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -229,6 +234,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -252,6 +259,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -276,6 +285,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -300,6 +311,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -323,6 +336,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>
@@ -346,6 +361,8 @@
 			<listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 			<listEntry value="15">@Strings.ColorLightRed</listEntry>
 			<listEntry value="16">@Strings.ColorDarkRed</listEntry>
+			<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+			<listEntry value="21">@Strings.ColorAqua</listEntry>
 			<listEntry value="30">@Strings.ColorBlack</listEntry>
 			<listEntry value="99">@Strings.ColorTheme</listEntry>
 		</settingConfig>

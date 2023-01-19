@@ -1,7 +1,7 @@
 using Toybox.Graphics;
 
 // Watch face specific Constants
-
+const HOUR_X_POS_PERC = 30;
 const TIME_Y_POS = 50;
 const SEC_Y_POS = 42;
 const AMPM_Y_POS = 58;
@@ -32,7 +32,7 @@ const UPPER_BAR_Y = 16;
 const LOWER_BAR_Y = 83;
 
 const IS_ICONS = true; // watchface specific
-const P_ISCOLON = true;
+const IS_COLON = true;
 
 // Theme colors
 /*
@@ -53,6 +53,8 @@ const P_ISCOLON = true;
 <listEntry value="14">@Strings.ColorDarkBlue</listEntry>
 <listEntry value="15">@Strings.ColorLightRed</listEntry>
 <listEntry value="16">@Strings.ColorDarkRed</listEntry>
+<listEntry value="20">@Strings.ColorTurquoise</listEntry>
+<listEntry value="21">@Strings.ColorAqua</listEntry>
 <listEntry value="30">@Strings.ColorBlack</listEntry>
 <listEntry value="99">@Strings.ColorTheme</listEntry>
 */
@@ -60,8 +62,9 @@ const P_ISCOLON = true;
 const T_ENDURO2 = [0,0,1,2,2,10,4,6,30];
 const T_NATURE = [1,11,11,11,12,6,3,4,30];
 const T_ICE = [1,13,1,13,2,13,13,13,30];
-const T_ENDURO = [5,5,1,1,10,2,5,5,30];
+const T_SHARKS = [20,20,1,1,2,2,20,20,30];
 const T_WHITE = [30,30,30,30,10,10,16,12,1];
+const T_FIRE = [7,7,1,4,7,4,3,3,30];
 
 
 const FONT_HOUR_MINUTES = Graphics.FONT_SYSTEM_NUMBER_THAI_HOT;

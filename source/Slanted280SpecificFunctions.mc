@@ -2,7 +2,7 @@ using Toybox.Math;
 
 function drawStatusBar(dc, y, spacing, percent, offColor, onColor, bgColor, W) {
 
-	// On valide que percent est un nombre entre 0 et 100
+	// Validate percent is between 0 and 100
 	if (percent < 0) { 
 		percent = 0;
 	}
@@ -12,29 +12,29 @@ function drawStatusBar(dc, y, spacing, percent, offColor, onColor, bgColor, W) {
 
 	dc.setPenWidth(1);
 
-	// Calcule combien de cases peuvent entrer dans la largeur de l'écran
-	// À ce Y on a juste 0.675% de la largeur disponible
-	var largeurMax = W * 0.675 ;
-	var nbreCases = largeurMax / spacing;
-	nbreCases = nbreCases.toNumber();
+	// Figure out how many small parrallelograms fit in screen width
+	// given at this Y height we have 0.675% of width avaliable
+	var maxWidth = W * 0.675 ;
+	var nbrSquares = maxWidth / spacing;
+	nbrSquares = nbrSquares.toNumber();
 
-	// Calcul pour centrer la barre
-	var largeurBarre = nbreCases * spacing;
-	var positionDebut = Math.round(((W - largeurBarre ) /2));
+	// Center the bar
+	var barWidth = nbrSquares * spacing;
+	var startingPos = Math.round(((W - barWidth ) /2));
 
-	// Combien de % vaut chaque case?
-	var percentParCase = 100.toFloat() / nbreCases.toFloat();
+	// What % is each square worth?
+	var percentParCase = 100.toFloat() / nbrSquares.toFloat();
 
-	// Le pourcentage représente quelle case?
-    var caseOn = percent / percentParCase;
-	caseOn = caseOn.toNumber();
-    if (caseOn < nbreCases) {caseOn++;}
+	// What square is "on" with this percentage
+    var squareOn = percent / percentParCase;
+	squareOn = squareOn.toNumber();
+    if (squareOn < nbrSquares) {squareOn++;}
 
-	// Dessine les cases
-	for (var i=0; i<nbreCases; i++) {
-		var pos = positionDebut + (i * spacing);
+	// Draw the squares
+	for (var i=0; i<nbrSquares; i++) {
+		var pos = startingPos + (i * spacing);
 		var on = false;
-		if (i + 1 == caseOn){
+		if (i + 1 == squareOn){
 			on = true;
 		}
 		if (on) {
@@ -80,13 +80,16 @@ function getThemeColors(theme) {
 			colors = T_ENDURO2;
 			break;
 		case 1:
-			colors = T_ENDURO;
+			colors = T_SHARKS;
 			break;
 		case 2:
 			colors = T_NATURE;
 			break;
 		case 3:
 			colors = T_ICE;
+			break;
+		case 4:
+			colors = T_FIRE;
 			break;
 		case 5:
 			colors = T_WHITE;

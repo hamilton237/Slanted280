@@ -6,12 +6,20 @@ class GarminWeather {
     private var _isMetric;
     private var _isIcons;
 
-    //const DEGREE_SYMBOL = "\u00B0";
-
     public function initialize(isMetric, isIcons){
-        _garminWeather = Weather.getCurrentConditions();
         _isMetric = isMetric;
         _isIcons = isIcons;
+    }
+
+    public function getCurrentConditions() as Toybox.Lang.Boolean{
+        _garminWeather = Weather.getCurrentConditions();
+        // Debug
+        if (_garminWeather == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     public function getTemperature() {
@@ -102,7 +110,7 @@ class GarminWeather {
         var humidex = (_garminWeather != null && _garminWeather.relativeHumidity != null && _garminWeather.temperature != null)
                         ? calcHumidex(_garminWeather.temperature, _garminWeather.relativeHumidity).format("%.0f")
                         : "NA";
-        humidex = _isMetric ? humidex : celciusToFarenheit(humidex);
+        humidex = _isMetric ? humidex : celciusToFarenheit(humidex.toNumber()).format("%.0f");
         var returnString = humid + "/" + humidex;
         
         if (_isIcons) {
@@ -144,7 +152,12 @@ class GarminWeather {
             else{
                 cityShort = cityLong;
             }
-            // 10 premiers caractères de la ville
+            var slashPos = cityShort.find("/");
+            if (slashPos != null)
+            {
+                cityShort = cityShort.substring(0, slashPos);
+            }
+            // 10 first characters of the city
             returnString = cityShort.substring(0, 10);
         }
         
@@ -290,8 +303,12 @@ class GarminWeather {
         try{
             // Basic math test to see if wind is NaN because Math.pow crashes without hitting the catch if that happens
             var uselessTest = wind * 2;
-
-            windchill = 13.12 + (0.6215 * temp) - (11.37 * Math.pow(wind, 0.16)) + (0.3965 * temp * Math.pow(wind, 0.16));
+            if (wind == 0) {
+                windchill = temp;
+            }
+            else {
+                windchill = 13.12 + (0.6215 * temp) - (11.37 * Math.pow(wind, 0.16)) + (0.3965 * temp * Math.pow(wind, 0.16));
+            }
         }
         catch(exception){
             windchill = -1000;

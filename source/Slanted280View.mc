@@ -36,23 +36,45 @@ class Slanted280View extends WatchUi.WatchFace {
     var iconsFont;
     var H, W;
 
-    // Clock object (Clock class)
-    var clock;
+    var isWeatherNotOk = false;
+    var refreshWeather = 5; // Counter for weather not loading correctly after reboot
+
+    // HR related
+    var hrClipCoordinates; //clipXPosition, clipYPosition, clipXSize, clipYSize
+    var hrCoordinates; // iconXPosition, strXPosition, YPosition, strFont, strColor
+    var isHeartRate = false;
+    var isEconomyMode = false;
+    var isTooManyHrFields = false;
+    var wasHeartRate = false;
+    var isHrRefreshNeeded = false;
+    var hrFieldNumber = -1;
+
+    // Time related stuff
+    public var amPm;
+
+    public var hourStringXPosition;
+    public var minStringXPosition;
+    public var secStringXPosition;
+    public var hoursString;
+    public var minutesString;
+    public var secondsString;
+
+    public var secondsHeight;
     
 
     function initialize() {
         WatchFace.initialize();
-        clock = new Clock(); 
+        //clock = new Clock(); 
     }
 
     // Load your resources here
-    function onLayout(dc as Dc) as Void {
+    function onLayout(dc) as Void {
         W = dc.getWidth();
         H = dc.getHeight();
 
         iconsFont = WatchUi.loadResource(Rez.Fonts.IconsFont);
         // Before loadSettings()
-        clock.setDc(dc);
+        //clock.setDc(dc);
         dayString = WatchUi.loadResource(Rez.Strings.Days);
 
         loadSettings();
@@ -60,7 +82,31 @@ class Slanted280View extends WatchUi.WatchFace {
         // After loadSettings
         lastDailyRefresh -= 1; // Force a daily refresh as watch face is loading in this method
         refreshBatSaverData(dc);
-        clock.calculatePositions(TIME_FONT, SECONDS_FONT, 30); 
+        //clock.calculatePositions(TIME_FONT, SECONDS_FONT, 30); 
+        
+        // Calculer les positions de l'horloge ici
+        //Hour position
+        
+        var tempString = IS_COLON ? "88:" : "88";
+        var stringWidth = dc.getTextWidthInPixels(tempString, TIME_FONT);
+        hourStringXPosition = getStringPosition (stringWidth, HOUR_X_POS_PERC, W);
+
+        //Minute position
+        tempString = "88";
+        var minStringWidth = dc.getTextWidthInPixels(tempString, TIME_FONT);
+        minStringXPosition = hourStringXPosition + 1 + stringWidth;
+
+        // Seconds position
+        secStringXPosition = minStringXPosition + 1 + minStringWidth;
+
+        // Seconds height
+        secondsHeight = dc.getFontHeight(SECONDS_FONT);
+
+        // HR Related
+        if (isHeartRate) {
+            calculateHrCoordinates(dc);
+        }
+        
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -70,6 +116,11 @@ class Slanted280View extends WatchUi.WatchFace {
     }
 
     function loadSettings() as Void {
+
+        // HR related
+        wasHeartRate = isHeartRate;
+        isHeartRate = false;
+        isHrRefreshNeeded = false;
         
         // Theme colors - Makes the whole display change in one setting
         // unless specifics are overridden
@@ -114,12 +165,11 @@ class Slanted280View extends WatchUi.WatchFace {
         batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
         lastDailyRefresh = batSaverTime.day;
         
-        // Setting up the clock object, that gives time
-        clock.set24Hour(is24Hour);
-        clock.setColon(P_ISCOLON);
-        clock.hourColor = hourColor;
-        clock.minutesColor = minutesColor;
-        clock.secondsColor = secondsColor;
+        // HR related
+        checkHrFields();
+        if ( (isHeartRate) || (wasHeartRate && !isHeartRate) ) {
+            isHrRefreshNeeded = true;
+        }
     }
 
     function onSettingsChanged() as Void {
@@ -129,8 +179,90 @@ class Slanted280View extends WatchUi.WatchFace {
         lastDailyRefresh = lastDailyRefresh - 1;
     }
 
+     function checkHrFields() {
+        // Make sure there is only one HR field "on"
+        for (var i = 0; i < fieldQty; i++) {
+            switch(field[i]) {
+                case C_HEARTRATE:
+                    if (isHeartRate) {
+                        // If there is already a HR field, the next one is switched to none
+                        // Only one is supported
+                        field[i] = C_NONE;
+                    }
+                    hrFieldNumber = i;
+                    isHeartRate = true;
+                    break;
+            }
+        }
+    }
+
+    function calculateHrCoordinates(dc) {
+        var font = Graphics.FONT_SYSTEM_TINY;
+        var clipHeight = dc.getFontHeight(font);
+        var hrString = "88";
+        var iconWidth = dc.getTextWidthInPixels(I_HEARTRATE, iconsFont);
+        var strWidth = iconWidth + 1 + dc.getTextWidthInPixels(hrString, font);
+
+        if (hrFieldNumber == TOP_FIELD) {
+            var iconXPosition = getStringPosition (strWidth, TOP_X, W);
+            var strXPosition = iconXPosition + 1 + iconWidth;
+            var yPos = getPosFromPercent(TOP_Y, H);
+            //clipXPosition, clipYPosition, clipXSize, clipYSize
+            hrClipCoordinates = [(iconXPosition - iconWidth/2), (yPos-clipHeight/2), strWidth + 1 + iconWidth, clipHeight ];
+            // iconXPosition, strXPosition, YPosition, strFont, strColor
+            hrCoordinates = [iconXPosition, strXPosition, yPos, font, secondaryColor];  
+        }
+        else if (hrFieldNumber == UPPER_LEFT_FIELD) {
+            var iconXPosition = getStringPosition (strWidth, UPPER_LEFT_X, W);
+            var strXPosition = iconXPosition + 1 + iconWidth;
+            var yPos = getPosFromPercent(UPPER_LEFT_Y, H);
+            //clipXPosition, clipYPosition, clipXSize, clipYSize
+            hrClipCoordinates = [(iconXPosition - iconWidth/2), (yPos-clipHeight/2), strWidth + 1 + iconWidth, clipHeight ];
+            // iconXPosition, strXPosition, YPosition, strFont, strColor
+            hrCoordinates = [iconXPosition, strXPosition, yPos, font, secondaryColor];  
+        }
+        else if (hrFieldNumber == UPPER_RIGHT_FIELD) {
+            var iconXPosition = getStringPosition (strWidth, UPPER_RIGHT_X, W);
+            var strXPosition = iconXPosition + 1 + iconWidth;
+            var yPos = getPosFromPercent(UPPER_RIGHT_Y, H);
+            //clipXPosition, clipYPosition, clipXSize, clipYSize
+            hrClipCoordinates = [(iconXPosition - iconWidth/2), (yPos-clipHeight/2), strWidth + 1 + iconWidth, clipHeight ];
+            // iconXPosition, strXPosition, YPosition, strFont, strColor
+            hrCoordinates = [iconXPosition, strXPosition, yPos, font, secondaryColor];  
+        }
+        else if (hrFieldNumber == LOWER_LEFT_FIELD) {
+            var iconXPosition = getStringPosition (strWidth, LOWER_LEFT_X, W);
+            var strXPosition = iconXPosition + 1 + iconWidth;
+            var yPos = getPosFromPercent(LOWER_LEFT_Y, H);
+            //clipXPosition, clipYPosition, clipXSize, clipYSize
+            hrClipCoordinates = [(iconXPosition - iconWidth/2), (yPos-clipHeight/2), strWidth + 1 + iconWidth, clipHeight ];
+            // iconXPosition, strXPosition, YPosition, strFont, strColor
+            hrCoordinates = [iconXPosition, strXPosition, yPos, font, secondaryColor];  
+        }
+        else if (hrFieldNumber == LOWER_RIGHT_FIELD) {
+            var iconXPosition = getStringPosition (strWidth, LOWER_RIGHT_X, W);
+            var strXPosition = iconXPosition + 1 + iconWidth;
+            var yPos = getPosFromPercent(LOWER_RIGHT_Y, H);
+            //clipXPosition, clipYPosition, clipXSize, clipYSize
+            hrClipCoordinates = [(iconXPosition - iconWidth/2), (yPos-clipHeight/2), strWidth + 1 + iconWidth, clipHeight ];
+            // iconXPosition, strXPosition, YPosition, strFont, strColor
+            hrCoordinates = [iconXPosition, strXPosition, yPos, font, secondaryColor];  
+        }
+        else if (hrFieldNumber == BOTTOM_FIELD) {
+            var iconXPosition = getStringPosition (strWidth, BOTTOM_X, W);
+            var strXPosition = iconXPosition + 1 + iconWidth;
+            var yPos = getPosFromPercent(BOTTOM_Y, H);
+            //clipXPosition, clipYPosition, clipXSize, clipYSize
+            hrClipCoordinates = [(iconXPosition - iconWidth/2), (yPos-clipHeight/2), strWidth + 1 + iconWidth, clipHeight ];
+            // iconXPosition, strXPosition, YPosition, strFont, strColor
+            hrCoordinates = [iconXPosition, strXPosition, yPos, font, secondaryColor];  
+        }
+
+        isHrRefreshNeeded = false;
+    }
+
     // Update the view
-    function onUpdate(dc as Dc) as Void {
+    function onUpdate(dc) as Void {
         // Necessary for refreshing after updates while in low power mode
         dc.clearClip();
 
@@ -138,13 +270,22 @@ class Slanted280View extends WatchUi.WatchFace {
         View.onUpdate(dc);
 
         // Set background color
-        dc.setColor(clock.hourColor, bgColor);
+        dc.setColor(hourColor, bgColor);
         dc.clear();
 
         // use anti-aliased drawing for primitives (if available)
         if (dc has :setAntiAlias) {
             dc.setAntiAlias(true);
         }
+
+        // HR related
+        // This should be done in loadSettings, but dc is not available there
+        // So I'm doing it here
+        if (isHrRefreshNeeded) {
+            calculateHrCoordinates(dc);
+        }
+
+
 
         // Some stuff needs to be refreshed only occasionnally
         //isRefreshNeeded = false;
@@ -158,10 +299,14 @@ class Slanted280View extends WatchUi.WatchFace {
             batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
             //isRefreshNeeded = true;
         }
-
-        
-        
-        
+        else if (isWeatherNotOk && refreshWeather > -1) {
+            var settings = System.getDeviceSettings();
+            if (settings.phoneConnected) {
+                    refreshBatSaverData(dc);
+                    refreshWeather--;
+                }
+            } 
+        }
 
         // Draw the watch face
         // Time
@@ -186,15 +331,20 @@ class Slanted280View extends WatchUi.WatchFace {
         drawStatusBar(dc, getPosFromPercent(UPPER_BAR_Y, H), progressBarSpacing, topBarValue.toNumber(), barColor, topProgressBarColor, bgColor, W);
         // Bottom progress bar 
         drawStatusBar(dc, getPosFromPercent(LOWER_BAR_Y, H), progressBarSpacing, bottomBarValue.toNumber(), barColor, bottomProgressBarColor, bgColor, W);
+
+        // HR related
+        if ( isHeartRate ) {
+            drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
+        }
+    
     }
 
     // 
-    function onPartialUpdate(dc as Dc) as Void{
-        /*
+    function onPartialUpdate(dc) as Void{
+        // HR related
         if (isHeartRate && !showSeconds) {
-            drawHeartRate(hrClipCoordinates, hrCoordinates,  gIconsFont, iconsColor, isEconomyMode, bgColor, dc);
+            drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
         }
-        */
         
         if (showSeconds) {
             drawTime(dc,false); 
@@ -241,16 +391,43 @@ class Slanted280View extends WatchUi.WatchFace {
 
     // The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() as Void {
+        isEconomyMode = false;
     }
 
     // Terminate any active timers and prepare for slow updates.
     function onEnterSleep() as Void {
+        isEconomyMode = true;
     }
 
     function drawTime(dc, isFull){
         
-        clock.setTime();
+        //clock.setTime();
+        var clockTime = System.getClockTime();
+        var isColon = IS_COLON;
+        secondsString = clockTime.sec.format("%02d");
 
+        if (is24Hour){
+            hoursString = isColon ? clockTime.hour.format("%02d") + ":" : clockTime.hour.format("%02d") ;  
+        }
+        else{
+            var hourTemp = clockTime.hour;
+            if (clockTime.hour == 0) {
+                amPm = "AM";
+                hourTemp = 12;
+            } else if (clockTime.hour < 12) {
+                amPm = "AM";
+            } else if (clockTime.hour == 12) {
+                amPm = "PM";
+            } else if (clockTime.hour > 12) {
+                amPm = "PM";
+                hourTemp -= 12;
+            }
+            hoursString = isColon ? hourTemp.format("%02d")  + ":": hourTemp.format("%02d");
+        }
+
+        minutesString = clockTime.min.format("%02d");        
+
+        /*
         if(!isFull) {
             //Only seconds
   			var y = getPosFromPercent(SEC_Y_POS, H)-clock.secondsHeight/2;
@@ -273,6 +450,32 @@ class Slanted280View extends WatchUi.WatchFace {
             }
             if (!clock.is24Hour){
                 drawStr(dc, clock.secStringXPosition, getPosFromPercent(AMPM_Y_POS, H), Graphics.FONT_SYSTEM_XTINY, clock.secondsColor, clock.amPm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            }
+            
+        } 
+        */
+        if(!isFull) {
+            //Only seconds
+  			var y = getPosFromPercent(SEC_Y_POS, H)-secondsHeight/2;
+  			dc.setClip(secStringXPosition, y, W-secStringXPosition, secondsHeight);
+  			dc.setColor(bgColor,bgColor);
+            //dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_BLUE);
+  			//clear anything that might show through from the previous time
+  			dc.clear();  
+
+            // Draw seconds only
+            drawStr(dc, secStringXPosition, getPosFromPercent(42, H), SECONDS_FONT, secondsColor, secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);  	
+     	} 
+        // Affiche l'heure au complet
+     	else {
+            // Draw Time
+            drawStr(dc, hourStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, hourColor, hoursString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            drawStr(dc, minStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, minutesColor, minutesString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            if (showSeconds) {
+                drawStr(dc, secStringXPosition, getPosFromPercent(SEC_Y_POS, H), SECONDS_FONT, secondsColor, secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+            }
+            if (!is24Hour){
+                drawStr(dc, secStringXPosition, getPosFromPercent(AMPM_Y_POS, H), Graphics.FONT_SYSTEM_XTINY, secondsColor, amPm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             }
             
         } 
@@ -423,6 +626,8 @@ class Slanted280View extends WatchUi.WatchFace {
         var activityMonitor = null;
         var garminWeather = null;
 
+        isWeatherNotOk = false;
+
         var isIcons = IS_ICONS; 
 
         // Get values for all fields
@@ -472,60 +677,90 @@ class Slanted280View extends WatchUi.WatchFace {
                 case C_TEMPERATURE:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getTemperature();
                     break;
                 case C_HUMIDITY:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getHumidity();
                     break;
                 case C_DEWPOINT:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getDewPoint();
                     break;
                 case C_CITY:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getCity();
                     break;
                 case C_WIND:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getWind();
                     break;
                 case C_WINDCHILL:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getWindchill();
                     break;
                 case C_TEMPPLUSFEELSLIKE:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getTemperatureAndFeelsLike();
                     break;
                 case C_WINDPLUSWINDCHILL:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getWindAndWindchill();
                     break;
                 case C_HUMIDITYPLUSHUMIDEX:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getHumidityAndHumidex();
                     break;
                 case C_DEWPOINTPLUSHUMIDEX:
                     if (garminWeather == null) {
                         garminWeather = new GarminWeather(isMetric, isIcons);
+                        if (garminWeather.getCurrentConditions() == false) {
+                            isWeatherNotOk = true;
+                        }
                     }
                     fieldValue[i] = garminWeather.getDewpointAndHumidex();
                     break;
@@ -537,6 +772,9 @@ class Slanted280View extends WatchUi.WatchFace {
                     if (lastDailyRefresh != batSaverTime.day) {
                         if (garminWeather == null) {
                             garminWeather = new GarminWeather(isMetric, isIcons);
+                            if (garminWeather.getCurrentConditions() == false) {
+                                isWeatherNotOk = true;
+                            }
                         }
                         fieldValue[i] = garminWeather.getSunEvents();
                     }

@@ -55,7 +55,8 @@
     <string id="ThemeEnduro2">Enduro 2</string>
     <string id="ThemeNature">Nature</string>
     <string id="ThemeIce">Ice</string>
-    <string id="ThemeEnduro">Enduro</string>
+    <string id="ThemeSharks">Sharks</string>
+    <string id="ThemeFire">Fire</string>
     <string id="ThemeWhite">White Background</string>
 
 
@@ -77,6 +78,8 @@
     <string id="ColorDarkBlue">Dark Blue</string>
     <string id="ColorLightRed">Light Red</string>
     <string id="ColorDarkRed">Dark Red</string>
+    <string id="ColorTurquoise">Turquoise</string>
+    <string id="ColorAqua">Aqua</string>
     <string id="ColorBlack">Black</string>
     <string id="ColorTheme">Use Theme</string>
 

@@ -1,5 +1,7 @@
+import Toybox.Math;
+
 function getDate(batSaverTime, isIcons) {
-    var returnString = batSaverTime.day_of_week + " " + batSaverTime.day;
+    var returnString = batSaverTime.day_of_week.toUpper() + " " + batSaverTime.day;
 
     if (isIcons) {
         return [returnString, I_NOICON];
