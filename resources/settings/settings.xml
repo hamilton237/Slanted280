@@ -41,6 +41,7 @@
 			<listEntry value="4">@Strings.BodyBattery</listEntry>
 			<listEntry value="6">@Strings.City</listEntry>
 			<listEntry value="7">@Strings.ThreeHourRainForecast</listEntry>
+			<listEntry value="25">@Strings.ThreeHourTempForecast</listEntry>
 			<listEntry value="8">@Strings.Pressure</listEntry>
 			<listEntry value="12">@Strings.Steps</listEntry>
 			<listEntry value="13">@Strings.Calories</listEntry>
@@ -100,6 +101,7 @@
 			<listEntry value="4">@Strings.BodyBattery</listEntry>
 			<listEntry value="6">@Strings.City</listEntry>
 			<listEntry value="7">@Strings.ThreeHourRainForecast</listEntry>
+			<listEntry value="25">@Strings.ThreeHourTempForecast</listEntry>
 			<listEntry value="8">@Strings.Pressure</listEntry>
 			<listEntry value="12">@Strings.Steps</listEntry>
 			<listEntry value="13">@Strings.Calories</listEntry>
@@ -126,6 +128,7 @@
 			<listEntry value="4">@Strings.BodyBattery</listEntry>
 			<listEntry value="6">@Strings.City</listEntry>
 			<listEntry value="7">@Strings.ThreeHourRainForecast</listEntry>
+			<listEntry value="25">@Strings.ThreeHourTempForecast</listEntry>
 			<listEntry value="8">@Strings.Pressure</listEntry>
 			<listEntry value="12">@Strings.Steps</listEntry>
 			<listEntry value="13">@Strings.Calories</listEntry>

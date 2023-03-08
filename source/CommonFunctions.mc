@@ -119,6 +119,7 @@ function drawStatusIcon(dc, x, y, color, bgColor, dimension, iconsFont){
 	var settings = System.getDeviceSettings();
 
 	if (settings.phoneConnected){
+		$.phoneConnected = true;
 		if (settings.notificationCount > 0){
 			//drawMessagesIcon(dc, x, y, color);
 			drawStr(dc, x+5, y+5, iconsFont, color, I_NOTIFICATIONS, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);

@@ -2,6 +2,8 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
+
+
 class Slanted280App extends Application.AppBase {
 
     var mView;

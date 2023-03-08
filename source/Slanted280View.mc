@@ -5,6 +5,8 @@ using Toybox.System;
 using Toybox.WatchUi;
 using Toybox.Time;
 
+var phoneConnected;
+
 class Slanted280View extends WatchUi.WatchFace {
 
     // Each watch face can have a different amount of fields and placements
@@ -37,7 +39,7 @@ class Slanted280View extends WatchUi.WatchFace {
     var H, W;
 
     var isWeatherNotOk = false;
-    var refreshWeather = 5; // Counter for weather not loading correctly after reboot
+    var refreshWeather = 0; // Counter for weather not loading correctly after reboot
 
     // HR related
     var hrClipCoordinates; //clipXPosition, clipYPosition, clipXSize, clipYSize
@@ -71,6 +73,8 @@ class Slanted280View extends WatchUi.WatchFace {
     function onLayout(dc) as Void {
         W = dc.getWidth();
         H = dc.getHeight();
+
+        phoneConnected = false;
 
         iconsFont = WatchUi.loadResource(Rez.Fonts.IconsFont);
         // Before loadSettings()
@@ -297,16 +301,11 @@ class Slanted280View extends WatchUi.WatchFace {
         if (tempDuration.greaterThan(batSaverThold)){
             refreshBatSaverData(dc);
             batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
-            //isRefreshNeeded = true;
         }
-        else if (isWeatherNotOk && refreshWeather > -1) {
-            var settings = System.getDeviceSettings();
-            if (settings.phoneConnected) {
-                    refreshBatSaverData(dc);
-                    refreshWeather--;
-                }
-            } 
-        }
+        else if (isWeatherNotOk && $.phoneConnected && refreshWeather < 3 ) {
+            refreshBatSaverData(dc);
+            refreshWeather++ ;
+        } 
 
         // Draw the watch face
         // Time
@@ -625,6 +624,7 @@ class Slanted280View extends WatchUi.WatchFace {
         var systemStats = null;
         var activityMonitor = null;
         var garminWeather = null;
+        var garminHourlyForecast = false;
 
         isWeatherNotOk = false;
 
@@ -765,8 +765,24 @@ class Slanted280View extends WatchUi.WatchFace {
                     fieldValue[i] = garminWeather.getDewpointAndHumidex();
                     break;
                 case C_THREEHOURFORECAST:
-                    // static function call
-                    fieldValue[i] = GarminWeather.getThreeHourPrecipitation(isIcons);
+                    if (garminWeather == null) {
+                        garminWeather = new GarminWeather(isMetric, isIcons);
+                    }
+                    if (garminHourlyForecast == false) {
+                        garminWeather.getHourlyForecast();
+                        garminHourlyForecast = true;
+                    }
+                    fieldValue[i] = garminWeather.getThreeHourPrecipitation();
+                    break;
+                case C_THREEHOURTEMPFORECAST:
+                    if (garminWeather == null) {
+                        garminWeather = new GarminWeather(isMetric, isIcons);
+                    }
+                    if (garminHourlyForecast == false) {
+                        garminWeather.getHourlyForecast();
+                        garminHourlyForecast = true;
+                    }
+                    fieldValue[i] = garminWeather.getThreeHourTemperature();
                     break;
                 case C_SUNEVENTS:
                     if (lastDailyRefresh != batSaverTime.day) {

@@ -33,6 +33,7 @@
     <string id="Temperature">Température</string>
     <string id="TempPlusFeelsLike">Température + Ressenti</string>
     <string id="ThreeHourRainForecast">Probabilité de pluie (3 heures)</string>
+    <string id="ThreeHourTempForecast">Prévision de température (2 ou 3 heures)</string>
     <string id="SunEvents">Événements solaires</string>
     <string id="Humidity">Humidité</string>
     <string id="DewPoint">Point de rosée</string>

@@ -35,6 +35,7 @@
     <string id="Temperature">Temperature</string>
     <string id="TempPlusFeelsLike">Temperature + Feels Like</string>
     <string id="ThreeHourRainForecast">Rain Forecast (3 hour)</string>
+    <string id="ThreeHourTempForecast">Temperature Forecast (2 or 3 hours)</string>
     <string id="SunEvents">Sun Events</string>
     <string id="Humidity">Humidity</string>
     <string id="DewPoint">Dew Point</string>

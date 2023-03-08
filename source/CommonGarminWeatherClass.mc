@@ -3,22 +3,32 @@ using Toybox.Test;
 
 class GarminWeather {
     private var _garminWeather;
+    private var _hourlyForecast;
     private var _isMetric;
     private var _isIcons;
 
     public function initialize(isMetric, isIcons){
         _isMetric = isMetric;
         _isIcons = isIcons;
+        _garminWeather = Weather.getCurrentConditions();
+        _hourlyForecast = null;
     }
 
     public function getCurrentConditions() as Toybox.Lang.Boolean{
-        _garminWeather = Weather.getCurrentConditions();
-        // Debug
+        var returnValue = true;
+
         if (_garminWeather == null) {
-            return false;
+            _garminWeather = Weather.getCurrentConditions();
+            if (_garminWeather == null) {
+                returnValue=false;
+            }
         }
-        else {
-            return true;
+        return returnValue;
+    }
+
+    public function getHourlyForecast() {
+        if (_garminWeather != null) {
+            _hourlyForecast = Weather.getHourlyForecast();
         }
     }
 
@@ -38,16 +48,14 @@ class GarminWeather {
     }
 
     public function getTemperatureAndFeelsLike() {
-        var temp = "NA";
-        var feelsLike = "NA";
-        if (_garminWeather != null && _garminWeather.temperature != null) {
-            temp = _isMetric ? _garminWeather.temperature : celciusToFarenheit(_garminWeather.temperature);
-        }
-        if (_garminWeather != null && _garminWeather.feelsLikeTemperature != null) {
-            feelsLike = _isMetric ? _garminWeather.feelsLikeTemperature : celciusToFarenheit(_garminWeather.feelsLikeTemperature);
-        }
-        //returnString = temp.format("%.0f") + DEGREE_SYMBOL + "-" + feelsLike.format("%.0f");
-        var returnString = temp.format("%.0f") + "/" + feelsLike.format("%.0f");
+
+        var returnString = "NA";
+
+        if (_garminWeather != null && _garminWeather.temperature != null && _garminWeather.feelsLikeTemperature != null) {
+            var temp = _isMetric ? _garminWeather.temperature : celciusToFarenheit(_garminWeather.temperature);
+            var feelsLike = _isMetric ? _garminWeather.feelsLikeTemperature : celciusToFarenheit(_garminWeather.feelsLikeTemperature);
+            returnString = temp.format("%.0f") + "/" + feelsLike.format("%.0f");
+        }     
         
         if (_isIcons) {
             return [returnString, I_TEMPERATURE];
@@ -221,29 +229,54 @@ class GarminWeather {
         return [returnString, I_NOICON];
     }
 
-    // Static method - no class instantiation 
-    public static function getThreeHourPrecipitation(isIcons) {
-        var hourlyForecast = Weather.getHourlyForecast();
 
+    public static function getThreeHourPrecipitation() {
         var returnString = "NA";
-        if (  hourlyForecast != null &&
-                hourlyForecast[0].precipitationChance != null &&
-                hourlyForecast[1].precipitationChance != null &&
-                hourlyForecast[2].precipitationChance != null ) {
+        if (  _hourlyForecast != null &&
+                _hourlyForecast[0].precipitationChance != null &&
+                _hourlyForecast[1].precipitationChance != null &&
+                _hourlyForecast[2].precipitationChance != null ) {
 
-            var probRain0 = hourlyForecast[0].precipitationChance;
-            var probRain1 = hourlyForecast[1].precipitationChance;
-            var probRain2 = hourlyForecast[2].precipitationChance;
-            // Traiter le cas où 100-100-100% est une chaîne trop longue
+            var probRain0 = _hourlyForecast[0].precipitationChance;
+            var probRain1 = _hourlyForecast[1].precipitationChance;
+            var probRain2 = _hourlyForecast[2].precipitationChance;
+            // The case of 100-100-100% is too long of a string
             if (probRain0 == 100 && probRain1 == 100 && probRain2 == 100){
                 returnString = "<- 100% ->";
             }
             else{
-                returnString = probRain0.format("%02d") + "-" + probRain1.format("%02d") + "-" + probRain2.format("%02d") + "%";
+                returnString = probRain0.format("%02d") + "/" + probRain1.format("%02d") + "/" + probRain2.format("%02d") + "%";
             }       
         }
         
-        if (isIcons) {
+        if (_isIcons) {
+            return [returnString, I_NOICON];
+        }
+        else {
+            return returnString;
+        }
+    }
+
+    public static function getThreeHourTemperature() {
+        var returnString = "NA";
+        if (  _hourlyForecast != null &&
+                _hourlyForecast[0].temperature != null &&
+                _hourlyForecast[1].temperature != null &&
+                _hourlyForecast[2].temperature != null ) {
+
+            var temp0 = _isMetric ? _hourlyForecast[0].temperature : celciusToFarenheit(_hourlyForecast[0].temperature);
+            var temp1 = _isMetric ? _hourlyForecast[1].temperature : celciusToFarenheit(_hourlyForecast[1].temperature);
+            var temp2 = _isMetric ? _hourlyForecast[2].temperature : celciusToFarenheit(_hourlyForecast[2].temperature);
+            
+            returnString = temp0.format("%01d") + "/" + temp1.format("%01d") + "/" + temp2.format("%01d") + DEGREE_SYMBOL;
+
+            // If string length is too long, only keep two hours
+            if (returnString.length() >= 10){
+                returnString = temp0.format("%01d") + "/" + temp1.format("%01d") + DEGREE_SYMBOL;
+            }   
+        }
+        
+        if (_isIcons) {
             return [returnString, I_NOICON];
         }
         else {
