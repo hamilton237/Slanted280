@@ -44,6 +44,20 @@ function getTimeDiff(time1, time2){
 
 }
 
+// Converts WakeTime and SleepTime to hour, minutes, seconds
+// Returns array of integers [hours, minutes, seconds]
+function processSleepTime(inputTime) {
+	var hours = 0;
+	var minutes = 0;
+
+	var timeValue = inputTime.value();
+	hours = inputTime.divide(Gregorian.SECONDS_PER_HOUR).value();
+	minutes = (timeValue - (hours * Gregorian.SECONDS_PER_HOUR)) / Gregorian.SECONDS_PER_MINUTE;
+	//seconds = timeValue - (hours * Gregorian.SECONDS_PER_HOUR) - (minutes * Gregorian.SECONDS_PER_MINUTE);
+
+	return [hours, minutes];
+}
+
 /*
 // Old function that draws the envelope message
 // without using the font icons

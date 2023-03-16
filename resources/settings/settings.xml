@@ -15,6 +15,7 @@
 			<listEntry value="10">@Strings.DewPoint</listEntry>
 			<listEntry value="11">@Strings.Wind</listEntry>
 			<listEntry value="19">@Strings.WindChill</listEntry>
+			<listEntry value="3">@Strings.SunEvents</listEntry>
 			<listEntry value="12">@Strings.Steps</listEntry>
 			<listEntry value="13">@Strings.Calories</listEntry>
 			<listEntry value="14">@Strings.Climb</listEntry>
@@ -165,7 +166,8 @@
 			<listEntry value="2">@Strings.ThemeNature</listEntry>
 			<listEntry value="3">@Strings.ThemeIce</listEntry>
 			<listEntry value="4">@Strings.ThemeFire</listEntry>
-			<listEntry value="5">@Strings.ThemeWhite</listEntry>
+			<listEntry value="6">@Strings.ThemeWhite</listEntry>
+			<listEntry value="5">@Strings.ThemeOrange</listEntry>
 		</settingConfig>
 	</setting>
 
@@ -406,6 +408,14 @@
 		<settingConfig type="list">
 			<listEntry value="0">@Strings.No</listEntry>
 			<listEntry value="1">@Strings.Yes</listEntry>
+		</settingConfig>
+	</setting>
+
+	<setting propertyKey="@Properties.NightBehavior" title="@Strings.NightBehaviorTitle">
+		<settingConfig type="list">
+			<listEntry value="0">@Strings.FullPower</listEntry>
+			<listEntry value="1">@Strings.MediumPower</listEntry>
+			<listEntry value="2">@Strings.LowPower</listEntry>
 		</settingConfig>
 	</setting>
 </settings>

@@ -23,7 +23,7 @@
     <string id="UnitsTitle">Units</string>
     <string id="TimeDisplayTitle">Time display type</string>
     <string id="ShowSecondsTitle">Show seconds</string>
-    
+    <string id="NightBehaviorTitle">Night time energetic behavior</string>
 
 
     <string id="Battery">Battery (%)</string>
@@ -58,6 +58,7 @@
     <string id="ThemeIce">Ice</string>
     <string id="ThemeSharks">Sharks</string>
     <string id="ThemeFire">Fire</string>
+    <string id="ThemeOrange">Orange</string>
     <string id="ThemeWhite">White Background</string>
 
 
@@ -91,4 +92,8 @@
     <string id="No">No</string>
     <string id="Yes">Yes</string>
     <string id="Days">d</string>
+
+    <string id="FullPower">No Power Economy (Everything stays On)</string>
+    <string id="MediumPower">Small Power Economy (No secs and no HR)</string>
+    <string id="LowPower">Maximal Power Economy (HH:MM and Date only)</string>
 </strings>

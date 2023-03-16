@@ -11,7 +11,7 @@ const PROGBAR_THICKNESS = 2;
 const GRID_LINE_WIDTH = 2;
 
 const TOP_X = 50;
-const TOP_Y = 6;
+const TOP_Y = 8;
 
 const UPPER_LEFT_X = 29;
 const UPPER_LEFT_Y = 28;
@@ -28,7 +28,7 @@ const LOWER_RIGHT_Y = 72;
 const BOTTOM_X = 50;
 const BOTTOM_Y = 92;
 
-const UPPER_BAR_Y = 16;
+const UPPER_BAR_Y = 18;
 const LOWER_BAR_Y = 83;
 
 const IS_ICONS = true; // watchface specific
@@ -65,6 +65,7 @@ const T_ICE = [1,13,1,13,2,13,13,13,30];
 const T_SHARKS = [20,20,1,1,2,2,20,20,30];
 const T_WHITE = [30,30,30,30,10,10,16,12,1];
 const T_FIRE = [7,7,1,4,7,4,3,3,30];
+const T_ORANGE = [7,7,1,1,2,2,3,4,30];
 
 
 const FONT_HOUR_MINUTES = Graphics.FONT_SYSTEM_NUMBER_THAI_HOT;

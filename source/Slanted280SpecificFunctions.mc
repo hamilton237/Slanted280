@@ -91,8 +91,11 @@ function getThemeColors(theme) {
 		case 4:
 			colors = T_FIRE;
 			break;
-		case 5:
+		case 6:
 			colors = T_WHITE;
+			break;
+		case 5:
+			colors = T_ORANGE;
 			break;
 		default:
 			colors = T_ENDURO2;

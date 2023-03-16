@@ -1,5 +1,5 @@
 <properties>
-	<property id="AppVersion" type="string">2.1.1</property>
+	<property id="AppVersion" type="string">2.2</property>
 
 	<property id="TopField" type="number">0</property>
 	<property id="UpperLeftField" type="number">7</property>
@@ -27,4 +27,5 @@
 	<property id="Units" type="number">0</property>
 	<property id="TimeDisplay" type="number">0</property>
 	<property id="ShowSeconds" type="number">1</property>
+	<property id="NightBehavior" type="number">0</property>
 </properties>

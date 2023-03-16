@@ -23,6 +23,7 @@
     <string id="UnitsTitle">Unités</string>
     <string id="TimeDisplayTitle">Type d'affichage de l'heure</string>
     <string id="ShowSecondsTitle">Afficher les secondes</string>
+    <string id="NightBehaviorTitle">Comportement énergétique la nuit</string>
 
     <string id="Battery">Pile (%)</string>
     <string id="BatteryDays">Pile (jours)</string>
@@ -55,6 +56,7 @@
     <string id="ThemeIce">Glace</string>
     <string id="ThemeSharks">Sharks</string>
     <string id="ThemeFire">Feu</string>
+    <string id="ThemeOrange">Orange</string>
     <string id="ThemeWhite">Fond Blanc</string>
         
     <string id="ColorBabyPoo">Caca de bébé</string>
@@ -86,5 +88,9 @@
     <string id="No">Non</string>
     <string id="Yes">Oui</string>
     <string id="Days">j</string>
+
+    <string id="FullPower">Aucune é©conomie (Tout reste actif)</string>
+    <string id="MediumPower">Petite économie (pas de secondes ni de RC)</string>
+    <string id="LowPower">Économie maximale (HH:MM et date seulememnt)</string>
 
 </strings>

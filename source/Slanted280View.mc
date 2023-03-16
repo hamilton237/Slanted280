@@ -4,6 +4,7 @@ using Toybox.Lang;
 using Toybox.System;
 using Toybox.WatchUi;
 using Toybox.Time;
+using Toybox.UserProfile;
 
 var phoneConnected;
 
@@ -38,8 +39,11 @@ class Slanted280View extends WatchUi.WatchFace {
     var iconsFont;
     var H, W;
 
-    var isWeatherNotOk = false;
-    var refreshWeather = 0; // Counter for weather not loading correctly after reboot
+    // Night time behavior
+    var sleepTime, wakeTime;
+    var isDayTime as Lang.Boolean = true;
+    var wasDayTime as Lang.Boolean = true;
+    var nightBehavior as Lang.Number = 0;
 
     // HR related
     var hrClipCoordinates; //clipXPosition, clipYPosition, clipXSize, clipYSize
@@ -84,7 +88,7 @@ class Slanted280View extends WatchUi.WatchFace {
         loadSettings();
  
         // After loadSettings
-        lastDailyRefresh -= 1; // Force a daily refresh as watch face is loading in this method
+        //lastDailyRefresh -= 1; // Force a daily refresh as watch face is loading in this method
         refreshBatSaverData(dc);
         //clock.calculatePositions(TIME_FONT, SECONDS_FONT, 30); 
         
@@ -105,6 +109,16 @@ class Slanted280View extends WatchUi.WatchFace {
 
         // Seconds height
         secondsHeight = dc.getFontHeight(SECONDS_FONT);
+
+        // Sleep and wake time
+        var profile = UserProfile.getProfile();
+        var sleepTimeRaw = profile.sleepTime;
+        var wakeTimeRaw = profile.wakeTime;
+        if (wakeTimeRaw != null && sleepTimeRaw != null) {
+            wakeTime = processSleepTime(wakeTimeRaw);
+            sleepTime = processSleepTime(sleepTimeRaw);
+            //string += hours.format("%02u") + ":" + minutes.format("%02u") + ":" + seconds.format("%02u");
+        }
 
         // HR Related
         if (isHeartRate) {
@@ -162,12 +176,13 @@ class Slanted280View extends WatchUi.WatchFace {
         isMetric = Application.getApp().getProperty("Units") == 0 ? true : false;
         is24Hour = Application.getApp().getProperty("TimeDisplay") == 0 ? true : false;
         showSeconds = Application.getApp().getProperty("ShowSeconds") == 1 ? true : false;
+        nightBehavior = Application.getApp().getProperty("NightBehavior");
         
         // Most data is only refreshed every X minutes to save battery, 
         // and some data, like the date, only needs refreshing once every day
         batSaverThold = new Time.Duration(Application.getApp().getProperty("RefreshMinutes") * 60);
         batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
-        lastDailyRefresh = batSaverTime.day;
+        //lastDailyRefresh = batSaverTime.day;
         
         // HR related
         checkHrFields();
@@ -180,7 +195,7 @@ class Slanted280View extends WatchUi.WatchFace {
         loadSettings();
         // Recule d'un an pour être certain qu'un update aura lieu
         batSaverTime.year = batSaverTime.year.toNumber() - 1;
-        lastDailyRefresh = lastDailyRefresh - 1;
+        //lastDailyRefresh = lastDailyRefresh - 1;
     }
 
      function checkHrFields() {
@@ -292,26 +307,44 @@ class Slanted280View extends WatchUi.WatchFace {
 
 
         // Some stuff needs to be refreshed only occasionnally
-        //isRefreshNeeded = false;
         var tempTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
         var tempDuration = getTimeDiff(tempTime, batSaverTime);
+
+
+        // Is it during user defined sleep hours
+        if (tempTime.hour > wakeTime[0] && tempTime.hour < sleepTime[0]) {
+            isDayTime = true; 
+        } 
+        else if (tempTime.hour == wakeTime[0] && tempTime.min >= wakeTime[1]) {
+            isDayTime = true;
+        }
+        else if (tempTime.hour == sleepTime[0] && tempTime.min < sleepTime[1]){
+            isDayTime = true;
+        }
+        else {
+            isDayTime = false;
+        }
+
+        // Check if there is a transition from day to night or night to day
+        // Or if the day has changed
+        // If so, force a refresh of data
+        if ((isDayTime != wasDayTime) ||  (tempTime.day != batSaverTime.day)) {
+            wasDayTime = isDayTime;
+            batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
+            refreshBatSaverData(dc);
+        }
 
         // If threshold time is exceeded, all data that is only recalculated occasionnally 
         // needs to be refreshed
         if (tempDuration.greaterThan(batSaverThold)){
-            refreshBatSaverData(dc);
             batSaverTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
-        }
-        else if (isWeatherNotOk && $.phoneConnected && refreshWeather < 3 ) {
             refreshBatSaverData(dc);
-            refreshWeather++ ;
-        } 
+        }
 
         // Draw the watch face
         // Time
         drawTime(dc,true);
-        // Grid
-        drawGrid(dc, gridColor, bgColor);	
+
         // Fields
         var color = Graphics.COLOR_WHITE;
         var alignment = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
@@ -323,16 +356,19 @@ class Slanted280View extends WatchUi.WatchFace {
         drawField (fieldValue[LOWER_RIGHT_FIELD], LOWER_RIGHT_X, LOWER_RIGHT_Y, secondaryColor, iconsFont, iconsColor, dc);
         drawField (fieldValue[BOTTOM_FIELD], BOTTOM_X, BOTTOM_Y, secondaryColor, iconsFont, iconsColor, dc); 
 
-        // Bluetooth/Notifications
-        drawStatusIcon(dc, getPosFromPercent(3, W), getPosFromPercent(50, H), iconsColor, bgColor, 1, iconsFont);
-        
-        // Top progress Bar
-        drawStatusBar(dc, getPosFromPercent(UPPER_BAR_Y, H), progressBarSpacing, topBarValue.toNumber(), barColor, topProgressBarColor, bgColor, W);
-        // Bottom progress bar 
-        drawStatusBar(dc, getPosFromPercent(LOWER_BAR_Y, H), progressBarSpacing, bottomBarValue.toNumber(), barColor, bottomProgressBarColor, bgColor, W);
+        if (isDayTime || nightBehavior < 2) {
+            // Bluetooth/Notifications
+            drawStatusIcon(dc, getPosFromPercent(3, W), getPosFromPercent(50, H), iconsColor, bgColor, 1, iconsFont);
+            // Grid
+            drawGrid(dc, gridColor, bgColor);
+            // Top progress Bar
+            drawStatusBar(dc, getPosFromPercent(UPPER_BAR_Y, H), progressBarSpacing, topBarValue.toNumber(), barColor, topProgressBarColor, bgColor, W);
+            // Bottom progress bar 
+            drawStatusBar(dc, getPosFromPercent(LOWER_BAR_Y, H), progressBarSpacing, bottomBarValue.toNumber(), barColor, bottomProgressBarColor, bgColor, W);
+        }
 
         // HR related
-        if ( isHeartRate ) {
+        if ( isHeartRate && (isDayTime || nightBehavior == 0) ) {
             drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
         }
     
@@ -341,11 +377,11 @@ class Slanted280View extends WatchUi.WatchFace {
     // 
     function onPartialUpdate(dc) as Void{
         // HR related
-        if (isHeartRate && !showSeconds) {
+        if (isHeartRate && !showSeconds && (isDayTime || nightBehavior == 0) ) {
             drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
         }
         
-        if (showSeconds) {
+        if (showSeconds && (isDayTime || nightBehavior == 0) ) {
             drawTime(dc,false); 
         }
     }
@@ -426,33 +462,7 @@ class Slanted280View extends WatchUi.WatchFace {
 
         minutesString = clockTime.min.format("%02d");        
 
-        /*
-        if(!isFull) {
-            //Only seconds
-  			var y = getPosFromPercent(SEC_Y_POS, H)-clock.secondsHeight/2;
-  			dc.setClip(clock.secStringXPosition, y, W-clock.secStringXPosition, clock.secondsHeight);
-  			dc.setColor(bgColor,bgColor);
-            //dc.setColor(Graphics.COLOR_BLUE,Graphics.COLOR_BLUE);
-  			//clear anything that might show through from the previous time
-  			dc.clear();  
 
-            // Draw seconds only
-            drawStr(dc, clock.secStringXPosition, getPosFromPercent(42, H), SECONDS_FONT, clock.secondsColor, clock.secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);  	
-     	} 
-        // Affiche l'heure au complet
-     	else {
-            // Draw Time
-            drawStr(dc, clock.hourStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, clock.hourColor, clock.hoursString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            drawStr(dc, clock.minStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, clock.minutesColor, clock.minutesString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            if (showSeconds) {
-                drawStr(dc, clock.secStringXPosition, getPosFromPercent(SEC_Y_POS, H), SECONDS_FONT, clock.secondsColor, clock.secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            }
-            if (!clock.is24Hour){
-                drawStr(dc, clock.secStringXPosition, getPosFromPercent(AMPM_Y_POS, H), Graphics.FONT_SYSTEM_XTINY, clock.secondsColor, clock.amPm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            }
-            
-        } 
-        */
         if(!isFull) {
             //Only seconds
   			var y = getPosFromPercent(SEC_Y_POS, H)-secondsHeight/2;
@@ -470,7 +480,7 @@ class Slanted280View extends WatchUi.WatchFace {
             // Draw Time
             drawStr(dc, hourStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, hourColor, hoursString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             drawStr(dc, minStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, minutesColor, minutesString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            if (showSeconds) {
+            if (showSeconds && (isDayTime || nightBehavior == 0) ) {
                 drawStr(dc, secStringXPosition, getPosFromPercent(SEC_Y_POS, H), SECONDS_FONT, secondsColor, secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             }
             if (!is24Hour){
@@ -480,7 +490,8 @@ class Slanted280View extends WatchUi.WatchFace {
         } 
     }
 
-    // Draws the watch face grid
+    // Alternate grids - tests
+    /*
     function drawSquaredGrid(dc, lineColor, bgColor) {
         
         dc.setPenWidth(2);
@@ -566,6 +577,7 @@ class Slanted280View extends WatchUi.WatchFace {
         arcRadius = 23;
         dc.drawArc(x1 - arcRadius, y1 + (arcRadius/3) -4, arcRadius, dc.ARC_CLOCKWISE, 5, 280);
     }
+    */
 
     function drawGrid(dc, lineColor, bgColor) {  
         // Lines positions
@@ -626,213 +638,191 @@ class Slanted280View extends WatchUi.WatchFace {
         var garminWeather = null;
         var garminHourlyForecast = false;
 
-        isWeatherNotOk = false;
-
         var isIcons = IS_ICONS; 
 
-        // Get values for all fields
-        for (var i = 0; i < fieldQty; i++) {
-            switch(field[i]) {
-                // SystemStats section
-                case C_BATTERY:
-                    if (systemStats == null) {
-                        systemStats = new SysStats(isIcons);
-                    }
-                    fieldValue[i] = systemStats.getBattery();
-                    break;
-                case C_BATTERYDAYS:
-                    if (systemStats == null) {
-                        systemStats = new SysStats(isIcons);
-                    }
-                    fieldValue[i] = systemStats.getBatteryInDays(dayString);
-                    break;
+        if (isDayTime || nightBehavior < 2) {
+            // Get values for all fields
+            for (var i = 0; i < fieldQty; i++) {
+                switch(field[i]) {
+                    // SystemStats section
+                    case C_BATTERY:
+                        if (systemStats == null) {
+                            systemStats = new SysStats(isIcons);
+                        }
+                        fieldValue[i] = systemStats.getBattery();
+                        break;
+                    case C_BATTERYDAYS:
+                        if (systemStats == null) {
+                            systemStats = new SysStats(isIcons);
+                        }
+                        fieldValue[i] = systemStats.getBatteryInDays(dayString);
+                        break;
 
-                // Activity Monitor section
-                case C_STEPS:
-                    if (activityMonitor == null) {
-                        activityMonitor = new ActivityMon(isIcons);
-                    }
-                    fieldValue[i] = activityMonitor.getSteps();
-                    break;
-                case C_CALORIES:
-                    if (activityMonitor == null) {
-                        activityMonitor = new ActivityMon(isIcons);
-                    }
-                    fieldValue[i] = activityMonitor.getCalories();
-                    break;
-                case C_FLOORSCLIMBED:
-                    if (activityMonitor == null) {
-                        activityMonitor = new ActivityMon(isIcons);
-                    }
-                    fieldValue[i] = activityMonitor.getFloorsClimbed();
-                    break;
-                case C_DISTANCE:
-                    if (activityMonitor == null) {
-                        activityMonitor = new ActivityMon(isIcons);
-                    }
-                    fieldValue[i] = activityMonitor.getDistance(isMetric);
-                    break;
+                    // Activity Monitor section
+                    case C_STEPS:
+                        if (activityMonitor == null) {
+                            activityMonitor = new ActivityMon(isIcons);
+                        }
+                        fieldValue[i] = activityMonitor.getSteps();
+                        break;
+                    case C_CALORIES:
+                        if (activityMonitor == null) {
+                            activityMonitor = new ActivityMon(isIcons);
+                        }
+                        fieldValue[i] = activityMonitor.getCalories();
+                        break;
+                    case C_FLOORSCLIMBED:
+                        if (activityMonitor == null) {
+                            activityMonitor = new ActivityMon(isIcons);
+                        }
+                        fieldValue[i] = activityMonitor.getFloorsClimbed();
+                        break;
+                    case C_DISTANCE:
+                        if (activityMonitor == null) {
+                            activityMonitor = new ActivityMon(isIcons);
+                        }
+                        fieldValue[i] = activityMonitor.getDistance(isMetric);
+                        break;
 
-                // Garmin Weather section
-                case C_TEMPERATURE:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getTemperature();
-                    break;
-                case C_HUMIDITY:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getHumidity();
-                    break;
-                case C_DEWPOINT:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getDewPoint();
-                    break;
-                case C_CITY:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getCity();
-                    break;
-                case C_WIND:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getWind();
-                    break;
-                case C_WINDCHILL:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getWindchill();
-                    break;
-                case C_TEMPPLUSFEELSLIKE:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getTemperatureAndFeelsLike();
-                    break;
-                case C_WINDPLUSWINDCHILL:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getWindAndWindchill();
-                    break;
-                case C_HUMIDITYPLUSHUMIDEX:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getHumidityAndHumidex();
-                    break;
-                case C_DEWPOINTPLUSHUMIDEX:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                        if (garminWeather.getCurrentConditions() == false) {
-                            isWeatherNotOk = true;
-                        }
-                    }
-                    fieldValue[i] = garminWeather.getDewpointAndHumidex();
-                    break;
-                case C_THREEHOURFORECAST:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                    }
-                    if (garminHourlyForecast == false) {
-                        garminWeather.getHourlyForecast();
-                        garminHourlyForecast = true;
-                    }
-                    fieldValue[i] = garminWeather.getThreeHourPrecipitation();
-                    break;
-                case C_THREEHOURTEMPFORECAST:
-                    if (garminWeather == null) {
-                        garminWeather = new GarminWeather(isMetric, isIcons);
-                    }
-                    if (garminHourlyForecast == false) {
-                        garminWeather.getHourlyForecast();
-                        garminHourlyForecast = true;
-                    }
-                    fieldValue[i] = garminWeather.getThreeHourTemperature();
-                    break;
-                case C_SUNEVENTS:
-                    if (lastDailyRefresh != batSaverTime.day) {
+                    // Garmin Weather section
+                    case C_TEMPERATURE:
                         if (garminWeather == null) {
                             garminWeather = new GarminWeather(isMetric, isIcons);
-                            if (garminWeather.getCurrentConditions() == false) {
-                                isWeatherNotOk = true;
-                            }
+                        }
+                        fieldValue[i] = garminWeather.getTemperature();
+                        break;
+                    case C_HUMIDITY:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getHumidity();
+                        break;
+                    case C_DEWPOINT:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getDewPoint();
+                        break;
+                    case C_CITY:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getCity();
+                        break;
+                    case C_WIND:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getWind();
+                        break;
+                    case C_WINDCHILL:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getWindchill();
+                        break;
+                    case C_TEMPPLUSFEELSLIKE:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getTemperatureAndFeelsLike();
+                        break;
+                    case C_WINDPLUSWINDCHILL:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getWindAndWindchill();
+                        break;
+                    case C_HUMIDITYPLUSHUMIDEX:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getHumidityAndHumidex();
+                        break;
+                    case C_DEWPOINTPLUSHUMIDEX:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        fieldValue[i] = garminWeather.getDewpointAndHumidex();
+                        break;
+                    case C_THREEHOURFORECAST:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        if (garminHourlyForecast == false) {
+                            garminWeather.getHourlyForecast();
+                            garminHourlyForecast = true;
+                        }
+                        fieldValue[i] = garminWeather.getThreeHourPrecipitation();
+                        break;
+                    case C_THREEHOURTEMPFORECAST:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
+                        }
+                        if (garminHourlyForecast == false) {
+                            garminWeather.getHourlyForecast();
+                            garminHourlyForecast = true;
+                        }
+                        fieldValue[i] = garminWeather.getThreeHourTemperature();
+                        break;
+                    case C_SUNEVENTS:
+                        if (garminWeather == null) {
+                            garminWeather = new GarminWeather(isMetric, isIcons);
                         }
                         fieldValue[i] = garminWeather.getSunEvents();
-                    }
-                    break;
-                
+                        break;
+                    
 
-                // Misc section
-                case C_DATE:
-                    if (lastDailyRefresh != batSaverTime.day) {
+                    // Misc section
+                    case C_DATE:
                         fieldValue[i] = getDate(batSaverTime, isIcons);
-                    }
-                    break;
-                case C_BODYBATTERY:
-                    fieldValue[i] = getBodyBatteryField(isIcons);
-                    break;
-                case C_PRESSURE:
-                    fieldValue[i] = getBaroPressureField(isIcons);
-                    break;
-                case C_ALTITUDE:
-                    fieldValue[i] = getAltitudeField(isMetric, isIcons);
-                    break;
+                        break;
+                    case C_BODYBATTERY:
+                        fieldValue[i] = getBodyBatteryField(isIcons);
+                        break;
+                    case C_PRESSURE:
+                        fieldValue[i] = getBaroPressureField(isIcons);
+                        break;
+                    case C_ALTITUDE:
+                        fieldValue[i] = getAltitudeField(isMetric, isIcons);
+                        break;
 
-                case C_HEARTRATE:
-                case C_NONE:
-                    fieldValue[i] = ["", I_NOICON];
-                    break;
-                default:
-                    break;
+                    case C_HEARTRATE:
+                    case C_NONE:
+                        fieldValue[i] = ["", I_NOICON];
+                        break;
+                    default:
+                        break;
+                }
             }
+
+            // Get values for progress bars
+            // Top Bar
+            topBarValue = getBarValue(topBar);
+
+            // BottomBar
+            bottomBarValue = getBarValue(bottomBar);
+        }
+        // Night time
+        else {
+            // Get values for all fields
+            for (var i = 0; i < fieldQty; i++) {
+                switch(field[i]) {
+                    case C_DATE:
+                        fieldValue[i] = getDate(batSaverTime, isIcons);
+                        break;
+
+                    default:
+                        fieldValue[i] = ["", I_NOICON];
+                        break; 
+                }
+            }
+
+            topBarValue = 0;
+            bottomBarValue = 0;
         }
 
-        // If one day has passed, change date
-        if (lastDailyRefresh != batSaverTime.day) {
-            lastDailyRefresh = batSaverTime.day;
-        }
 
-        // Get values for progress bars
-        // Top Bar
-        topBarValue = getBarValue(topBar);
-
-        // BottomBar
-        bottomBarValue = getBarValue(bottomBar);
     }
 
     function getBarValue(barSetting){
