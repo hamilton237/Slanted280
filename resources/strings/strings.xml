@@ -50,6 +50,7 @@
     <string id="Distance">Distance</string>
     <string id="Altitude">Altitude</string>
     <string id="HeartRate">Heart Rate</string>
+    <string id="RecoveryTime">Recovery Time</string>
     <string id="None">None</string>
 
 

@@ -60,5 +60,18 @@ class ActivityMon {
         }
     }
 
+    public function getRecoveryTime () {
+        var recTime = _activityMonitor.timeToRecovery != null ? _activityMonitor.timeToRecovery : 0;
+
+        var returnString = recTime.format("%.0f") + " h";
+
+        if (_isIcons) {
+            return [returnString, I_RECOVERYTIME];
+        }
+        else {
+            return returnString;
+        }
+    }
+
 
 }

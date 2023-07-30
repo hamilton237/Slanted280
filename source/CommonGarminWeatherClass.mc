@@ -118,6 +118,7 @@ class GarminWeather {
         var humidex = (_garminWeather != null && _garminWeather.relativeHumidity != null && _garminWeather.temperature != null)
                         ? calcHumidex(_garminWeather.temperature, _garminWeather.relativeHumidity).format("%.0f")
                         : "NA";
+
         humidex = _isMetric ? humidex : celciusToFarenheit(humidex.toNumber()).format("%.0f");
         var returnString = humid + "/" + humidex;
         
@@ -181,7 +182,11 @@ class GarminWeather {
         var returnString = "NA";
         if (_garminWeather != null && _garminWeather.windSpeed != null) {
             var windSpeed = convertMsToSpeed(_garminWeather.windSpeed, _isMetric);
-            returnString = windSpeed.format("%.0f");
+            var windDirection = getWindDirection(_garminWeather.windBearing);
+            if (_garminWeather.windSpeed <= 0.1){
+                windDirection = "";
+            }
+            returnString = windSpeed.format("%.0f") + " " + windDirection;
         }
         
         if (_isIcons) {
@@ -190,6 +195,66 @@ class GarminWeather {
         else {
             return returnString;
         }
+    }
+
+    private function getWindDirection(windBearing){
+        var windBearingText = "NA";
+        var windBearingDiv = Math.round(windBearing / 22.5).toNumber();
+        switch (windBearingDiv){
+            case 1:
+                windBearingText = "N";
+                break;
+            case 2:
+                windBearingText = "NNE";
+                break;
+            case 3:
+                windBearingText = "NE";
+                break;
+            case 4:
+                windBearingText = "ENE";
+                break;
+            case 5:
+                windBearingText = "E";
+                break;
+            case 6:
+                windBearingText = "ESE";
+                break;
+            case 7:
+                windBearingText = "SE";
+                break;
+            case 8:
+                windBearingText = "SSE";
+                break;
+            case 9:
+                windBearingText = "S";
+                break;
+            case 10:
+                windBearingText = "SSW";
+                break;
+            case 11:
+                windBearingText = "SW";
+                break;
+            case 12:
+                windBearingText = "WSW";
+                break;
+            case 13:
+                windBearingText = "W";
+                break;
+            case 14:
+                windBearingText = "WNW";
+                break;
+            case 15:
+                windBearingText = "NW";
+                break;
+            case 16:
+                windBearingText = "NNW";
+                break;
+            case 17:
+                windBearingText = "N";
+                break;       
+        }
+
+        return windBearingText;
     }
 
     public function getWindchill() {
@@ -209,7 +274,7 @@ class GarminWeather {
         }
     }
 
-    public function getSunEvents() {
+    public function getSunEvents(is24Hour) {
         var sunRise = getSunRise();
         var sunSet = getSunSet();
         var returnString = "NA";
@@ -223,7 +288,13 @@ class GarminWeather {
             // From the doc, don't think those can be null, but I'm checking anyway
             if (sunRiseGreg.hour != null && sunRiseGreg.min != null && sunSetGreg.hour != null && sunSetGreg.min != null) {
                 returnString = sunRiseGreg.hour + ":" + sunRiseGreg.min.format("%02d") + "-";
-                returnString += sunSetGreg.hour + ":" + sunSetGreg.min.format("%02d");
+
+                if (is24Hour){
+                    returnString += sunSetGreg.hour + ":" + sunSetGreg.min.format("%02d");
+                }
+                else{
+                    returnString += (sunSetGreg.hour-12) + ":" + sunSetGreg.min.format("%02d");
+                }
             }
         }
         return [returnString, I_NOICON];
@@ -271,7 +342,7 @@ class GarminWeather {
             returnString = temp0.format("%01d") + "/" + temp1.format("%01d") + "/" + temp2.format("%01d") + DEGREE_SYMBOL;
 
             // If string length is too long, only keep two hours
-            if (returnString.length() >= 10){
+            if (returnString.length() > 10){
                 returnString = temp0.format("%01d") + "/" + temp1.format("%01d") + DEGREE_SYMBOL;
             }   
         }
@@ -321,6 +392,10 @@ class GarminWeather {
                 pressionPartielle = 6.11 * Math.pow(e, exposant);
                 deltaHumidex = 0.5555 * (pressionPartielle - 10);
                 humidex = temp + Math.round(deltaHumidex);
+            }
+
+            if (humidex < 20){
+                humidex = temp;
             }
         }
         catch (exception){

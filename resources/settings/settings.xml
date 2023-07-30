@@ -9,16 +9,26 @@
 			<listEntry value="17">@Strings.BatteryDays</listEntry>
 			<listEntry value="1">@Strings.Date</listEntry>
 			<listEntry value="2">@Strings.Temperature</listEntry>
-			<listEntry value="4">@Strings.BodyBattery</listEntry>
-			<listEntry value="8">@Strings.Pressure</listEntry>
+			<listEntry value="20">@Strings.TempPlusFeelsLike</listEntry>
 			<listEntry value="9">@Strings.Humidity</listEntry>
 			<listEntry value="10">@Strings.DewPoint</listEntry>
+			<listEntry value="22">@Strings.HumidityPlusHumidex</listEntry>
+			<listEntry value="23">@Strings.DewPointPlusHumidex</listEntry>
 			<listEntry value="11">@Strings.Wind</listEntry>
 			<listEntry value="19">@Strings.WindChill</listEntry>
+			<listEntry value="21">@Strings.WindPlusWindChill</listEntry>
 			<listEntry value="3">@Strings.SunEvents</listEntry>
+			<listEntry value="4">@Strings.BodyBattery</listEntry>
+			<listEntry value="6">@Strings.City</listEntry>
+			<listEntry value="7">@Strings.ThreeHourRainForecast</listEntry>
+			<listEntry value="25">@Strings.ThreeHourTempForecast</listEntry>
+			<listEntry value="8">@Strings.Pressure</listEntry>
 			<listEntry value="12">@Strings.Steps</listEntry>
 			<listEntry value="13">@Strings.Calories</listEntry>
 			<listEntry value="14">@Strings.Climb</listEntry>
+			<listEntry value="15">@Strings.Distance</listEntry>
+			<listEntry value="16">@Strings.Altitude</listEntry>
+			<listEntry value="26">@Strings.RecoveryTime</listEntry>
 			<listEntry value="18">@Strings.HeartRate</listEntry>
 			<listEntry value="99">@Strings.None</listEntry>
 		</settingConfig>
@@ -49,6 +59,7 @@
 			<listEntry value="14">@Strings.Climb</listEntry>
 			<listEntry value="15">@Strings.Distance</listEntry>
 			<listEntry value="16">@Strings.Altitude</listEntry>
+			<listEntry value="26">@Strings.RecoveryTime</listEntry>
 			<listEntry value="18">@Strings.HeartRate</listEntry>
 			<listEntry value="99">@Strings.None</listEntry>
 		</settingConfig>
@@ -62,7 +73,6 @@
 			<listEntry value="8">@Strings.Pressure</listEntry>
 			<listEntry value="9">@Strings.Humidity</listEntry>
 			<listEntry value="10">@Strings.DewPoint</listEntry>
-			<listEntry value="11">@Strings.Wind</listEntry>
 			<listEntry value="19">@Strings.WindChill</listEntry>
 			<listEntry value="18">@Strings.HeartRate</listEntry>
 			<listEntry value="99">@Strings.None</listEntry>
@@ -77,7 +87,6 @@
 			<listEntry value="8">@Strings.Pressure</listEntry>
 			<listEntry value="9">@Strings.Humidity</listEntry>
 			<listEntry value="10">@Strings.DewPoint</listEntry>
-			<listEntry value="11">@Strings.Wind</listEntry>
 			<listEntry value="19">@Strings.WindChill</listEntry>
 			<listEntry value="18">@Strings.HeartRate</listEntry>
 			<listEntry value="99">@Strings.None</listEntry>
@@ -109,6 +118,7 @@
 			<listEntry value="14">@Strings.Climb</listEntry>
 			<listEntry value="15">@Strings.Distance</listEntry>
 			<listEntry value="16">@Strings.Altitude</listEntry>
+			<listEntry value="26">@Strings.RecoveryTime</listEntry>
 			<listEntry value="18">@Strings.HeartRate</listEntry>
 			<listEntry value="99">@Strings.None</listEntry>
 		</settingConfig>
@@ -123,8 +133,11 @@
 			<listEntry value="20">@Strings.TempPlusFeelsLike</listEntry>
 			<listEntry value="9">@Strings.Humidity</listEntry>
 			<listEntry value="10">@Strings.DewPoint</listEntry>
+			<listEntry value="22">@Strings.HumidityPlusHumidex</listEntry>
+			<listEntry value="23">@Strings.DewPointPlusHumidex</listEntry>
 			<listEntry value="11">@Strings.Wind</listEntry>
 			<listEntry value="19">@Strings.WindChill</listEntry>
+			<listEntry value="21">@Strings.WindPlusWindChill</listEntry>
 			<listEntry value="3">@Strings.SunEvents</listEntry>
 			<listEntry value="4">@Strings.BodyBattery</listEntry>
 			<listEntry value="6">@Strings.City</listEntry>
@@ -136,6 +149,7 @@
 			<listEntry value="14">@Strings.Climb</listEntry>
 			<listEntry value="15">@Strings.Distance</listEntry>
 			<listEntry value="16">@Strings.Altitude</listEntry>
+			<listEntry value="26">@Strings.RecoveryTime</listEntry>
 			<listEntry value="18">@Strings.HeartRate</listEntry>
 			<listEntry value="99">@Strings.None</listEntry>
 		</settingConfig>

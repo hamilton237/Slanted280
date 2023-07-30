@@ -683,6 +683,12 @@ class Slanted280View extends WatchUi.WatchFace {
                         }
                         fieldValue[i] = activityMonitor.getDistance(isMetric);
                         break;
+                    case C_RECOVERYTIME:
+                        if (activityMonitor == null) {
+                            activityMonitor = new ActivityMon(isIcons);
+                        }
+                        fieldValue[i] = activityMonitor.getRecoveryTime();
+                        break;
 
                     // Garmin Weather section
                     case C_TEMPERATURE:
@@ -769,7 +775,7 @@ class Slanted280View extends WatchUi.WatchFace {
                         if (garminWeather == null) {
                             garminWeather = new GarminWeather(isMetric, isIcons);
                         }
-                        fieldValue[i] = garminWeather.getSunEvents();
+                        fieldValue[i] = garminWeather.getSunEvents(is24Hour);
                         break;
                     
 

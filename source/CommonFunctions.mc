@@ -58,21 +58,23 @@ function processSleepTime(inputTime) {
 	return [hours, minutes];
 }
 
-/*
+
 // Old function that draws the envelope message
 // without using the font icons
+/*
 function drawMessagesIcon(dc, x, y, color){
 	dc.setColor(color, Graphics.COLOR_BLACK);
 	dc.setPenWidth(2);
 
-	dc.drawRectangle(x-5, y-6, 20, 12);
+	dc.drawRectangle(x-4, y-6, 16, 12);
 
-	dc.drawLine(x-4, y-5, x+5, y);
-	dc.drawLine(x+14, y-5, x+5, y);
+	dc.drawLine(x-3, y-5, x+3, y);
+	dc.drawLine(x+10, y-5, x+4, y);
 	
 	dc.setPenWidth(1);
 }
 */
+
 
 // Draws the bluetooth icon without using the icon fonts
 function drawBluetoothIcon(dc, x, y, color, bgColor){

@@ -30,6 +30,7 @@ const C_WINDPLUSWINDCHILL = 21;
 const C_HUMIDITYPLUSHUMIDEX = 22;
 const C_DEWPOINTPLUSHUMIDEX = 23;
 const C_THREEHOURTEMPFORECAST = 25;
+const C_RECOVERYTIME = 26;
 const C_NONE = 99;
 
 // Font icons
@@ -49,6 +50,7 @@ const I_FLOORSCLIMBED = "f";// 102
 const I_DISTANCE = "k";     // 107
 const I_ALTITUDE = "m";     // 109
 const I_HEARTRATE = "r";    // 114
+const I_RECOVERYTIME = "z";  // 122
 
 // Custom colors
 const COLOR_LIGHT_GREEN = 0x55FF55;

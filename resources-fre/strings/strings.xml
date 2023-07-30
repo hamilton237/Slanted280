@@ -49,6 +49,7 @@
     <string id="Distance">Distance</string>
     <string id="Altitude">Altitude</string>
     <string id="HeartRate">Rythme cardiaque</string>
+    <string id="RecoveryTime">Temps de récupération</string>
     <string id="None">Aucun</string>
 
     <string id="ThemeEnduro2">Enduro 2</string>
