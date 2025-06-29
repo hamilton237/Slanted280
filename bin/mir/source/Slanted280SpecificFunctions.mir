@@ -1,0 +1,602 @@
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Math,1,13,17]; ]
+using Toybox.Math;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc"; @line = 3; @symbol_functiondef = [drawStatusBar,3,9,22]; @symbol_param<0> = [dc,3,23,25]; @symbol_param<1> = [y,3,27,28]; @symbol_param<2> = [spacing,3,30,37]; @symbol_param<3> = [percent,3,39,46]; @symbol_param<4> = [offColor,3,48,56]; @symbol_param<5> = [onColor,3,58,65]; @symbol_param<6> = [bgColor,3,67,74]; @symbol_param<7> = [W,3,76,77]; ]
+function drawStatusBar(dc, y, spacing, percent, offColor, onColor, bgColor, W) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 6 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_1_8_1_if_stmt:
+    %tmp.1 = lgetv %percent;
+    symbol [ percent %tmp.1 6 5 12 ];
+    %tmp.2 = 0;
+    %tmp.3 = lt %tmp.1 %tmp.2;
+    bf %tmp.3 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_1_8_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_1_8_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_18_8_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 7 2 ]
+    %tmp.4 = 0;
+    lputv %percent %tmp.4;
+    symbol [ percent %percent 7 2 9 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_18_8_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_1_8_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_6_1_8_1_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 9 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_1_11_1_if_stmt:
+    %tmp.5 = lgetv %percent;
+    symbol [ percent %tmp.5 9 5 12 ];
+    %tmp.6 = 100;
+    %tmp.7 = gt %tmp.5 %tmp.6;
+    bf %tmp.7 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_1_11_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_1_11_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_20_11_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 10 2 ]
+    %tmp.8 = 100;
+    lputv %percent %tmp.8;
+    symbol [ percent %percent 10 2 9 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_20_11_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_1_11_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_9_1_11_1_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 13 1 ]
+    %tmp.9 = lgetv %dc;
+    symbol [ dc %tmp.9 13 1 3 ];
+    symbol [ setPenWidth %tmp.10 13 4 15 ];
+    %tmp.10 = getv function %tmp.9 :setPenWidth;
+    %tmp.11 = 1;
+    invoke %tmp.9 %tmp.10(%tmp.11);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 17 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop" ]
+    %maxWidth.1 = local;
+    symbol [ maxWidth %maxWidth.1 17 5 13 ];
+    %tmp.12 = lgetv %W;
+    symbol [ W %tmp.12 17 16 17 ];
+    %tmp.13 = 0.675;
+    %tmp.14 = mul %tmp.12 %tmp.13;
+    lputv %maxWidth.1 %tmp.14;
+    symbol [ maxWidth %maxWidth.1 17 5 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 18 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop" ]
+    %nbrSquares.2 = local;
+    symbol [ nbrSquares %nbrSquares.2 18 5 15 ];
+    %tmp.15 = lgetv %maxWidth.1;
+    symbol [ maxWidth %tmp.15 18 18 26 ];
+    %tmp.16 = lgetv %spacing;
+    symbol [ spacing %tmp.16 18 29 36 ];
+    %tmp.17 = div %tmp.15 %tmp.16;
+    lputv %nbrSquares.2 %tmp.17;
+    symbol [ nbrSquares %nbrSquares.2 18 5 15 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 19 1 ]
+    %tmp.18 = lgetv %nbrSquares.2;
+    symbol [ nbrSquares %tmp.18 19 14 24 ];
+    symbol [ toNumber %tmp.19 19 25 33 ];
+    %tmp.19 = getv function %tmp.18 :toNumber;
+    %tmp.20 = invoke %tmp.18 %tmp.19();
+    lputv %nbrSquares.2 %tmp.20;
+    symbol [ nbrSquares %nbrSquares.2 19 1 11 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 22 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop" ]
+    %barWidth.3 = local;
+    symbol [ barWidth %barWidth.3 22 5 13 ];
+    %tmp.21 = lgetv %nbrSquares.2;
+    symbol [ nbrSquares %tmp.21 22 16 26 ];
+    %tmp.22 = lgetv %spacing;
+    symbol [ spacing %tmp.22 22 29 36 ];
+    %tmp.23 = mul %tmp.21 %tmp.22;
+    lputv %barWidth.3 %tmp.23;
+    symbol [ barWidth %barWidth.3 22 5 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 23 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop" ]
+    %startingPos.4 = local;
+    symbol [ startingPos %startingPos.4 23 5 16 ];
+    symbol [ Math %tmp.24 23 19 23 ];
+    %tmp.24 = getm $.Toybox.Math;
+    symbol [ round %tmp.25 23 24 29 ];
+    %tmp.25 = getv function %tmp.24 :round;
+    %tmp.26 = lgetv %W;
+    symbol [ W %tmp.26 23 32 33 ];
+    %tmp.27 = lgetv %barWidth.3;
+    symbol [ barWidth %tmp.27 23 36 44 ];
+    %tmp.28 = sub %tmp.26 %tmp.27;
+    %tmp.29 = 2;
+    %tmp.30 = div %tmp.28 %tmp.29;
+    %tmp.31 = invoke %tmp.24 %tmp.25(%tmp.30);
+    lputv %startingPos.4 %tmp.31;
+    symbol [ startingPos %startingPos.4 23 5 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 26 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop" ]
+    %percentParCase.5 = local;
+    symbol [ percentParCase %percentParCase.5 26 5 19 ];
+    %tmp.32 = 100;
+    symbol [ toFloat %tmp.33 26 26 33 ];
+    %tmp.33 = getv function %tmp.32 :toFloat;
+    %tmp.34 = invoke %tmp.32 %tmp.33();
+    %tmp.35 = lgetv %nbrSquares.2;
+    symbol [ nbrSquares %tmp.35 26 38 48 ];
+    symbol [ toFloat %tmp.36 26 49 56 ];
+    %tmp.36 = getv function %tmp.35 :toFloat;
+    %tmp.37 = invoke %tmp.35 %tmp.36();
+    %tmp.38 = div %tmp.34 %tmp.37;
+    lputv %percentParCase.5 %tmp.38;
+    symbol [ percentParCase %percentParCase.5 26 5 19 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 29 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop" ]
+    %squareOn.6 = local;
+    symbol [ squareOn %squareOn.6 29 8 16 ];
+    %tmp.39 = lgetv %percent;
+    symbol [ percent %tmp.39 29 19 26 ];
+    %tmp.40 = lgetv %percentParCase.5;
+    symbol [ percentParCase %tmp.40 29 29 43 ];
+    %tmp.41 = div %tmp.39 %tmp.40;
+    lputv %squareOn.6 %tmp.41;
+    symbol [ squareOn %squareOn.6 29 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 30 1 ]
+    %tmp.42 = lgetv %squareOn.6;
+    symbol [ squareOn %tmp.42 30 12 20 ];
+    symbol [ toNumber %tmp.43 30 21 29 ];
+    %tmp.43 = getv function %tmp.42 :toNumber;
+    %tmp.44 = invoke %tmp.42 %tmp.43();
+    lputv %squareOn.6 %tmp.44;
+    symbol [ squareOn %squareOn.6 30 1 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 31 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_4_31_43_if_stmt:
+    %tmp.45 = lgetv %squareOn.6;
+    symbol [ squareOn %tmp.45 31 8 16 ];
+    %tmp.46 = lgetv %nbrSquares.2;
+    symbol [ nbrSquares %tmp.46 31 19 29 ];
+    %tmp.47 = lt %tmp.45 %tmp.46;
+    bf %tmp.47 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_4_31_43_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_4_31_43_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_31_31_43_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 31 32 ]
+    %tmp.50 = lgetv %squareOn.6;
+    symbol [ squareOn %tmp.50 31 32 40 ];
+    %tmp.51 = add %tmp.50 1;
+    lputv %squareOn.6 %tmp.51;
+    symbol [ squareOn %squareOn.6 31 32 40 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_31_31_43_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_4_31_43_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_31_4_31_43_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 34 1 ]
+    for @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_test @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_incr @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_init:
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_begin" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_end" ]
+    %i.7 = local;
+    symbol [ i %i.7 34 10 11 ];
+    %tmp.52 = 0;
+    lputv %i.7 %tmp.52;
+    symbol [ i %i.7 34 10 11 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_test:
+    %tmp.53 = lgetv %i.7;
+    symbol [ i %tmp.53 34 15 16 ];
+    %tmp.54 = lgetv %nbrSquares.2;
+    symbol [ nbrSquares %tmp.54 34 17 27 ];
+    %tmp.55 = lt %tmp.53 %tmp.54;
+    bf %tmp.55 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_begin:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_34_46_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 35 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_34_46_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_34_46_1_stop" ]
+    %pos.8 = local;
+    symbol [ pos %pos.8 35 6 9 ];
+    %tmp.56 = lgetv %startingPos.4;
+    symbol [ startingPos %tmp.56 35 12 23 ];
+    %tmp.57 = lgetv %i.7;
+    symbol [ i %tmp.57 35 27 28 ];
+    %tmp.58 = lgetv %spacing;
+    symbol [ spacing %tmp.58 35 31 38 ];
+    %tmp.59 = mul %tmp.57 %tmp.58;
+    %tmp.60 = add %tmp.56 %tmp.59;
+    lputv %pos.8 %tmp.60;
+    symbol [ pos %pos.8 35 6 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 36 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_34_46_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_34_46_1_stop" ]
+    %on.9 = local;
+    symbol [ on %on.9 36 6 8 ];
+    %tmp.61 = false;
+    lputv %on.9 %tmp.61;
+    symbol [ on %on.9 36 6 8 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 37 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_2_39_2_if_stmt:
+    %tmp.62 = lgetv %i.7;
+    symbol [ i %tmp.62 37 6 7 ];
+    %tmp.63 = 1;
+    %tmp.64 = add %tmp.62 %tmp.63;
+    %tmp.65 = lgetv %squareOn.6;
+    symbol [ squareOn %tmp.65 37 15 23 ];
+    %tmp.66 = eq %tmp.64 %tmp.65;
+    bf %tmp.66 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_2_39_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_2_39_2_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_24_39_2_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 38 3 ]
+    %tmp.67 = true;
+    lputv %on.9 %tmp.67;
+    symbol [ on %on.9 38 3 5 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_24_39_2_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_2_39_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_37_2_39_2_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 40 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_2_45_2_if_stmt:
+    %tmp.68 = lgetv %on.9;
+    symbol [ on %tmp.68 40 6 8 ];
+    bf %tmp.68 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_2_45_2_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_2_45_2_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_10_42_2_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 41 3 ]
+    %tmp.69 = self;
+    symbol [ drawSmallParallelogramForBar %tmp.70 41 3 31 ];
+    %tmp.70 = getv function %tmp.69 :drawSmallParallelogramForBar;
+    %tmp.71 = lgetv %dc;
+    symbol [ dc %tmp.71 41 32 34 ];
+    %tmp.72 = lgetv %pos.8;
+    symbol [ pos %tmp.72 41 36 39 ];
+    %tmp.73 = lgetv %y;
+    symbol [ y %tmp.73 41 41 42 ];
+    %tmp.74 = lgetv %onColor;
+    symbol [ onColor %tmp.74 41 44 51 ];
+    %tmp.75 = lgetv %bgColor;
+    symbol [ bgColor %tmp.75 41 53 60 ];
+    %tmp.76 = lgetv %on.9;
+    symbol [ on %tmp.76 41 62 64 ];
+    invoke %tmp.69 %tmp.70(%tmp.71, %tmp.72, %tmp.73, %tmp.74, %tmp.75, %tmp.76);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_10_42_2_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_2_45_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_2_45_2_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_43_6_45_2_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 44 3 ]
+    %tmp.77 = self;
+    symbol [ drawSmallParallelogramForBar %tmp.78 44 3 31 ];
+    %tmp.78 = getv function %tmp.77 :drawSmallParallelogramForBar;
+    %tmp.79 = lgetv %dc;
+    symbol [ dc %tmp.79 44 32 34 ];
+    %tmp.80 = lgetv %pos.8;
+    symbol [ pos %tmp.80 44 36 39 ];
+    %tmp.81 = lgetv %y;
+    symbol [ y %tmp.81 44 41 42 ];
+    %tmp.82 = lgetv %offColor;
+    symbol [ offColor %tmp.82 44 44 52 ];
+    %tmp.83 = lgetv %bgColor;
+    symbol [ bgColor %tmp.83 44 54 61 ];
+    %tmp.84 = lgetv %on.9;
+    symbol [ on %tmp.84 44 63 65 ];
+    invoke %tmp.77 %tmp.78(%tmp.79, %tmp.80, %tmp.81, %tmp.82, %tmp.83, %tmp.84);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_43_6_45_2_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_40_2_45_2_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_34_46_1_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_incr:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 34 ]
+    %tmp.87 = lgetv %i.7;
+    symbol [ i %tmp.87 34 29 30 ];
+    %tmp.88 = add %tmp.87 1;
+    lputv %i.7 %tmp.88;
+    symbol [ i %i.7 34 29 30 ];
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_test;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_34_1_46_1_for_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_3_79_47_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc"; @line = 49; @symbol_functiondef = [drawSmallParallelogramForBar,49,9,37]; @symbol_param<0> = [dc,49,38,40]; @symbol_param<1> = [x,49,42,43]; @symbol_param<2> = [y,49,45,46]; @symbol_param<3> = [lineColor,49,48,57]; @symbol_param<4> = [bgColor,49,59,66]; @symbol_param<5> = [isFilled,49,68,76]; ]
+function drawSmallParallelogramForBar(dc, x, y, lineColor, bgColor, isFilled) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 52 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop" ]
+    %line1_y.1 = local;
+    symbol [ line1_y %line1_y.1 52 8 15 ];
+    %tmp.1 = lgetv %y;
+    symbol [ y %tmp.1 52 18 19 ];
+    %tmp.2 = 5;
+    %tmp.3 = sub %tmp.1 %tmp.2;
+    lputv %line1_y.1 %tmp.3;
+    symbol [ line1_y %line1_y.1 52 8 15 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 53 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop" ]
+    %line1_x0.2 = local;
+    symbol [ line1_x0 %line1_x0.2 53 8 16 ];
+    %tmp.4 = lgetv %x;
+    symbol [ x %tmp.4 53 19 20 ];
+    %tmp.5 = 10;
+    %tmp.6 = add %tmp.4 %tmp.5;
+    lputv %line1_x0.2 %tmp.6;
+    symbol [ line1_x0 %line1_x0.2 53 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 54 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop" ]
+    %line1_x1.3 = local;
+    symbol [ line1_x1 %line1_x1.3 54 8 16 ];
+    %tmp.7 = lgetv %x;
+    symbol [ x %tmp.7 54 19 20 ];
+    %tmp.8 = 30;
+    %tmp.9 = add %tmp.7 %tmp.8;
+    lputv %line1_x1.3 %tmp.9;
+    symbol [ line1_x1 %line1_x1.3 54 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 56 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop" ]
+    %line2_y.4 = local;
+    symbol [ line2_y %line2_y.4 56 8 15 ];
+    %tmp.10 = lgetv %y;
+    symbol [ y %tmp.10 56 18 19 ];
+    %tmp.11 = 5;
+    %tmp.12 = add %tmp.10 %tmp.11;
+    lputv %line2_y.4 %tmp.12;
+    symbol [ line2_y %line2_y.4 56 8 15 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 57 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop" ]
+    %line2_x0.5 = local;
+    symbol [ line2_x0 %line2_x0.5 57 8 16 ];
+    %tmp.13 = lgetv %x;
+    symbol [ x %tmp.13 57 19 20 ];
+    lputv %line2_x0.5 %tmp.13;
+    symbol [ line2_x0 %line2_x0.5 57 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 58 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop" ]
+    %line2_x1.6 = local;
+    symbol [ line2_x1 %line2_x1.6 58 8 16 ];
+    %tmp.14 = lgetv %x;
+    symbol [ x %tmp.14 58 19 20 ];
+    %tmp.15 = 20;
+    %tmp.16 = add %tmp.14 %tmp.15;
+    lputv %line2_x1.6 %tmp.16;
+    symbol [ line2_x1 %line2_x1.6 58 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 60 4 ]
+    %tmp.17 = lgetv %dc;
+    symbol [ dc %tmp.17 60 4 6 ];
+    symbol [ setColor %tmp.18 60 7 15 ];
+    %tmp.18 = getv function %tmp.17 :setColor;
+    %tmp.19 = lgetv %lineColor;
+    symbol [ lineColor %tmp.19 60 16 25 ];
+    %tmp.20 = lgetv %bgColor;
+    symbol [ bgColor %tmp.20 60 27 34 ];
+    invoke %tmp.17 %tmp.18(%tmp.19, %tmp.20);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 62 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_62_4_73_4_if_stmt:
+    %tmp.21 = lgetv %isFilled;
+    symbol [ isFilled %tmp.21 62 8 16 ];
+    bf %tmp.21 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_62_4_73_4_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_62_4_73_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_63_4_67_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 64 8 ]
+    for @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_test @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_incr @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_init:
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_begin" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_end" ]
+    %i.7 = local;
+    symbol [ i %i.7 64 17 18 ];
+    %tmp.22 = 0;
+    lputv %i.7 %tmp.22;
+    symbol [ i %i.7 64 17 18 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_test:
+    %tmp.23 = lgetv %i.7;
+    symbol [ i %tmp.23 64 22 23 ];
+    %tmp.24 = 10;
+    %tmp.25 = lte %tmp.23 %tmp.24;
+    bf %tmp.25 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_begin:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_33_66_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 65 12 ]
+    %tmp.26 = lgetv %dc;
+    symbol [ dc %tmp.26 65 12 14 ];
+    symbol [ drawLine %tmp.27 65 15 23 ];
+    %tmp.27 = getv function %tmp.26 :drawLine;
+    %tmp.28 = lgetv %line1_x0.2;
+    symbol [ line1_x0 %tmp.28 65 24 32 ];
+    %tmp.29 = lgetv %i.7;
+    symbol [ i %tmp.29 65 35 36 ];
+    %tmp.30 = sub %tmp.28 %tmp.29;
+    %tmp.31 = lgetv %line1_y.1;
+    symbol [ line1_y %tmp.31 65 38 45 ];
+    %tmp.32 = lgetv %i.7;
+    symbol [ i %tmp.32 65 48 49 ];
+    %tmp.33 = add %tmp.31 %tmp.32;
+    %tmp.34 = lgetv %line1_x1.3;
+    symbol [ line1_x1 %tmp.34 65 51 59 ];
+    %tmp.35 = lgetv %i.7;
+    symbol [ i %tmp.35 65 62 63 ];
+    %tmp.36 = sub %tmp.34 %tmp.35;
+    %tmp.37 = lgetv %line1_y.1;
+    symbol [ line1_y %tmp.37 65 65 72 ];
+    %tmp.38 = lgetv %i.7;
+    symbol [ i %tmp.38 65 75 76 ];
+    %tmp.39 = add %tmp.37 %tmp.38;
+    invoke %tmp.26 %tmp.27(%tmp.30, %tmp.33, %tmp.36, %tmp.39);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_33_66_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_incr:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 64 ]
+    %tmp.42 = lgetv %i.7;
+    symbol [ i %tmp.42 64 29 30 ];
+    %tmp.43 = add %tmp.42 1;
+    lputv %i.7 %tmp.43;
+    symbol [ i %i.7 64 29 30 ];
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_test;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_64_8_66_8_for_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_63_4_67_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_62_4_73_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_62_4_73_4_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_68_8_73_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 69 8 ]
+    %tmp.44 = lgetv %dc;
+    symbol [ dc %tmp.44 69 8 10 ];
+    symbol [ drawLine %tmp.45 69 11 19 ];
+    %tmp.45 = getv function %tmp.44 :drawLine;
+    %tmp.46 = lgetv %line1_x0.2;
+    symbol [ line1_x0 %tmp.46 69 20 28 ];
+    %tmp.47 = lgetv %line1_y.1;
+    symbol [ line1_y %tmp.47 69 30 37 ];
+    %tmp.48 = lgetv %line1_x1.3;
+    symbol [ line1_x1 %tmp.48 69 40 48 ];
+    %tmp.49 = lgetv %line1_y.1;
+    symbol [ line1_y %tmp.49 69 50 57 ];
+    invoke %tmp.44 %tmp.45(%tmp.46, %tmp.47, %tmp.48, %tmp.49);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 70 8 ]
+    %tmp.50 = lgetv %dc;
+    symbol [ dc %tmp.50 70 8 10 ];
+    symbol [ drawLine %tmp.51 70 11 19 ];
+    %tmp.51 = getv function %tmp.50 :drawLine;
+    %tmp.52 = lgetv %line2_x0.5;
+    symbol [ line2_x0 %tmp.52 70 20 28 ];
+    %tmp.53 = lgetv %line2_y.4;
+    symbol [ line2_y %tmp.53 70 30 37 ];
+    %tmp.54 = lgetv %line2_x1.6;
+    symbol [ line2_x1 %tmp.54 70 40 48 ];
+    %tmp.55 = lgetv %line2_y.4;
+    symbol [ line2_y %tmp.55 70 50 57 ];
+    invoke %tmp.50 %tmp.51(%tmp.52, %tmp.53, %tmp.54, %tmp.55);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 71 8 ]
+    %tmp.56 = lgetv %dc;
+    symbol [ dc %tmp.56 71 8 10 ];
+    symbol [ drawLine %tmp.57 71 11 19 ];
+    %tmp.57 = getv function %tmp.56 :drawLine;
+    %tmp.58 = lgetv %line2_x0.5;
+    symbol [ line2_x0 %tmp.58 71 20 28 ];
+    %tmp.59 = lgetv %line2_y.4;
+    symbol [ line2_y %tmp.59 71 30 37 ];
+    %tmp.60 = lgetv %line1_x0.2;
+    symbol [ line1_x0 %tmp.60 71 39 47 ];
+    %tmp.61 = lgetv %line1_y.1;
+    symbol [ line1_y %tmp.61 71 49 56 ];
+    invoke %tmp.56 %tmp.57(%tmp.58, %tmp.59, %tmp.60, %tmp.61);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 72 8 ]
+    %tmp.62 = lgetv %dc;
+    symbol [ dc %tmp.62 72 8 10 ];
+    symbol [ drawLine %tmp.63 72 11 19 ];
+    %tmp.63 = getv function %tmp.62 :drawLine;
+    %tmp.64 = lgetv %line2_x1.6;
+    symbol [ line2_x1 %tmp.64 72 20 28 ];
+    %tmp.65 = lgetv %line2_y.4;
+    symbol [ line2_y %tmp.65 72 30 37 ];
+    %tmp.66 = lgetv %line1_x1.3;
+    symbol [ line1_x1 %tmp.66 72 39 47 ];
+    %tmp.67 = lgetv %line1_y.1;
+    symbol [ line1_y %tmp.67 72 49 56 ];
+    invoke %tmp.62 %tmp.63(%tmp.64, %tmp.65, %tmp.66, %tmp.67);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_68_8_73_4_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_62_4_73_4_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_49_77_74_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc"; @line = 76; @symbol_functiondef = [getThemeColors,76,9,23]; @symbol_param<0> = [theme,76,24,29]; ]
+function getThemeColors(theme) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_76_31_106_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 77 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_76_31_106_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_76_31_106_0_stop" ]
+    %colors.1 = local;
+    symbol [ colors %colors.1 77 5 11 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 78 1 ]
+    %tmp.1 = lgetv %theme;
+    symbol [ theme %tmp.1 78 9 14 ];
+    push %tmp.1;
+    switch %tmp.1 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtBegin:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 79 2 ]
+    %tmp.2 = dup %tmp.1;
+    %tmp.3 = 0;
+    %tmp.4 = getv function %tmp.2 :equals;
+    %tmp.5 = invoke %tmp.2 %tmp.4 (%tmp.3);
+    bt %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_79_2_81_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 82 2 ]
+    %tmp.6 = dup %tmp.1;
+    %tmp.7 = 1;
+    %tmp.8 = getv function %tmp.6 :equals;
+    %tmp.9 = invoke %tmp.6 %tmp.8 (%tmp.7);
+    bt %tmp.9 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_82_2_84_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 85 2 ]
+    %tmp.10 = dup %tmp.1;
+    %tmp.11 = 2;
+    %tmp.12 = getv function %tmp.10 :equals;
+    %tmp.13 = invoke %tmp.10 %tmp.12 (%tmp.11);
+    bt %tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_85_2_87_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 88 2 ]
+    %tmp.14 = dup %tmp.1;
+    %tmp.15 = 3;
+    %tmp.16 = getv function %tmp.14 :equals;
+    %tmp.17 = invoke %tmp.14 %tmp.16 (%tmp.15);
+    bt %tmp.17 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_88_2_90_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 91 2 ]
+    %tmp.18 = dup %tmp.1;
+    %tmp.19 = 4;
+    %tmp.20 = getv function %tmp.18 :equals;
+    %tmp.21 = invoke %tmp.18 %tmp.20 (%tmp.19);
+    bt %tmp.21 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_91_2_93_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 94 2 ]
+    %tmp.22 = dup %tmp.1;
+    %tmp.23 = 6;
+    %tmp.24 = getv function %tmp.22 :equals;
+    %tmp.25 = invoke %tmp.22 %tmp.24 (%tmp.23);
+    bt %tmp.25 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_94_2_96_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 97 2 ]
+    %tmp.26 = dup %tmp.1;
+    %tmp.27 = 5;
+    %tmp.28 = getv function %tmp.26 :equals;
+    %tmp.29 = invoke %tmp.26 %tmp.28 (%tmp.27);
+    bt %tmp.29 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_97_2_99_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 100 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtDefault:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_defaultCodeBegin;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_79_2_81_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 80 3 ]
+    symbol [ T_ENDURO2 %tmp.31 80 12 21 ];
+    %tmp.31 = getv ? :T_ENDURO2;
+    lputv %colors.1 %tmp.31;
+    symbol [ colors %colors.1 80 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 81 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_82_2_84_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 83 3 ]
+    symbol [ T_SHARKS %tmp.33 83 12 20 ];
+    %tmp.33 = getv ? :T_SHARKS;
+    lputv %colors.1 %tmp.33;
+    symbol [ colors %colors.1 83 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 84 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_85_2_87_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 86 3 ]
+    symbol [ T_NATURE %tmp.35 86 12 20 ];
+    %tmp.35 = getv ? :T_NATURE;
+    lputv %colors.1 %tmp.35;
+    symbol [ colors %colors.1 86 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 87 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_88_2_90_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 89 3 ]
+    symbol [ T_ICE %tmp.37 89 12 17 ];
+    %tmp.37 = getv ? :T_ICE;
+    lputv %colors.1 %tmp.37;
+    symbol [ colors %colors.1 89 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 90 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_91_2_93_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 92 3 ]
+    symbol [ T_FIRE %tmp.39 92 12 18 ];
+    %tmp.39 = getv ? :T_FIRE;
+    lputv %colors.1 %tmp.39;
+    symbol [ colors %colors.1 92 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 93 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_94_2_96_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 95 3 ]
+    symbol [ T_WHITE %tmp.41 95 12 19 ];
+    %tmp.41 = getv ? :T_WHITE;
+    lputv %colors.1 %tmp.41;
+    symbol [ colors %colors.1 95 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 96 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_97_2_99_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 98 3 ]
+    symbol [ T_ORANGE %tmp.43 98 12 20 ];
+    %tmp.43 = getv ? :T_ORANGE;
+    lputv %colors.1 %tmp.43;
+    symbol [ colors %colors.1 98 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 99 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_100_2_102_8_switchCase:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_defaultCodeBegin:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 101 3 ]
+    symbol [ T_ENDURO2 %tmp.45 101 12 21 ];
+    %tmp.45 = getv ? :T_ENDURO2;
+    lputv %colors.1 %tmp.45;
+    symbol [ colors %colors.1 101 3 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 102 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_78_1_103_1_switchStmtEnd:
+    pop;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc" 105 1 ]
+    %tmp.46 = lgetv %colors.1;
+    symbol [ colors %tmp.46 105 8 14 ];
+    ret %tmp.46;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_Slanted280SpecificFunctions_mc_76_31_106_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280SpecificFunctions.mc"; @line = 1; ]
+<init> {
+}

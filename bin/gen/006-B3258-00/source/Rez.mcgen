@@ -1,0 +1,107 @@
+import Toybox.Lang;
+using Toybox.WatchUi;
+using Toybox.WatchUi as Ui;
+using Toybox.Graphics;
+using Toybox.Graphics as Gfx;
+
+module Rez {
+    module Drawables {
+        (:initialized) var LauncherIcon as ResourceId;
+    } // Drawables
+
+    module Fonts {
+        (:initialized) var IconsFont as ResourceId;
+    } // Fonts
+
+    module Strings {
+        (:initialized) var Wind as ResourceId;
+        (:initialized) var MinutesColorTitle as ResourceId;
+        (:initialized) var ThemeColorTitle as ResourceId;
+        (:initialized) var IconsColorTitle as ResourceId;
+        (:initialized) var ThemeFire as ResourceId;
+        (:initialized) var ThemeNature as ResourceId;
+        (:initialized) var BottomProgressBarColorTitle as ResourceId;
+        (:initialized) var RecoveryTime as ResourceId;
+        (:initialized) var ColorRed as ResourceId;
+        (:initialized) var LowerRightFieldTitle as ResourceId;
+        (:initialized) var SunEvents as ResourceId;
+        (:initialized) var Battery as ResourceId;
+        (:initialized) var ThemeWhite as ResourceId;
+        (:initialized) var ColorTurquoise as ResourceId;
+        (:initialized) var BodyBattery as ResourceId;
+        (:initialized) var TopProgressBarColorTitle as ResourceId;
+        (:initialized) var ColorWhite as ResourceId;
+        (:initialized) var Distance as ResourceId;
+        (:initialized) var BatteryDays as ResourceId;
+        (:initialized) var AppVersionTitle as ResourceId;
+        (:initialized) var GridColorTitle as ResourceId;
+        (:initialized) var ThemeSharks as ResourceId;
+        (:initialized) var City as ResourceId;
+        (:initialized) var ColorOrange as ResourceId;
+        (:initialized) var TimeDisplayTitle as ResourceId;
+        (:initialized) var Pressure as ResourceId;
+        (:initialized) var NightBehaviorTitle as ResourceId;
+        (:initialized) var FullPower as ResourceId;
+        (:initialized) var UpperRightFieldTitle as ResourceId;
+        (:initialized) var LowerLeftFieldTitle as ResourceId;
+        (:initialized) var TopFieldTitle as ResourceId;
+        (:initialized) var ThreeHourTempForecast as ResourceId;
+        (:initialized) var RefreshMinutesTitle as ResourceId;
+        (:initialized) var ColorPurple as ResourceId;
+        (:initialized) var BottomFieldTitle as ResourceId;
+        (:initialized) var Steps as ResourceId;
+        (:initialized) var ColorBlue as ResourceId;
+        (:initialized) var Temperature as ResourceId;
+        (:initialized) var HeartRate as ResourceId;
+        (:initialized) var ColorBabyPoo as ResourceId;
+        (:initialized) var ColorDarkRed as ResourceId;
+        (:initialized) var TwentyFourHour as ResourceId;
+        (:initialized) var DewPointPlusHumidex as ResourceId;
+        (:initialized) var Yes as ResourceId;
+        (:initialized) var SecondaryFieldColorTitle as ResourceId;
+        (:initialized) var WindPlusWindChill as ResourceId;
+        (:initialized) var WindChill as ResourceId;
+        (:initialized) var ColorYellow as ResourceId;
+        (:initialized) var UnitsTitle as ResourceId;
+        (:initialized) var AppName as ResourceId;
+        (:initialized) var ColorDarkGreen as ResourceId;
+        (:initialized) var TwelveHour as ResourceId;
+        (:initialized) var ThemeIce as ResourceId;
+        (:initialized) var ThreeHourRainForecast as ResourceId;
+        (:initialized) var ThemeEnduro2 as ResourceId;
+        (:initialized) var SecondsColorTitle as ResourceId;
+        (:initialized) var MainFieldColorTitle as ResourceId;
+        (:initialized) var ColorTheme as ResourceId;
+        (:initialized) var Humidity as ResourceId;
+        (:initialized) var Days as ResourceId;
+        (:initialized) var ColorPink as ResourceId;
+        (:initialized) var ColorGreen as ResourceId;
+        (:initialized) var MediumPower as ResourceId;
+        (:initialized) var ColorLightGray as ResourceId;
+        (:initialized) var No as ResourceId;
+        (:initialized) var ColorAqua as ResourceId;
+        (:initialized) var ColorDarkGray as ResourceId;
+        (:initialized) var ColorDarkBlue as ResourceId;
+        (:initialized) var ColorLightRed as ResourceId;
+        (:initialized) var ColorBlack as ResourceId;
+        (:initialized) var LowPower as ResourceId;
+        (:initialized) var DewPoint as ResourceId;
+        (:initialized) var Date as ResourceId;
+        (:initialized) var Calories as ResourceId;
+        (:initialized) var ThemeOrange as ResourceId;
+        (:initialized) var BottomProgressBarTitle as ResourceId;
+        (:initialized) var ShowSecondsTitle as ResourceId;
+        (:initialized) var Climb as ResourceId;
+        (:initialized) var UpperLeftFieldTitle as ResourceId;
+        (:initialized) var ProgressBarSpacingTitle as ResourceId;
+        (:initialized) var Metric as ResourceId;
+        (:initialized) var TopProgressBarTitle as ResourceId;
+        (:initialized) var Imperial as ResourceId;
+        (:initialized) var HumidityPlusHumidex as ResourceId;
+        (:initialized) var ColorLightGreen as ResourceId;
+        (:initialized) var TempPlusFeelsLike as ResourceId;
+        (:initialized) var None as ResourceId;
+        (:initialized) var ColorLightBlue as ResourceId;
+        (:initialized) var Altitude as ResourceId;
+    } // Strings
+} // Rez

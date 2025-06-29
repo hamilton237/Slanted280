@@ -301,23 +301,25 @@ class GarminWeather {
     }
 
 
-    public static function getThreeHourPrecipitation() {
+    public function getThreeHourPrecipitation() {
         var returnString = "NA";
-        if (  _hourlyForecast != null &&
+        if (_hourlyForecast != null && _hourlyForecast.size() > 2) {
+            if (_hourlyForecast[0] != null && _hourlyForecast[1] != null && _hourlyForecast[2] != null &&
                 _hourlyForecast[0].precipitationChance != null &&
                 _hourlyForecast[1].precipitationChance != null &&
-                _hourlyForecast[2].precipitationChance != null ) {
+                _hourlyForecast[2].precipitationChance != null) {
 
-            var probRain0 = _hourlyForecast[0].precipitationChance;
-            var probRain1 = _hourlyForecast[1].precipitationChance;
-            var probRain2 = _hourlyForecast[2].precipitationChance;
-            // The case of 100-100-100% is too long of a string
-            if (probRain0 == 100 && probRain1 == 100 && probRain2 == 100){
-                returnString = "<- 100% ->";
+                var probRain0 = _hourlyForecast[0].precipitationChance;
+                var probRain1 = _hourlyForecast[1].precipitationChance;
+                var probRain2 = _hourlyForecast[2].precipitationChance;
+                // The case of 100-100-100% is too long of a string
+                if (probRain0 == 100 && probRain1 == 100 && probRain2 == 100){
+                    returnString = "<- 100% ->";
+                }
+                else{
+                    returnString = probRain0.format("%02d") + "/" + probRain1.format("%02d") + "/" + probRain2.format("%02d") + "%";
+                }
             }
-            else{
-                returnString = probRain0.format("%02d") + "/" + probRain1.format("%02d") + "/" + probRain2.format("%02d") + "%";
-            }       
         }
         
         if (_isIcons) {
@@ -328,16 +330,22 @@ class GarminWeather {
         }
     }
 
-    public static function getThreeHourTemperature() {
+    public function getThreeHourTemperature() {
         var returnString = "NA";
         if (  _hourlyForecast != null &&
+                _hourlyForecast.size() > 2 &&
+                _hourlyForecast[0] != null && _hourlyForecast[1] != null && _hourlyForecast[2] != null &&
                 _hourlyForecast[0].temperature != null &&
                 _hourlyForecast[1].temperature != null &&
                 _hourlyForecast[2].temperature != null ) {
 
-            var temp0 = _isMetric ? _hourlyForecast[0].temperature : celciusToFarenheit(_hourlyForecast[0].temperature);
-            var temp1 = _isMetric ? _hourlyForecast[1].temperature : celciusToFarenheit(_hourlyForecast[1].temperature);
-            var temp2 = _isMetric ? _hourlyForecast[2].temperature : celciusToFarenheit(_hourlyForecast[2].temperature);
+            var forecast0 = (_hourlyForecast[0] as Weather.HourlyForecast);
+            var forecast1 = (_hourlyForecast[1] as Weather.HourlyForecast);
+            var forecast2 = (_hourlyForecast[2] as Weather.HourlyForecast);
+
+            var temp0 = _isMetric ? forecast0.temperature : celciusToFarenheit(forecast0.temperature);
+            var temp1 = _isMetric ? forecast1.temperature : celciusToFarenheit(forecast1.temperature);
+            var temp2 = _isMetric ? forecast2.temperature : celciusToFarenheit(forecast2.temperature);
             
             returnString = temp0.format("%01d") + "/" + temp1.format("%01d") + "/" + temp2.format("%01d") + DEGREE_SYMBOL;
 

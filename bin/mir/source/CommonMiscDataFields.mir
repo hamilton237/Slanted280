@@ -1,0 +1,745 @@
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Math,1,14,18]; ]
+import Toybox.Math;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 3; @symbol_functiondef = [getDate,3,9,16]; @symbol_param<0> = [batSaverTime,3,17,29]; @symbol_param<1> = [isIcons,3,31,38]; ]
+function getDate(batSaverTime, isIcons) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_3_40_12_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 4 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_3_40_12_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_3_40_12_0_stop" ]
+    %returnString.1 = local;
+    symbol [ returnString %returnString.1 4 8 20 ];
+    %tmp.1 = lgetv %batSaverTime;
+    symbol [ batSaverTime %tmp.1 4 23 35 ];
+    symbol [ day_of_week %tmp.2 4 36 47 ];
+    %tmp.2 = getv %tmp.1 :day_of_week;
+    symbol [ toUpper %tmp.3 4 48 55 ];
+    %tmp.3 = getv function %tmp.2 :toUpper;
+    %tmp.4 = invoke %tmp.2 %tmp.3();
+    %tmp.5 = " ";
+    %tmp.6 = add %tmp.4 %tmp.5;
+    %tmp.7 = lgetv %batSaverTime;
+    symbol [ batSaverTime %tmp.7 4 66 78 ];
+    symbol [ day %tmp.8 4 79 82 ];
+    %tmp.8 = getv %tmp.7 :day;
+    %tmp.9 = add %tmp.6 %tmp.8;
+    lputv %returnString.1 %tmp.9;
+    symbol [ returnString %returnString.1 4 8 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 6 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_4_11_4_if_stmt:
+    %tmp.10 = lgetv %isIcons;
+    symbol [ isIcons %tmp.10 6 8 15 ];
+    bf %tmp.10 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_4_11_4_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_4_11_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_17_8_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 7 8 ]
+    %tmp.11 = newa 2;
+    %tmp.12 = lgetv %returnString.1;
+    symbol [ returnString %tmp.12 7 16 28 ];
+    %tmp.13 = dup %tmp.11;
+    %tmp.14 = aputv %tmp.13 0 %tmp.12;
+    symbol [ I_NOICON %tmp.16 7 30 38 ];
+    %tmp.16 = getv ? :I_NOICON;
+    %tmp.17 = dup %tmp.14;
+    %tmp.18 = aputv %tmp.17 1 %tmp.16;
+    ret %tmp.18;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_17_8_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_4_11_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_4_11_4_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_9_9_11_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 10 8 ]
+    %tmp.19 = lgetv %returnString.1;
+    symbol [ returnString %tmp.19 10 15 27 ];
+    ret %tmp.19;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_9_9_11_4_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_6_4_11_4_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_3_40_12_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 14; @symbol_functiondef = [getBodyBatteryField,14,9,28]; @symbol_param<0> = [isIcons,14,29,36]; ]
+function getBodyBatteryField(isIcons) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_14_38_25_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 15 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_14_38_25_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_14_38_25_0_stop" ]
+    %bodyBattery.1 = local;
+    symbol [ bodyBattery %bodyBattery.1 15 8 19 ];
+    %tmp.1 = self;
+    symbol [ getBodyBattery %tmp.2 15 22 36 ];
+    %tmp.2 = getv function %tmp.1 :getBodyBattery;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    lputv %bodyBattery.1 %tmp.3;
+    symbol [ bodyBattery %bodyBattery.1 15 8 19 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 17 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_14_38_25_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_14_38_25_0_stop" ]
+    %returnString.2 = local;
+    symbol [ returnString %returnString.2 17 8 20 ];
+    %tmp.4 = lgetv %bodyBattery.1;
+    symbol [ bodyBattery %tmp.4 17 23 34 ];
+    %tmp.5 = "%";
+    %tmp.6 = add %tmp.4 %tmp.5;
+    lputv %returnString.2 %tmp.6;
+    symbol [ returnString %returnString.2 17 8 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 19 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_4_24_4_if_stmt:
+    %tmp.7 = lgetv %isIcons;
+    symbol [ isIcons %tmp.7 19 8 15 ];
+    bf %tmp.7 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_4_24_4_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_4_24_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_17_21_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 20 8 ]
+    %tmp.8 = newa 2;
+    %tmp.9 = lgetv %returnString.2;
+    symbol [ returnString %tmp.9 20 16 28 ];
+    %tmp.10 = dup %tmp.8;
+    %tmp.11 = aputv %tmp.10 0 %tmp.9;
+    symbol [ I_BODYBATTERY %tmp.13 20 30 43 ];
+    %tmp.13 = getv ? :I_BODYBATTERY;
+    %tmp.14 = dup %tmp.11;
+    %tmp.15 = aputv %tmp.14 1 %tmp.13;
+    ret %tmp.15;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_17_21_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_4_24_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_4_24_4_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_22_9_24_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 23 8 ]
+    %tmp.16 = lgetv %returnString.2;
+    symbol [ returnString %tmp.16 23 15 27 ];
+    ret %tmp.16;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_22_9_24_4_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_19_4_24_4_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_14_38_25_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 27; @symbol_functiondef = [getBaroPressureField,27,9,29]; @symbol_param<0> = [isIcons,27,30,37]; ]
+function getBaroPressureField(isIcons) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_27_39_38_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 28 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_27_39_38_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_27_39_38_0_stop" ]
+    %baroPressure.1 = local;
+    symbol [ baroPressure %baroPressure.1 28 8 20 ];
+    %tmp.1 = self;
+    symbol [ getBaroPressure %tmp.2 28 23 38 ];
+    %tmp.2 = getv function %tmp.1 :getBaroPressure;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    lputv %baroPressure.1 %tmp.3;
+    symbol [ baroPressure %baroPressure.1 28 8 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 30 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_27_39_38_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_27_39_38_0_stop" ]
+    %returnString.2 = local;
+    symbol [ returnString %returnString.2 30 8 20 ];
+    %tmp.4 = lgetv %baroPressure.1;
+    symbol [ baroPressure %tmp.4 30 23 35 ];
+    symbol [ format %tmp.5 30 36 42 ];
+    %tmp.5 = getv function %tmp.4 :format;
+    %tmp.6 = "%.0f";
+    %tmp.7 = invoke %tmp.4 %tmp.5(%tmp.6);
+    lputv %returnString.2 %tmp.7;
+    symbol [ returnString %returnString.2 30 8 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 32 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_4_37_4_if_stmt:
+    %tmp.8 = lgetv %isIcons;
+    symbol [ isIcons %tmp.8 32 8 15 ];
+    bf %tmp.8 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_4_37_4_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_4_37_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_17_34_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 33 8 ]
+    %tmp.9 = newa 2;
+    %tmp.10 = lgetv %returnString.2;
+    symbol [ returnString %tmp.10 33 16 28 ];
+    %tmp.11 = dup %tmp.9;
+    %tmp.12 = aputv %tmp.11 0 %tmp.10;
+    symbol [ I_PRESSURE %tmp.14 33 30 40 ];
+    %tmp.14 = getv ? :I_PRESSURE;
+    %tmp.15 = dup %tmp.12;
+    %tmp.16 = aputv %tmp.15 1 %tmp.14;
+    ret %tmp.16;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_17_34_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_4_37_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_4_37_4_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_35_9_37_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 36 8 ]
+    %tmp.17 = lgetv %returnString.2;
+    symbol [ returnString %tmp.17 36 15 27 ];
+    ret %tmp.17;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_35_9_37_4_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_32_4_37_4_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_27_39_38_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 40; @symbol_functiondef = [getAltitudeField,40,9,25]; @symbol_param<0> = [isMetric,40,26,34]; @symbol_param<1> = [isIcons,40,36,43]; ]
+function getAltitudeField(isMetric, isIcons) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_40_45_57_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 41 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_40_45_57_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_40_45_57_0_stop" ]
+    %returnString.1 = local;
+    symbol [ returnString %returnString.1 41 8 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 42 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_40_45_57_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_40_45_57_0_stop" ]
+    %altitude.2 = local;
+    symbol [ altitude %altitude.2 42 8 16 ];
+    %tmp.1 = self;
+    symbol [ getAltitude %tmp.2 42 19 30 ];
+    %tmp.2 = getv function %tmp.1 :getAltitude;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    lputv %altitude.2 %tmp.3;
+    symbol [ altitude %altitude.2 42 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 43 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_4_49_4_if_stmt:
+    %tmp.4 = lgetv %isMetric;
+    symbol [ isMetric %tmp.4 43 8 16 ];
+    bf %tmp.4 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_4_49_4_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_4_49_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_18_45_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 44 8 ]
+    %tmp.5 = lgetv %altitude.2;
+    symbol [ altitude %tmp.5 44 23 31 ];
+    symbol [ format %tmp.6 44 32 38 ];
+    %tmp.6 = getv function %tmp.5 :format;
+    %tmp.7 = "%.0f";
+    %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+    lputv %returnString.1 %tmp.8;
+    symbol [ returnString %returnString.1 44 8 20 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_18_45_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_4_49_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_4_49_4_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_46_9_49_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 47 8 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_46_9_49_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_46_9_49_4_stop" ]
+    %feet.3 = local;
+    symbol [ feet %feet.3 47 12 16 ];
+    %tmp.9 = lgetv %altitude.2;
+    symbol [ altitude %tmp.9 47 19 27 ];
+    %tmp.10 = 3.28084;
+    %tmp.11 = mul %tmp.9 %tmp.10;
+    lputv %feet.3 %tmp.11;
+    symbol [ feet %feet.3 47 12 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 48 8 ]
+    %tmp.12 = lgetv %feet.3;
+    symbol [ feet %tmp.12 48 23 27 ];
+    symbol [ format %tmp.13 48 28 34 ];
+    %tmp.13 = getv function %tmp.12 :format;
+    %tmp.14 = "%.0f";
+    %tmp.15 = invoke %tmp.12 %tmp.13(%tmp.14);
+    lputv %returnString.1 %tmp.15;
+    symbol [ returnString %returnString.1 48 8 20 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_46_9_49_4_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_43_4_49_4_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 51 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_4_56_4_if_stmt:
+    %tmp.16 = lgetv %isIcons;
+    symbol [ isIcons %tmp.16 51 8 15 ];
+    bf %tmp.16 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_4_56_4_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_4_56_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_17_53_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 52 8 ]
+    %tmp.17 = newa 2;
+    %tmp.18 = lgetv %returnString.1;
+    symbol [ returnString %tmp.18 52 16 28 ];
+    %tmp.19 = dup %tmp.17;
+    %tmp.20 = aputv %tmp.19 0 %tmp.18;
+    symbol [ I_ALTITUDE %tmp.22 52 30 40 ];
+    %tmp.22 = getv ? :I_ALTITUDE;
+    %tmp.23 = dup %tmp.20;
+    %tmp.24 = aputv %tmp.23 1 %tmp.22;
+    ret %tmp.24;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_17_53_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_4_56_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_4_56_4_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_54_9_56_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 55 8 ]
+    %tmp.25 = lgetv %returnString.1;
+    symbol [ returnString %tmp.25 55 15 27 ];
+    ret %tmp.25;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_54_9_56_4_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_51_4_56_4_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_40_45_57_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 59; @symbol_functiondef = [getBaroPressure,59,9,24]; ]
+function getBaroPressure() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_59_26_75_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 61 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_59_26_75_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_59_26_75_0_stop" ]
+    %baroPressure.1 = local;
+    symbol [ baroPressure %baroPressure.1 61 5 17 ];
+    %tmp.1 = 0;
+    lputv %baroPressure.1 %tmp.1;
+    symbol [ baroPressure %baroPressure.1 61 5 17 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 64 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_1_72_1_if_stmt:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_5_64_81_begin:
+    symbol [ Toybox %tmp.3 64 6 12 ];
+    %tmp.3 = getv ? :Toybox;
+    %tmp.5 = const :SensorHistory;
+    symbol [ SensorHistory %tmp.5 64 18 31 const ];
+    %tmp.6 = canhazplz %tmp.3 %tmp.5;
+    bf %tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_1_72_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_36_64_81_true:
+    symbol [ Toybox %tmp.8 64 37 43 ];
+    %tmp.8 = getv ? :Toybox;
+    %tmp.9 = as %tmp.8 { (interface { var SensorHistory; }) };
+    symbol [ SensorHistory %tmp.10 64 44 57 ];
+    %tmp.10 = getv %tmp.9 :SensorHistory;
+    %tmp.12 = const :getPressureHistory;
+    symbol [ getPressureHistory %tmp.12 64 63 81 const ];
+    %tmp.13 = canhazplz %tmp.10 %tmp.12;
+    push %tmp.13;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_36_64_81_end:
+    %tmp.14 = phi [%tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_5_64_81_begin] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_36_64_81_true] [%tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_36_64_81_end];
+    bf %tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_1_72_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_1_72_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_84_72_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 65 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_84_72_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_84_72_1_stop" ]
+    %baroIterator.2 = local;
+    symbol [ baroIterator %baroIterator.2 65 6 18 ];
+    symbol [ Toybox %tmp.16 65 21 27 ];
+    %tmp.16 = getv ? :Toybox;
+    %tmp.17 = as %tmp.16 { (interface { var SensorHistory; }) };
+    symbol [ SensorHistory %tmp.18 65 28 41 ];
+    %tmp.18 = getv %tmp.17 :SensorHistory;
+    symbol [ getPressureHistory %tmp.19 65 42 60 ];
+    %tmp.19 = getv function %tmp.18 :getPressureHistory;
+    %tmp.20 = newd 1;
+    %tmp.22 = const :period;
+    symbol [ period %tmp.22 65 63 69 const ];
+    %tmp.23 = 1;
+    %tmp.24 = dup %tmp.20;
+    %tmp.25 = aputv %tmp.24 %tmp.22 %tmp.23;
+    %tmp.26 = invoke %tmp.18 %tmp.19(%tmp.25);
+    lputv %baroIterator.2 %tmp.26;
+    symbol [ baroIterator %baroIterator.2 65 6 18 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 66 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_84_72_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_84_72_1_stop" ]
+    %baroIt.3 = local;
+    symbol [ baroIt %baroIt.3 66 6 12 ];
+    %tmp.27 = lgetv %baroIterator.2;
+    symbol [ baroIterator %tmp.27 66 15 27 ];
+    symbol [ next %tmp.28 66 28 32 ];
+    %tmp.28 = getv function %tmp.27 :next;
+    %tmp.29 = invoke %tmp.27 %tmp.28();
+    lputv %baroIt.3 %tmp.29;
+    symbol [ baroIt %baroIt.3 66 6 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 68 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_2_71_8_if_stmt:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_6_68_46_begin:
+    %tmp.30 = lgetv %baroIt.3;
+    symbol [ baroIt %tmp.30 68 7 13 ];
+    %tmp.31 = null;
+    %tmp.32 = ne %tmp.30 %tmp.31;
+    bf %tmp.32 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_2_71_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_26_68_46_true:
+    %tmp.33 = lgetv %baroIt.3;
+    symbol [ baroIt %tmp.33 68 27 33 ];
+    %tmp.34 = as %tmp.33 { (!Null) };
+    symbol [ data %tmp.35 68 34 38 ];
+    %tmp.35 = getv %tmp.34 :data;
+    %tmp.36 = null;
+    %tmp.37 = ne %tmp.35 %tmp.36;
+    push %tmp.37;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_26_68_46_end:
+    %tmp.38 = phi [%tmp.32 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_6_68_46_begin] [%tmp.37 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_26_68_46_true] [%tmp.38 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_26_68_46_end];
+    bf %tmp.38 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_2_71_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_2_71_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_49_71_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 69 3 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_49_71_8_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_49_71_8_stop" ]
+    %baro.4 = local;
+    symbol [ baro %baro.4 69 7 11 ];
+    %tmp.39 = lgetv %baroIt.3;
+    symbol [ baroIt %tmp.39 69 14 20 ];
+    %tmp.40 = as %tmp.39 { (!Null) };
+    symbol [ data %tmp.41 69 21 25 ];
+    %tmp.41 = getv %tmp.40 :data;
+    lputv %baro.4 %tmp.41;
+    symbol [ baro %baro.4 69 7 11 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 70 12 ]
+    %tmp.42 = lgetv %baro.4;
+    symbol [ baro %tmp.42 70 27 31 ];
+    %tmp.43 = 100;
+    %tmp.44 = div %tmp.42 %tmp.43;
+    lputv %baroPressure.1 %tmp.44;
+    symbol [ baroPressure %baroPressure.1 70 12 24 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_49_71_8_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_2_71_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_68_2_71_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_84_72_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_1_72_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_64_1_72_1_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 74 1 ]
+    %tmp.45 = lgetv %baroPressure.1;
+    symbol [ baroPressure %tmp.45 74 8 20 ];
+    ret %tmp.45;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_59_26_75_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 77; @symbol_functiondef = [getBaroPressurePercent,77,9,31]; @symbol_param<0> = [baroPressure,77,32,44]; ]
+function getBaroPressurePercent(baroPressure) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 79 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_stop" ]
+    %high.1 = local;
+    symbol [ high %high.1 79 5 9 ];
+    %tmp.1 = 1013;
+    %tmp.2 = 50;
+    %tmp.3 = add %tmp.1 %tmp.2;
+    lputv %high.1 %tmp.3;
+    symbol [ high %high.1 79 5 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 80 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_stop" ]
+    %low.2 = local;
+    symbol [ low %low.2 80 5 8 ];
+    %tmp.4 = 1013;
+    %tmp.5 = 50;
+    %tmp.6 = sub %tmp.4 %tmp.5;
+    lputv %low.2 %tmp.6;
+    symbol [ low %low.2 80 5 8 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 82 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_1_82_47_if_stmt:
+    %tmp.7 = lgetv %baroPressure;
+    symbol [ baroPressure %tmp.7 82 5 17 ];
+    %tmp.8 = lgetv %high.1;
+    symbol [ high %tmp.8 82 20 24 ];
+    %tmp.9 = gt %tmp.7 %tmp.8;
+    bf %tmp.9 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_1_82_47_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_1_82_47_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_26_82_47_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 82 27 ]
+    %tmp.10 = lgetv %high.1;
+    symbol [ high %tmp.10 82 42 46 ];
+    lputv %baroPressure %tmp.10;
+    symbol [ baroPressure %baroPressure 82 27 39 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_26_82_47_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_1_82_47_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_82_1_82_47_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 83 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_1_83_45_if_stmt:
+    %tmp.11 = lgetv %baroPressure;
+    symbol [ baroPressure %tmp.11 83 5 17 ];
+    %tmp.12 = lgetv %low.2;
+    symbol [ low %tmp.12 83 20 23 ];
+    %tmp.13 = lt %tmp.11 %tmp.12;
+    bf %tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_1_83_45_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_1_83_45_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_25_83_45_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 83 26 ]
+    %tmp.14 = lgetv %low.2;
+    symbol [ low %tmp.14 83 41 44 ];
+    lputv %baroPressure %tmp.14;
+    symbol [ baroPressure %baroPressure 83 26 38 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_25_83_45_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_1_83_45_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_83_1_83_45_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 84 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_stop" ]
+    %baroPressurePct.3 = local;
+    symbol [ baroPressurePct %baroPressurePct.3 84 5 20 ];
+    %tmp.15 = lgetv %baroPressure;
+    symbol [ baroPressure %tmp.15 84 23 35 ];
+    %tmp.16 = lgetv %low.2;
+    symbol [ low %tmp.16 84 38 41 ];
+    %tmp.17 = sub %tmp.15 %tmp.16;
+    lputv %baroPressurePct.3 %tmp.17;
+    symbol [ baroPressurePct %baroPressurePct.3 84 5 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 86 1 ]
+    %tmp.18 = lgetv %baroPressurePct.3;
+    symbol [ baroPressurePct %tmp.18 86 8 23 ];
+    ret %tmp.18;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_77_45_88_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 90; @symbol_functiondef = [getAltitude,90,9,20]; ]
+function getAltitude() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_90_22_105_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 92 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_90_22_105_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_90_22_105_0_stop" ]
+    %altitude.1 = local;
+    symbol [ altitude %altitude.1 92 5 13 ];
+    %tmp.1 = 0;
+    lputv %altitude.1 %tmp.1;
+    symbol [ altitude %altitude.1 92 5 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 95 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_1_102_1_if_stmt:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_5_95_82_begin:
+    symbol [ Toybox %tmp.3 95 6 12 ];
+    %tmp.3 = getv ? :Toybox;
+    %tmp.5 = const :SensorHistory;
+    symbol [ SensorHistory %tmp.5 95 18 31 const ];
+    %tmp.6 = canhazplz %tmp.3 %tmp.5;
+    bf %tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_1_102_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_36_95_82_true:
+    symbol [ Toybox %tmp.8 95 37 43 ];
+    %tmp.8 = getv ? :Toybox;
+    %tmp.9 = as %tmp.8 { (interface { var SensorHistory; }) };
+    symbol [ SensorHistory %tmp.10 95 44 57 ];
+    %tmp.10 = getv %tmp.9 :SensorHistory;
+    %tmp.12 = const :getElevationHistory;
+    symbol [ getElevationHistory %tmp.12 95 63 82 const ];
+    %tmp.13 = canhazplz %tmp.10 %tmp.12;
+    push %tmp.13;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_36_95_82_end:
+    %tmp.14 = phi [%tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_5_95_82_begin] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_36_95_82_true] [%tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_36_95_82_end];
+    bf %tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_1_102_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_1_102_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_85_102_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 96 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_85_102_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_85_102_1_stop" ]
+    %altIterator.2 = local;
+    symbol [ altIterator %altIterator.2 96 6 17 ];
+    symbol [ Toybox %tmp.16 96 20 26 ];
+    %tmp.16 = getv ? :Toybox;
+    %tmp.17 = as %tmp.16 { (interface { var SensorHistory; }) };
+    symbol [ SensorHistory %tmp.18 96 27 40 ];
+    %tmp.18 = getv %tmp.17 :SensorHistory;
+    symbol [ getElevationHistory %tmp.19 96 41 60 ];
+    %tmp.19 = getv function %tmp.18 :getElevationHistory;
+    %tmp.20 = newd 1;
+    %tmp.22 = const :period;
+    symbol [ period %tmp.22 96 63 69 const ];
+    %tmp.23 = 1;
+    %tmp.24 = dup %tmp.20;
+    %tmp.25 = aputv %tmp.24 %tmp.22 %tmp.23;
+    %tmp.26 = invoke %tmp.18 %tmp.19(%tmp.25);
+    lputv %altIterator.2 %tmp.26;
+    symbol [ altIterator %altIterator.2 96 6 17 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 97 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_85_102_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_85_102_1_stop" ]
+    %altIt.3 = local;
+    symbol [ altIt %altIt.3 97 6 11 ];
+    %tmp.27 = lgetv %altIterator.2;
+    symbol [ altIterator %tmp.27 97 14 25 ];
+    symbol [ next %tmp.28 97 26 30 ];
+    %tmp.28 = getv function %tmp.27 :next;
+    %tmp.29 = invoke %tmp.27 %tmp.28();
+    lputv %altIt.3 %tmp.29;
+    symbol [ altIt %altIt.3 97 6 11 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 99 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_2_101_2_if_stmt:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_6_99_44_begin:
+    %tmp.30 = lgetv %altIt.3;
+    symbol [ altIt %tmp.30 99 7 12 ];
+    %tmp.31 = null;
+    %tmp.32 = ne %tmp.30 %tmp.31;
+    bf %tmp.32 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_2_101_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_25_99_44_true:
+    %tmp.33 = lgetv %altIt.3;
+    symbol [ altIt %tmp.33 99 26 31 ];
+    %tmp.34 = as %tmp.33 { (!Null) };
+    symbol [ data %tmp.35 99 32 36 ];
+    %tmp.35 = getv %tmp.34 :data;
+    %tmp.36 = null;
+    %tmp.37 = ne %tmp.35 %tmp.36;
+    push %tmp.37;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_25_99_44_end:
+    %tmp.38 = phi [%tmp.32 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_6_99_44_begin] [%tmp.37 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_25_99_44_true] [%tmp.38 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_25_99_44_end];
+    bf %tmp.38 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_2_101_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_2_101_2_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_47_101_2_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 100 3 ]
+    %tmp.39 = lgetv %altIt.3;
+    symbol [ altIt %tmp.39 100 14 19 ];
+    %tmp.40 = as %tmp.39 { (!Null) };
+    symbol [ data %tmp.41 100 20 24 ];
+    %tmp.41 = getv %tmp.40 :data;
+    lputv %altitude.1 %tmp.41;
+    symbol [ altitude %altitude.1 100 3 11 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_47_101_2_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_2_101_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_99_2_101_2_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_85_102_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_1_102_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_95_1_102_1_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 104 1 ]
+    %tmp.42 = lgetv %altitude.1;
+    symbol [ altitude %tmp.42 104 8 16 ];
+    ret %tmp.42;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_90_22_105_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 107; @symbol_functiondef = [getDewPoint,107,9,20]; @symbol_param<0> = [temp,107,21,25]; @symbol_param<1> = [humidity,107,27,35]; ]
+function getDewPoint(temp, humidity) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 108 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_stop" ]
+    %dewPoint.1 = local;
+    symbol [ dewPoint %dewPoint.1 108 5 13 ];
+    %tmp.1 = 0;
+    lputv %dewPoint.1 %tmp.1;
+    symbol [ dewPoint %dewPoint.1 108 5 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 109 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_stop" ]
+    %a1.2 = local;
+    symbol [ a1 %a1.2 109 5 7 ];
+    %tmp.2 = 17.625;
+    lputv %a1.2 %tmp.2;
+    symbol [ a1 %a1.2 109 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 110 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_stop" ]
+    %b1.3 = local;
+    symbol [ b1 %b1.3 110 5 7 ];
+    %tmp.3 = 243.04;
+    lputv %b1.3 %tmp.3;
+    symbol [ b1 %b1.3 110 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 112 1 ]
+    %tmp.4 = lgetv %b1.3;
+    symbol [ b1 %tmp.4 112 13 15 ];
+    symbol [ Math %tmp.5 112 19 23 ];
+    %tmp.5 = getm $.Toybox.Math;
+    symbol [ ln %tmp.6 112 24 26 ];
+    %tmp.6 = getv function %tmp.5 :ln;
+    %tmp.7 = lgetv %humidity;
+    symbol [ humidity %tmp.7 112 27 35 ];
+    %tmp.8 = 100.0;
+    %tmp.9 = div %tmp.7 %tmp.8;
+    %tmp.10 = invoke %tmp.5 %tmp.6(%tmp.9);
+    %tmp.11 = lgetv %a1.2;
+    symbol [ a1 %tmp.11 112 48 50 ];
+    %tmp.12 = lgetv %temp;
+    symbol [ temp %tmp.12 112 53 57 ];
+    %tmp.13 = mul %tmp.11 %tmp.12;
+    %tmp.14 = lgetv %b1.3;
+    symbol [ b1 %tmp.14 112 60 62 ];
+    %tmp.15 = lgetv %temp;
+    symbol [ temp %tmp.15 112 65 69 ];
+    %tmp.16 = add %tmp.14 %tmp.15;
+    %tmp.17 = div %tmp.13 %tmp.16;
+    %tmp.18 = add %tmp.10 %tmp.17;
+    %tmp.19 = mul %tmp.4 %tmp.18;
+    %tmp.20 = lgetv %a1.2;
+    symbol [ a1 %tmp.20 112 77 79 ];
+    symbol [ Math %tmp.21 112 82 86 ];
+    %tmp.21 = getm $.Toybox.Math;
+    symbol [ ln %tmp.22 112 87 89 ];
+    %tmp.22 = getv function %tmp.21 :ln;
+    %tmp.23 = lgetv %humidity;
+    symbol [ humidity %tmp.23 112 91 99 ];
+    %tmp.24 = 100.0;
+    %tmp.25 = div %tmp.23 %tmp.24;
+    %tmp.26 = invoke %tmp.21 %tmp.22(%tmp.25);
+    %tmp.27 = sub %tmp.20 %tmp.26;
+    %tmp.28 = lgetv %a1.2;
+    symbol [ a1 %tmp.28 112 111 113 ];
+    %tmp.29 = lgetv %temp;
+    symbol [ temp %tmp.29 112 116 120 ];
+    %tmp.30 = mul %tmp.28 %tmp.29;
+    %tmp.31 = lgetv %b1.3;
+    symbol [ b1 %tmp.31 112 123 125 ];
+    %tmp.32 = lgetv %temp;
+    symbol [ temp %tmp.32 112 128 132 ];
+    %tmp.33 = add %tmp.31 %tmp.32;
+    %tmp.34 = div %tmp.30 %tmp.33;
+    %tmp.35 = sub %tmp.27 %tmp.34;
+    %tmp.36 = div %tmp.19 %tmp.35;
+    lputv %dewPoint.1 %tmp.36;
+    symbol [ dewPoint %dewPoint.1 112 1 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 114 1 ]
+    %tmp.37 = lgetv %dewPoint.1;
+    symbol [ dewPoint %tmp.37 114 8 16 ];
+    ret %tmp.37;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_107_37_115_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 117; @symbol_functiondef = [getBodyBattery,117,9,23]; ]
+function getBodyBattery() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_117_26_132_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 119 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_117_26_132_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_117_26_132_0_stop" ]
+    %bodyBattery.1 = local;
+    symbol [ bodyBattery %bodyBattery.1 119 5 16 ];
+    %tmp.1 = 0;
+    lputv %bodyBattery.1 %tmp.1;
+    symbol [ bodyBattery %bodyBattery.1 119 5 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 122 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_1_130_1_if_stmt:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_5_122_84_begin:
+    symbol [ Toybox %tmp.3 122 6 12 ];
+    %tmp.3 = getv ? :Toybox;
+    %tmp.5 = const :SensorHistory;
+    symbol [ SensorHistory %tmp.5 122 18 31 const ];
+    %tmp.6 = canhazplz %tmp.3 %tmp.5;
+    bf %tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_1_130_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_36_122_84_true:
+    symbol [ Toybox %tmp.8 122 37 43 ];
+    %tmp.8 = getv ? :Toybox;
+    %tmp.9 = as %tmp.8 { (interface { var SensorHistory; }) };
+    symbol [ SensorHistory %tmp.10 122 44 57 ];
+    %tmp.10 = getv %tmp.9 :SensorHistory;
+    %tmp.12 = const :getBodyBatteryHistory;
+    symbol [ getBodyBatteryHistory %tmp.12 122 63 84 const ];
+    %tmp.13 = canhazplz %tmp.10 %tmp.12;
+    push %tmp.13;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_36_122_84_end:
+    %tmp.14 = phi [%tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_5_122_84_begin] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_36_122_84_true] [%tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_36_122_84_end];
+    bf %tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_1_130_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_1_130_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_87_130_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 124 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_87_130_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_87_130_1_stop" ]
+    %bbIterator.2 = local;
+    symbol [ bbIterator %bbIterator.2 124 6 16 ];
+    symbol [ Toybox %tmp.16 124 19 25 ];
+    %tmp.16 = getv ? :Toybox;
+    %tmp.17 = as %tmp.16 { (interface { var SensorHistory; }) };
+    symbol [ SensorHistory %tmp.18 124 26 39 ];
+    %tmp.18 = getv %tmp.17 :SensorHistory;
+    symbol [ getBodyBatteryHistory %tmp.19 124 40 61 ];
+    %tmp.19 = getv function %tmp.18 :getBodyBatteryHistory;
+    %tmp.20 = newd 1;
+    %tmp.22 = const :Number;
+    symbol [ Number %tmp.22 124 65 71 const ];
+    %tmp.23 = 1;
+    %tmp.24 = dup %tmp.20;
+    %tmp.25 = aputv %tmp.24 %tmp.22 %tmp.23;
+    %tmp.26 = invoke %tmp.18 %tmp.19(%tmp.25);
+    lputv %bbIterator.2 %tmp.26;
+    symbol [ bbIterator %bbIterator.2 124 6 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 125 2 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_87_130_1_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_87_130_1_stop" ]
+    %bodyBatteryIt.3 = local;
+    symbol [ bodyBatteryIt %bodyBatteryIt.3 125 6 19 ];
+    %tmp.27 = lgetv %bbIterator.2;
+    symbol [ bbIterator %tmp.27 125 22 32 ];
+    symbol [ next %tmp.28 125 33 37 ];
+    %tmp.28 = getv function %tmp.27 :next;
+    %tmp.29 = invoke %tmp.27 %tmp.28();
+    lputv %bodyBatteryIt.3 %tmp.29;
+    symbol [ bodyBatteryIt %bodyBatteryIt.3 125 6 19 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 127 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_2_129_8_if_stmt:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_6_127_53_begin:
+    %tmp.30 = lgetv %bodyBatteryIt.3;
+    symbol [ bodyBatteryIt %tmp.30 127 6 19 ];
+    %tmp.31 = null;
+    %tmp.32 = ne %tmp.30 %tmp.31;
+    bf %tmp.32 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_2_129_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_31_127_53_true:
+    %tmp.33 = lgetv %bodyBatteryIt.3;
+    symbol [ bodyBatteryIt %tmp.33 127 31 44 ];
+    %tmp.34 = as %tmp.33 { (!Null) };
+    symbol [ data %tmp.35 127 45 49 ];
+    %tmp.35 = getv %tmp.34 :data;
+    %tmp.36 = null;
+    %tmp.37 = ne %tmp.35 %tmp.36;
+    push %tmp.37;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_31_127_53_end:
+    %tmp.38 = phi [%tmp.32 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_6_127_53_begin] [%tmp.37 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_31_127_53_true] [%tmp.38 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_31_127_53_end];
+    bf %tmp.38 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_2_129_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_2_129_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_59_129_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 128 12 ]
+    %tmp.39 = lgetv %bodyBatteryIt.3;
+    symbol [ bodyBatteryIt %tmp.39 128 26 39 ];
+    %tmp.40 = as %tmp.39 { (!Null) };
+    symbol [ data %tmp.41 128 40 44 ];
+    %tmp.41 = getv %tmp.40 :data;
+    lputv %bodyBattery.1 %tmp.41;
+    symbol [ bodyBattery %bodyBattery.1 128 12 23 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_59_129_8_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_2_129_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_127_2_129_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_87_130_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_1_130_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_122_1_130_1_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc" 131 1 ]
+    %tmp.42 = lgetv %bodyBattery.1;
+    symbol [ bodyBattery %tmp.42 131 8 19 ];
+    symbol [ format %tmp.43 131 20 26 ];
+    %tmp.43 = getv function %tmp.42 :format;
+    %tmp.44 = "%.0f";
+    %tmp.45 = invoke %tmp.42 %tmp.43(%tmp.44);
+    ret %tmp.45;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonMiscDataFields_mc_117_26_132_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonMiscDataFields.mc"; @line = 1; ]
+<init> {
+}

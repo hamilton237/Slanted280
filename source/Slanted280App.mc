@@ -21,8 +21,8 @@ class Slanted280App extends Application.AppBase {
     }
 
     // Return the initial view of your application here
-    function getInitialView() as Array<Views or InputDelegates>? {
-        mView = new Slanted280View() as Array<Views or InputDelegates>;
+    function getInitialView() {
+        mView = new Slanted280View();
         return [mView];
     }
 

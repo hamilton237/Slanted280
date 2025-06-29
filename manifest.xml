@@ -6,7 +6,7 @@
         to update the application attributes.
     -->
     <!--<iq:application id="a94560f8-d236-4ba9-8ac0-d0cac7caabb0" type="watchface" name="@Strings.AppName" entry="Slanted280App" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0">-->
-    <iq:application minApiLevel="3.2.0" type="watchface" name="@Strings.AppName" entry="Slanted280App" launcherIcon="@Drawables.LauncherIcon" id="1718b0c7-ab0a-4ff0-b96d-78738b46bd76">
+    <iq:application minApiLevel="3.2.0" type="watchface" name="@Strings.AppName" entry="Slanted280App" launcherIcon="@Drawables.LauncherIcon" id="da0fa2c2-fba2-4140-9017-cc8cae6b45fd">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
@@ -28,14 +28,16 @@
             <iq:product id="fr255"/>
             <iq:product id="fr255m"/>
             <iq:product id="fr955"/>
+            <iq:product id="fr965"/>
+            <iq:product id="fr970"/>
         </iq:products>
         <!--
             Use "Monkey C: Edit Permissions" from the Visual Studio Code command
             palette to update permissions.
         -->
         <iq:permissions>
-            <iq:uses-permission id="SensorHistory"/>
             <iq:uses-permission id="Positioning"/>
+            <iq:uses-permission id="SensorHistory"/>
             <iq:uses-permission id="UserProfile"/>
         </iq:permissions>
         <!--

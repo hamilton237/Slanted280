@@ -1,0 +1,192 @@
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [System,1,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 3; @symbol_classdef = [SysStats,3,6,14]; ]
+class SysStats {
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 3; ]
+    <init> {
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 3; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 4; @position = 16; @symbol_vardef = [_systemStats,4,16,28]; ]
+    private
+    var _systemStats;
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 5; @position = 16; @symbol_vardef = [_isIcons,5,16,24]; ]
+    private
+    var _isIcons;
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 7; @symbol_functiondef = [initialize,7,20,30]; @symbol_param<0> = [isIcons,7,31,38]; ]
+    public
+    function initialize(isIcons) as Void {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_7_40_11_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 9 8 ]
+        symbol [ System %tmp.1 9 23 29 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getSystemStats %tmp.2 9 30 44 ];
+        %tmp.2 = getv function %tmp.1 :getSystemStats;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        symbol [ _systemStats ? 9 8 20 ];
+        putv self :_systemStats %tmp.3;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 10 8 ]
+        %tmp.4 = lgetv %isIcons;
+        symbol [ isIcons %tmp.4 10 19 26 ];
+        symbol [ _isIcons ? 10 8 16 ];
+        putv self :_isIcons %tmp.4;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_7_40_11_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 13; @symbol_functiondef = [getBattery,13,20,30]; ]
+    public
+    function getBattery() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_13_33_22_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 14 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_13_33_22_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_13_33_22_4_stop" ]
+        %returnString.1 = local;
+        symbol [ returnString %returnString.1 14 12 24 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_begin:
+        symbol [ _systemStats %tmp.2 14 27 39 ];
+        %tmp.2 = getv ? :_systemStats;
+        symbol [ battery %tmp.3 14 40 47 ];
+        %tmp.3 = getv %tmp.2 :battery;
+        %tmp.4 = null;
+        %tmp.5 = ne %tmp.3 %tmp.4;
+        bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_true:
+        symbol [ _systemStats %tmp.7 14 58 70 ];
+        %tmp.7 = getv ? :_systemStats;
+        symbol [ battery %tmp.8 14 71 78 ];
+        %tmp.8 = getv %tmp.7 :battery;
+        symbol [ format %tmp.9 14 79 85 ];
+        %tmp.9 = getv function %tmp.8 :format;
+        %tmp.10 = "%.0f";
+        %tmp.11 = invoke %tmp.8 %tmp.9(%tmp.10);
+        %tmp.12 = "%";
+        %tmp.13 = add %tmp.11 %tmp.12;
+        push %tmp.13;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_false:
+        %tmp.14 = "NA";
+        push %tmp.14;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_end:
+        %tmp.15 = phi [%tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_begin] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_true] [%tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_false] [%tmp.15 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_14_27_14_102_end];
+        lputv %returnString.1 %tmp.15;
+        symbol [ returnString %returnString.1 14 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 16 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_8_21_8_if_stmt:
+        symbol [ _isIcons %tmp.17 16 12 20 ];
+        %tmp.17 = getv ? :_isIcons;
+        bf %tmp.17 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_8_21_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_8_21_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_22_18_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 17 12 ]
+        %tmp.18 = newa 2;
+        %tmp.19 = lgetv %returnString.1;
+        symbol [ returnString %tmp.19 17 20 32 ];
+        %tmp.20 = dup %tmp.18;
+        %tmp.21 = aputv %tmp.20 0 %tmp.19;
+        symbol [ I_BATTERY %tmp.23 17 34 43 ];
+        %tmp.23 = getv ? :I_BATTERY;
+        %tmp.24 = dup %tmp.21;
+        %tmp.25 = aputv %tmp.24 1 %tmp.23;
+        ret %tmp.25;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_22_18_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_8_21_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_8_21_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_19_13_21_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 20 12 ]
+        %tmp.26 = lgetv %returnString.1;
+        symbol [ returnString %tmp.26 20 19 31 ];
+        ret %tmp.26;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_19_13_21_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_16_8_21_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_13_33_22_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 24; @symbol_functiondef = [getBatteryInDays,24,20,36]; @symbol_param<0> = [dayString,24,37,46]; ]
+    public
+    function getBatteryInDays(dayString) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_24_48_36_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 25 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_24_48_36_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_24_48_36_4_stop" ]
+        %returnString.1 = local;
+        symbol [ returnString %returnString.1 25 12 24 ];
+        %tmp.1 = "NA";
+        lputv %returnString.1 %tmp.1;
+        symbol [ returnString %returnString.1 25 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 26 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_8_28_8_if_stmt:
+        symbol [ _systemStats %tmp.3 26 12 24 ];
+        %tmp.3 = getv ? :_systemStats;
+        %tmp.5 = const :batteryInDays;
+        symbol [ batteryInDays %tmp.5 26 30 43 const ];
+        %tmp.6 = canhazplz %tmp.3 %tmp.5;
+        bf %tmp.6 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_8_28_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_8_28_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_45_28_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 27 12 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_begin:
+        symbol [ _systemStats %tmp.8 27 27 39 ];
+        %tmp.8 = getv ? :_systemStats;
+        %tmp.9 = as %tmp.8 { (interface { var batteryInDays; }) };
+        symbol [ batteryInDays %tmp.10 27 40 53 ];
+        %tmp.10 = getv %tmp.9 :batteryInDays;
+        %tmp.11 = null;
+        %tmp.12 = ne %tmp.10 %tmp.11;
+        bf %tmp.12 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_true:
+        symbol [ _systemStats %tmp.14 27 64 76 ];
+        %tmp.14 = getv ? :_systemStats;
+        %tmp.15 = as %tmp.14 { (interface { var batteryInDays; }) };
+        symbol [ batteryInDays %tmp.16 27 77 90 ];
+        %tmp.16 = getv %tmp.15 :batteryInDays;
+        symbol [ format %tmp.17 27 91 97 ];
+        %tmp.17 = getv function %tmp.16 :format;
+        %tmp.18 = "%.1f";
+        %tmp.19 = invoke %tmp.16 %tmp.17(%tmp.18);
+        %tmp.20 = lgetv %dayString;
+        symbol [ dayString %tmp.20 27 109 118 ];
+        %tmp.21 = add %tmp.19 %tmp.20;
+        push %tmp.21;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_false:
+        %tmp.22 = "NA";
+        push %tmp.22;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_end:
+        %tmp.23 = phi [%tmp.12 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_begin] [%tmp.21 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_true] [%tmp.22 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_false] [%tmp.23 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_27_27_27_121_end];
+        lputv %returnString.1 %tmp.23;
+        symbol [ returnString %returnString.1 27 12 24 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_45_28_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_8_28_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_26_8_28_8_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 30 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_8_35_8_if_stmt:
+        symbol [ _isIcons %tmp.25 30 12 20 ];
+        %tmp.25 = getv ? :_isIcons;
+        bf %tmp.25 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_8_35_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_8_35_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_22_32_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 31 12 ]
+        %tmp.26 = newa 2;
+        %tmp.27 = lgetv %returnString.1;
+        symbol [ returnString %tmp.27 31 20 32 ];
+        %tmp.28 = dup %tmp.26;
+        %tmp.29 = aputv %tmp.28 0 %tmp.27;
+        symbol [ I_BATTERY %tmp.31 31 34 43 ];
+        %tmp.31 = getv ? :I_BATTERY;
+        %tmp.32 = dup %tmp.29;
+        %tmp.33 = aputv %tmp.32 1 %tmp.31;
+        ret %tmp.33;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_22_32_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_8_35_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_8_35_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_33_13_35_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc" 34 12 ]
+        %tmp.34 = lgetv %returnString.1;
+        symbol [ returnString %tmp.34 34 19 31 ];
+        ret %tmp.34;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_33_13_35_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_30_8_35_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonSystemStatsClass_mc_24_48_36_4_stop:
+    }
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonSystemStatsClass.mc"; @line = 1; ]
+<init> {
+}

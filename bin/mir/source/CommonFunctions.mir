@@ -1,0 +1,1265 @@
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Time,1,13,17]; @symbol_usingdef<2> = [Gregorian,1,18,27]; ]
+using Toybox.Time.Gregorian;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [System,2,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Graphics,4,13,21]; ]
+using Toybox.Graphics;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Activity,5,13,21]; ]
+using Toybox.Activity;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 6; @symbol_usingdef<0> = [Toybox,6,6,12]; @symbol_usingdef<1> = [Lang,6,13,17]; ]
+using Toybox.Lang;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 9; @symbol_functiondef = [getStringPosition,9,9,26]; @symbol_param<0> = [stringWidth,9,28,39]; @symbol_param<1> = [desiredPosition,9,41,56]; @symbol_param<2> = [watchWidth,9,58,68]; ]
+function getStringPosition(stringWidth, desiredPosition, watchWidth) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_9_69_12_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 10 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_9_69_12_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_9_69_12_0_stop" ]
+    %stringPosition.1 = local;
+    symbol [ stringPosition %stringPosition.1 10 8 22 ];
+    %tmp.1 = lgetv %desiredPosition;
+    symbol [ desiredPosition %tmp.1 10 26 41 ];
+    %tmp.2 = lgetv %watchWidth;
+    symbol [ watchWidth %tmp.2 10 44 54 ];
+    %tmp.3 = mul %tmp.1 %tmp.2;
+    %tmp.4 = 100;
+    %tmp.5 = div %tmp.3 %tmp.4;
+    %tmp.6 = lgetv %stringWidth;
+    symbol [ stringWidth %tmp.6 10 65 76 ];
+    %tmp.7 = 2;
+    %tmp.8 = div %tmp.6 %tmp.7;
+    %tmp.9 = sub %tmp.5 %tmp.8;
+    lputv %stringPosition.1 %tmp.9;
+    symbol [ stringPosition %stringPosition.1 10 8 22 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 11 4 ]
+    %tmp.10 = lgetv %stringPosition.1;
+    symbol [ stringPosition %tmp.10 11 11 25 ];
+    ret %tmp.10;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_9_69_12_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 15; @symbol_functiondef = [getPosFromPercent,15,9,26]; @symbol_param<0> = [percent,15,27,34]; @symbol_param<1> = [size,15,36,40]; ]
+function getPosFromPercent(percent, size) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_15_41_17_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 16 4 ]
+    %tmp.1 = lgetv %percent;
+    symbol [ percent %tmp.1 16 11 18 ];
+    %tmp.2 = lgetv %size;
+    symbol [ size %tmp.2 16 21 25 ];
+    %tmp.3 = mul %tmp.1 %tmp.2;
+    %tmp.4 = 100;
+    %tmp.5 = div %tmp.3 %tmp.4;
+    ret %tmp.5;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_15_41_17_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 20; @symbol_functiondef = [getTimeDiff,20,9,20]; @symbol_param<0> = [time1,20,21,26]; @symbol_param<1> = [time2,20,28,33]; ]
+function getTimeDiff(time1, time2) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 21 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_stop" ]
+    %options1.1 = local;
+    symbol [ options1 %options1.1 21 8 16 ];
+    %tmp.1 = newd 6;
+    %tmp.3 = const :year;
+    symbol [ year %tmp.3 22 9 13 const ];
+    %tmp.4 = lgetv %time1;
+    symbol [ time1 %tmp.4 22 19 24 ];
+    symbol [ year %tmp.5 22 25 29 ];
+    %tmp.5 = getv %tmp.4 :year;
+    %tmp.6 = dup %tmp.1;
+    %tmp.7 = aputv %tmp.6 %tmp.3 %tmp.5;
+    %tmp.9 = const :month;
+    symbol [ month %tmp.9 23 9 14 const ];
+    %tmp.10 = lgetv %time1;
+    symbol [ time1 %tmp.10 23 19 24 ];
+    symbol [ month %tmp.11 23 25 30 ];
+    %tmp.11 = getv %tmp.10 :month;
+    %tmp.12 = dup %tmp.7;
+    %tmp.13 = aputv %tmp.12 %tmp.9 %tmp.11;
+    %tmp.15 = const :day;
+    symbol [ day %tmp.15 24 9 12 const ];
+    %tmp.16 = lgetv %time1;
+    symbol [ time1 %tmp.16 24 19 24 ];
+    symbol [ day %tmp.17 24 25 28 ];
+    %tmp.17 = getv %tmp.16 :day;
+    %tmp.18 = dup %tmp.13;
+    %tmp.19 = aputv %tmp.18 %tmp.15 %tmp.17;
+    %tmp.21 = const :hour;
+    symbol [ hour %tmp.21 25 9 13 const ];
+    %tmp.22 = lgetv %time1;
+    symbol [ time1 %tmp.22 25 19 24 ];
+    symbol [ hour %tmp.23 25 25 29 ];
+    %tmp.23 = getv %tmp.22 :hour;
+    %tmp.24 = dup %tmp.19;
+    %tmp.25 = aputv %tmp.24 %tmp.21 %tmp.23;
+    %tmp.27 = const :minute;
+    symbol [ minute %tmp.27 26 9 15 const ];
+    %tmp.28 = lgetv %time1;
+    symbol [ time1 %tmp.28 26 19 24 ];
+    symbol [ min %tmp.29 26 25 28 ];
+    %tmp.29 = getv %tmp.28 :min;
+    %tmp.30 = dup %tmp.25;
+    %tmp.31 = aputv %tmp.30 %tmp.27 %tmp.29;
+    %tmp.33 = const :second;
+    symbol [ second %tmp.33 27 9 15 const ];
+    %tmp.34 = lgetv %time1;
+    symbol [ time1 %tmp.34 27 19 24 ];
+    symbol [ sec %tmp.35 27 25 28 ];
+    %tmp.35 = getv %tmp.34 :sec;
+    %tmp.36 = dup %tmp.31;
+    %tmp.37 = aputv %tmp.36 %tmp.33 %tmp.35;
+    lputv %options1.1 %tmp.37;
+    symbol [ options1 %options1.1 21 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 29 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_stop" ]
+    %date1.2 = local;
+    symbol [ date1 %date1.2 29 8 13 ];
+    symbol [ Gregorian %tmp.38 29 16 25 ];
+    %tmp.38 = getm $.Toybox.Time.Gregorian;
+    symbol [ moment %tmp.39 29 26 32 ];
+    %tmp.39 = getv function %tmp.38 :moment;
+    %tmp.40 = lgetv %options1.1;
+    symbol [ options1 %tmp.40 29 33 41 ];
+    %tmp.41 = invoke %tmp.38 %tmp.39(%tmp.40);
+    lputv %date1.2 %tmp.41;
+    symbol [ date1 %date1.2 29 8 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 31 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_stop" ]
+    %options2.3 = local;
+    symbol [ options2 %options2.3 31 8 16 ];
+    %tmp.42 = newd 6;
+    %tmp.44 = const :year;
+    symbol [ year %tmp.44 32 9 13 const ];
+    %tmp.45 = lgetv %time2;
+    symbol [ time2 %tmp.45 32 19 24 ];
+    symbol [ year %tmp.46 32 25 29 ];
+    %tmp.46 = getv %tmp.45 :year;
+    %tmp.47 = dup %tmp.42;
+    %tmp.48 = aputv %tmp.47 %tmp.44 %tmp.46;
+    %tmp.50 = const :month;
+    symbol [ month %tmp.50 33 9 14 const ];
+    %tmp.51 = lgetv %time2;
+    symbol [ time2 %tmp.51 33 19 24 ];
+    symbol [ month %tmp.52 33 25 30 ];
+    %tmp.52 = getv %tmp.51 :month;
+    %tmp.53 = dup %tmp.48;
+    %tmp.54 = aputv %tmp.53 %tmp.50 %tmp.52;
+    %tmp.56 = const :day;
+    symbol [ day %tmp.56 34 9 12 const ];
+    %tmp.57 = lgetv %time2;
+    symbol [ time2 %tmp.57 34 19 24 ];
+    symbol [ day %tmp.58 34 25 28 ];
+    %tmp.58 = getv %tmp.57 :day;
+    %tmp.59 = dup %tmp.54;
+    %tmp.60 = aputv %tmp.59 %tmp.56 %tmp.58;
+    %tmp.62 = const :hour;
+    symbol [ hour %tmp.62 35 9 13 const ];
+    %tmp.63 = lgetv %time2;
+    symbol [ time2 %tmp.63 35 19 24 ];
+    symbol [ hour %tmp.64 35 25 29 ];
+    %tmp.64 = getv %tmp.63 :hour;
+    %tmp.65 = dup %tmp.60;
+    %tmp.66 = aputv %tmp.65 %tmp.62 %tmp.64;
+    %tmp.68 = const :minute;
+    symbol [ minute %tmp.68 36 9 15 const ];
+    %tmp.69 = lgetv %time2;
+    symbol [ time2 %tmp.69 36 19 24 ];
+    symbol [ min %tmp.70 36 25 28 ];
+    %tmp.70 = getv %tmp.69 :min;
+    %tmp.71 = dup %tmp.66;
+    %tmp.72 = aputv %tmp.71 %tmp.68 %tmp.70;
+    %tmp.74 = const :second;
+    symbol [ second %tmp.74 37 9 15 const ];
+    %tmp.75 = lgetv %time2;
+    symbol [ time2 %tmp.75 37 19 24 ];
+    symbol [ sec %tmp.76 37 25 28 ];
+    %tmp.76 = getv %tmp.75 :sec;
+    %tmp.77 = dup %tmp.72;
+    %tmp.78 = aputv %tmp.77 %tmp.74 %tmp.76;
+    lputv %options2.3 %tmp.78;
+    symbol [ options2 %options2.3 31 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 39 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_stop" ]
+    %date2.4 = local;
+    symbol [ date2 %date2.4 39 8 13 ];
+    symbol [ Gregorian %tmp.79 39 16 25 ];
+    %tmp.79 = getm $.Toybox.Time.Gregorian;
+    symbol [ moment %tmp.80 39 26 32 ];
+    %tmp.80 = getv function %tmp.79 :moment;
+    %tmp.81 = lgetv %options2.3;
+    symbol [ options2 %tmp.81 39 33 41 ];
+    %tmp.82 = invoke %tmp.79 %tmp.80(%tmp.81);
+    lputv %date2.4 %tmp.82;
+    symbol [ date2 %date2.4 39 8 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 41 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_stop" ]
+    %result.5 = local;
+    symbol [ result %result.5 41 8 14 ];
+    %tmp.83 = lgetv %date1.2;
+    symbol [ date1 %tmp.83 41 17 22 ];
+    symbol [ subtract %tmp.84 41 23 31 ];
+    %tmp.84 = getv function %tmp.83 :subtract;
+    %tmp.85 = lgetv %date2.4;
+    symbol [ date2 %tmp.85 41 32 37 ];
+    %tmp.86 = invoke %tmp.83 %tmp.84(%tmp.85);
+    lputv %result.5 %tmp.86;
+    symbol [ result %result.5 41 8 14 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 43 4 ]
+    %tmp.87 = lgetv %result.5;
+    symbol [ result %tmp.87 43 11 17 ];
+    ret %tmp.87;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_20_34_45_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 49; @symbol_functiondef = [processSleepTime,49,9,25]; @symbol_param<0> = [inputTime,49,26,35]; ]
+function processSleepTime(inputTime) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 50 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_stop" ]
+    %hours.1 = local;
+    symbol [ hours %hours.1 50 5 10 ];
+    %tmp.1 = 0;
+    lputv %hours.1 %tmp.1;
+    symbol [ hours %hours.1 50 5 10 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 51 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_stop" ]
+    %minutes.2 = local;
+    symbol [ minutes %minutes.2 51 5 12 ];
+    %tmp.2 = 0;
+    lputv %minutes.2 %tmp.2;
+    symbol [ minutes %minutes.2 51 5 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 53 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_stop" ]
+    %timeValue.3 = local;
+    symbol [ timeValue %timeValue.3 53 5 14 ];
+    %tmp.3 = lgetv %inputTime;
+    symbol [ inputTime %tmp.3 53 17 26 ];
+    symbol [ value %tmp.4 53 27 32 ];
+    %tmp.4 = getv function %tmp.3 :value;
+    %tmp.5 = invoke %tmp.3 %tmp.4();
+    lputv %timeValue.3 %tmp.5;
+    symbol [ timeValue %timeValue.3 53 5 14 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 54 1 ]
+    %tmp.6 = lgetv %inputTime;
+    symbol [ inputTime %tmp.6 54 9 18 ];
+    symbol [ divide %tmp.7 54 19 25 ];
+    %tmp.7 = getv function %tmp.6 :divide;
+    symbol [ Gregorian %tmp.8 54 26 35 ];
+    %tmp.8 = getm $.Toybox.Time.Gregorian;
+    symbol [ SECONDS_PER_HOUR %tmp.9 54 36 52 ];
+    %tmp.9 = getv %tmp.8 :SECONDS_PER_HOUR;
+    %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+    symbol [ value %tmp.11 54 54 59 ];
+    %tmp.11 = getv function %tmp.10 :value;
+    %tmp.12 = invoke %tmp.10 %tmp.11();
+    lputv %hours.1 %tmp.12;
+    symbol [ hours %hours.1 54 1 6 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 55 1 ]
+    %tmp.13 = lgetv %timeValue.3;
+    symbol [ timeValue %tmp.13 55 12 21 ];
+    %tmp.14 = lgetv %hours.1;
+    symbol [ hours %tmp.14 55 25 30 ];
+    symbol [ Gregorian %tmp.15 55 33 42 ];
+    %tmp.15 = getm $.Toybox.Time.Gregorian;
+    symbol [ SECONDS_PER_HOUR %tmp.16 55 43 59 ];
+    %tmp.16 = getv %tmp.15 :SECONDS_PER_HOUR;
+    %tmp.17 = mul %tmp.14 %tmp.16;
+    %tmp.18 = sub %tmp.13 %tmp.17;
+    symbol [ Gregorian %tmp.19 55 64 73 ];
+    %tmp.19 = getm $.Toybox.Time.Gregorian;
+    symbol [ SECONDS_PER_MINUTE %tmp.20 55 74 92 ];
+    %tmp.20 = getv %tmp.19 :SECONDS_PER_MINUTE;
+    %tmp.21 = div %tmp.18 %tmp.20;
+    lputv %minutes.2 %tmp.21;
+    symbol [ minutes %minutes.2 55 1 8 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 58 1 ]
+    %tmp.22 = newa 2;
+    %tmp.23 = lgetv %hours.1;
+    symbol [ hours %tmp.23 58 9 14 ];
+    %tmp.24 = dup %tmp.22;
+    %tmp.25 = aputv %tmp.24 0 %tmp.23;
+    %tmp.26 = lgetv %minutes.2;
+    symbol [ minutes %tmp.26 58 16 23 ];
+    %tmp.27 = dup %tmp.25;
+    %tmp.28 = aputv %tmp.27 1 %tmp.26;
+    ret %tmp.28;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_49_37_59_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 80; @symbol_functiondef = [drawBluetoothIcon,80,9,26]; @symbol_param<0> = [dc,80,27,29]; @symbol_param<1> = [x,80,31,32]; @symbol_param<2> = [y,80,34,35]; @symbol_param<3> = [color,80,37,42]; @symbol_param<4> = [bgColor,80,44,51]; ]
+function drawBluetoothIcon(dc, x, y, color, bgColor) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 81 1 ]
+    %tmp.1 = lgetv %dc;
+    symbol [ dc %tmp.1 81 1 3 ];
+    symbol [ setColor %tmp.2 81 4 12 ];
+    %tmp.2 = getv function %tmp.1 :setColor;
+    %tmp.3 = lgetv %color;
+    symbol [ color %tmp.3 81 13 18 ];
+    %tmp.4 = lgetv %bgColor;
+    symbol [ bgColor %tmp.4 81 20 27 ];
+    invoke %tmp.1 %tmp.2(%tmp.3, %tmp.4);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 82 1 ]
+    %tmp.5 = lgetv %dc;
+    symbol [ dc %tmp.5 82 1 3 ];
+    symbol [ setPenWidth %tmp.6 82 4 15 ];
+    %tmp.6 = getv function %tmp.5 :setPenWidth;
+    %tmp.7 = 2;
+    invoke %tmp.5 %tmp.6(%tmp.7);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 85 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_stop" ]
+    %x1.1 = local;
+    symbol [ x1 %x1.1 85 5 7 ];
+    %tmp.8 = lgetv %x;
+    symbol [ x %tmp.8 85 10 11 ];
+    %tmp.9 = 5;
+    %tmp.10 = add %tmp.8 %tmp.9;
+    lputv %x1.1 %tmp.10;
+    symbol [ x1 %x1.1 85 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 86 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_stop" ]
+    %x2.2 = local;
+    symbol [ x2 %x2.2 86 5 7 ];
+    %tmp.11 = lgetv %x;
+    symbol [ x %tmp.11 86 10 11 ];
+    %tmp.12 = 5;
+    %tmp.13 = add %tmp.11 %tmp.12;
+    lputv %x2.2 %tmp.13;
+    symbol [ x2 %x2.2 86 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 87 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_stop" ]
+    %y1.3 = local;
+    symbol [ y1 %y1.3 87 5 7 ];
+    %tmp.14 = lgetv %y;
+    symbol [ y %tmp.14 87 10 11 ];
+    %tmp.15 = 10;
+    %tmp.16 = sub %tmp.14 %tmp.15;
+    lputv %y1.3 %tmp.16;
+    symbol [ y1 %y1.3 87 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 88 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_stop" ]
+    %y2.4 = local;
+    symbol [ y2 %y2.4 88 5 7 ];
+    %tmp.17 = lgetv %y;
+    symbol [ y %tmp.17 88 10 11 ];
+    %tmp.18 = 10;
+    %tmp.19 = add %tmp.17 %tmp.18;
+    lputv %y2.4 %tmp.19;
+    symbol [ y2 %y2.4 88 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 90 1 ]
+    %tmp.20 = lgetv %dc;
+    symbol [ dc %tmp.20 90 1 3 ];
+    symbol [ drawLine %tmp.21 90 4 12 ];
+    %tmp.21 = getv function %tmp.20 :drawLine;
+    %tmp.22 = lgetv %x1.1;
+    symbol [ x1 %tmp.22 90 13 15 ];
+    %tmp.23 = lgetv %y1.3;
+    symbol [ y1 %tmp.23 90 17 19 ];
+    %tmp.24 = lgetv %x2.2;
+    symbol [ x2 %tmp.24 90 21 23 ];
+    %tmp.25 = lgetv %y2.4;
+    symbol [ y2 %tmp.25 90 25 27 ];
+    invoke %tmp.20 %tmp.21(%tmp.22, %tmp.23, %tmp.24, %tmp.25);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 93 1 ]
+    %tmp.26 = lgetv %x;
+    symbol [ x %tmp.26 93 6 7 ];
+    lputv %x1.1 %tmp.26;
+    symbol [ x1 %x1.1 93 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 94 1 ]
+    %tmp.27 = lgetv %x;
+    symbol [ x %tmp.27 94 6 7 ];
+    %tmp.28 = 10;
+    %tmp.29 = add %tmp.27 %tmp.28;
+    lputv %x2.2 %tmp.29;
+    symbol [ x2 %x2.2 94 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 95 1 ]
+    %tmp.30 = lgetv %y;
+    symbol [ y %tmp.30 95 6 7 ];
+    %tmp.31 = 5;
+    %tmp.32 = sub %tmp.30 %tmp.31;
+    lputv %y1.3 %tmp.32;
+    symbol [ y1 %y1.3 95 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 96 1 ]
+    %tmp.33 = lgetv %y;
+    symbol [ y %tmp.33 96 6 7 ];
+    %tmp.34 = 5;
+    %tmp.35 = add %tmp.33 %tmp.34;
+    lputv %y2.4 %tmp.35;
+    symbol [ y2 %y2.4 96 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 97 1 ]
+    %tmp.36 = lgetv %dc;
+    symbol [ dc %tmp.36 97 1 3 ];
+    symbol [ drawLine %tmp.37 97 4 12 ];
+    %tmp.37 = getv function %tmp.36 :drawLine;
+    %tmp.38 = lgetv %x1.1;
+    symbol [ x1 %tmp.38 97 13 15 ];
+    %tmp.39 = lgetv %y1.3;
+    symbol [ y1 %tmp.39 97 17 19 ];
+    %tmp.40 = lgetv %x2.2;
+    symbol [ x2 %tmp.40 97 21 23 ];
+    %tmp.41 = lgetv %y2.4;
+    symbol [ y2 %tmp.41 97 25 27 ];
+    invoke %tmp.36 %tmp.37(%tmp.38, %tmp.39, %tmp.40, %tmp.41);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 100 1 ]
+    %tmp.42 = lgetv %x;
+    symbol [ x %tmp.42 100 6 7 ];
+    lputv %x1.1 %tmp.42;
+    symbol [ x1 %x1.1 100 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 101 1 ]
+    %tmp.43 = lgetv %x;
+    symbol [ x %tmp.43 101 6 7 ];
+    %tmp.44 = 10;
+    %tmp.45 = add %tmp.43 %tmp.44;
+    lputv %x2.2 %tmp.45;
+    symbol [ x2 %x2.2 101 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 102 1 ]
+    %tmp.46 = lgetv %y;
+    symbol [ y %tmp.46 102 6 7 ];
+    %tmp.47 = 5;
+    %tmp.48 = add %tmp.46 %tmp.47;
+    lputv %y1.3 %tmp.48;
+    symbol [ y1 %y1.3 102 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 103 1 ]
+    %tmp.49 = lgetv %y;
+    symbol [ y %tmp.49 103 6 7 ];
+    %tmp.50 = 5;
+    %tmp.51 = sub %tmp.49 %tmp.50;
+    lputv %y2.4 %tmp.51;
+    symbol [ y2 %y2.4 103 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 104 1 ]
+    %tmp.52 = lgetv %dc;
+    symbol [ dc %tmp.52 104 1 3 ];
+    symbol [ drawLine %tmp.53 104 4 12 ];
+    %tmp.53 = getv function %tmp.52 :drawLine;
+    %tmp.54 = lgetv %x1.1;
+    symbol [ x1 %tmp.54 104 13 15 ];
+    %tmp.55 = lgetv %y1.3;
+    symbol [ y1 %tmp.55 104 17 19 ];
+    %tmp.56 = lgetv %x2.2;
+    symbol [ x2 %tmp.56 104 21 23 ];
+    %tmp.57 = lgetv %y2.4;
+    symbol [ y2 %tmp.57 104 25 27 ];
+    invoke %tmp.52 %tmp.53(%tmp.54, %tmp.55, %tmp.56, %tmp.57);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 107 1 ]
+    %tmp.58 = lgetv %x;
+    symbol [ x %tmp.58 107 6 7 ];
+    %tmp.59 = 5;
+    %tmp.60 = add %tmp.58 %tmp.59;
+    lputv %x1.1 %tmp.60;
+    symbol [ x1 %x1.1 107 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 108 1 ]
+    %tmp.61 = lgetv %x;
+    symbol [ x %tmp.61 108 6 7 ];
+    %tmp.62 = 10;
+    %tmp.63 = add %tmp.61 %tmp.62;
+    lputv %x2.2 %tmp.63;
+    symbol [ x2 %x2.2 108 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 109 1 ]
+    %tmp.64 = lgetv %y;
+    symbol [ y %tmp.64 109 6 7 ];
+    %tmp.65 = 10;
+    %tmp.66 = sub %tmp.64 %tmp.65;
+    lputv %y1.3 %tmp.66;
+    symbol [ y1 %y1.3 109 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 110 1 ]
+    %tmp.67 = lgetv %y;
+    symbol [ y %tmp.67 110 6 7 ];
+    %tmp.68 = 5;
+    %tmp.69 = sub %tmp.67 %tmp.68;
+    lputv %y2.4 %tmp.69;
+    symbol [ y2 %y2.4 110 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 111 1 ]
+    %tmp.70 = lgetv %dc;
+    symbol [ dc %tmp.70 111 1 3 ];
+    symbol [ drawLine %tmp.71 111 4 12 ];
+    %tmp.71 = getv function %tmp.70 :drawLine;
+    %tmp.72 = lgetv %x1.1;
+    symbol [ x1 %tmp.72 111 13 15 ];
+    %tmp.73 = lgetv %y1.3;
+    symbol [ y1 %tmp.73 111 17 19 ];
+    %tmp.74 = lgetv %x2.2;
+    symbol [ x2 %tmp.74 111 21 23 ];
+    %tmp.75 = lgetv %y2.4;
+    symbol [ y2 %tmp.75 111 25 27 ];
+    invoke %tmp.70 %tmp.71(%tmp.72, %tmp.73, %tmp.74, %tmp.75);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 114 1 ]
+    %tmp.76 = lgetv %x;
+    symbol [ x %tmp.76 114 6 7 ];
+    %tmp.77 = 5;
+    %tmp.78 = add %tmp.76 %tmp.77;
+    lputv %x1.1 %tmp.78;
+    symbol [ x1 %x1.1 114 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 115 1 ]
+    %tmp.79 = lgetv %x;
+    symbol [ x %tmp.79 115 6 7 ];
+    %tmp.80 = 10;
+    %tmp.81 = add %tmp.79 %tmp.80;
+    lputv %x2.2 %tmp.81;
+    symbol [ x2 %x2.2 115 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 116 1 ]
+    %tmp.82 = lgetv %y;
+    symbol [ y %tmp.82 116 6 7 ];
+    %tmp.83 = 10;
+    %tmp.84 = add %tmp.82 %tmp.83;
+    lputv %y1.3 %tmp.84;
+    symbol [ y1 %y1.3 116 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 117 1 ]
+    %tmp.85 = lgetv %y;
+    symbol [ y %tmp.85 117 6 7 ];
+    %tmp.86 = 5;
+    %tmp.87 = add %tmp.85 %tmp.86;
+    lputv %y2.4 %tmp.87;
+    symbol [ y2 %y2.4 117 1 3 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 118 1 ]
+    %tmp.88 = lgetv %dc;
+    symbol [ dc %tmp.88 118 1 3 ];
+    symbol [ drawLine %tmp.89 118 4 12 ];
+    %tmp.89 = getv function %tmp.88 :drawLine;
+    %tmp.90 = lgetv %x1.1;
+    symbol [ x1 %tmp.90 118 13 15 ];
+    %tmp.91 = lgetv %y1.3;
+    symbol [ y1 %tmp.91 118 17 19 ];
+    %tmp.92 = lgetv %x2.2;
+    symbol [ x2 %tmp.92 118 21 23 ];
+    %tmp.93 = lgetv %y2.4;
+    symbol [ y2 %tmp.93 118 25 27 ];
+    invoke %tmp.88 %tmp.89(%tmp.90, %tmp.91, %tmp.92, %tmp.93);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 120 1 ]
+    %tmp.94 = lgetv %dc;
+    symbol [ dc %tmp.94 120 1 3 ];
+    symbol [ setPenWidth %tmp.95 120 4 15 ];
+    %tmp.95 = getv function %tmp.94 :setPenWidth;
+    %tmp.96 = 1;
+    invoke %tmp.94 %tmp.95(%tmp.96);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_80_52_121_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 123; @symbol_functiondef = [convertMsToSpeed,123,9,25]; @symbol_param<0> = [mps,123,26,29]; @symbol_param<1> = [isMetric,123,31,39]; ]
+function convertMsToSpeed(mps, isMetric) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_123_41_128_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 126 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_123_41_128_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_123_41_128_0_stop" ]
+    %speed.1 = local;
+    symbol [ speed %speed.1 126 5 10 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_begin:
+    %tmp.1 = lgetv %isMetric;
+    symbol [ isMetric %tmp.1 126 13 21 ];
+    bf %tmp.1 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_true:
+    %tmp.2 = lgetv %mps;
+    symbol [ mps %tmp.2 126 24 27 ];
+    %tmp.3 = 3.6;
+    %tmp.4 = mul %tmp.2 %tmp.3;
+    push %tmp.4;
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_false:
+    %tmp.5 = lgetv %mps;
+    symbol [ mps %tmp.5 126 34 37 ];
+    %tmp.6 = 2.237;
+    %tmp.7 = mul %tmp.5 %tmp.6;
+    push %tmp.7;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_end:
+    %tmp.8 = phi [%tmp.1 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_begin] [%tmp.4 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_true] [%tmp.7 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_false] [%tmp.8 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_126_13_126_38_end];
+    lputv %speed.1 %tmp.8;
+    symbol [ speed %speed.1 126 5 10 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 127 1 ]
+    %tmp.9 = lgetv %speed.1;
+    symbol [ speed %tmp.9 127 8 13 ];
+    ret %tmp.9;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_123_41_128_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 130; @symbol_functiondef = [celciusToFarenheit,130,9,27]; @symbol_param<0> = [celcius,130,28,35]; ]
+function celciusToFarenheit(celcius) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_130_36_132_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 131 1 ]
+    %tmp.1 = lgetv %celcius;
+    symbol [ celcius %tmp.1 131 9 16 ];
+    %tmp.2 = 1.8;
+    %tmp.3 = mul %tmp.1 %tmp.2;
+    %tmp.4 = 32;
+    %tmp.5 = add %tmp.3 %tmp.4;
+    ret %tmp.5;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_130_36_132_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 134; @symbol_functiondef = [drawStatusIcon,134,9,23]; @symbol_param<0> = [dc,134,24,26]; @symbol_param<1> = [x,134,28,29]; @symbol_param<2> = [y,134,31,32]; @symbol_param<3> = [color,134,34,39]; @symbol_param<4> = [bgColor,134,41,48]; @symbol_param<5> = [dimension,134,50,59]; @symbol_param<6> = [iconsFont,134,61,70]; ]
+function drawStatusIcon(dc, x, y, color, bgColor, dimension, iconsFont) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_134_71_147_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 135 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_134_71_147_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_134_71_147_0_stop" ]
+    %settings.1 = local;
+    symbol [ settings %settings.1 135 5 13 ];
+    symbol [ System %tmp.1 135 16 22 ];
+    %tmp.1 = getm $.Toybox.System;
+    symbol [ getDeviceSettings %tmp.2 135 23 40 ];
+    %tmp.2 = getv function %tmp.1 :getDeviceSettings;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    lputv %settings.1 %tmp.3;
+    symbol [ settings %settings.1 135 5 13 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 137 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_1_146_1_if_stmt:
+    %tmp.4 = lgetv %settings.1;
+    symbol [ settings %tmp.4 137 5 13 ];
+    symbol [ phoneConnected %tmp.5 137 14 28 ];
+    %tmp.5 = getv %tmp.4 :phoneConnected;
+    bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_1_146_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_1_146_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_29_146_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 138 2 ]
+    symbol [ $ %tmp.6 138 2 3 ];
+    %tmp.6 = getm $;
+    %tmp.7 = true;
+    symbol [ phoneConnected ? 138 4 18 ];
+    putv %tmp.6 :phoneConnected %tmp.7;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 139 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_2_145_2_if_stmt:
+    %tmp.8 = lgetv %settings.1;
+    symbol [ settings %tmp.8 139 6 14 ];
+    symbol [ notificationCount %tmp.9 139 15 32 ];
+    %tmp.9 = getv %tmp.8 :notificationCount;
+    %tmp.10 = 0;
+    %tmp.11 = gt %tmp.9 %tmp.10;
+    bf %tmp.11 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_2_145_2_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_2_145_2_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_37_142_2_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 141 3 ]
+    %tmp.12 = self;
+    symbol [ drawStr %tmp.13 141 3 10 ];
+    %tmp.13 = getv function %tmp.12 :drawStr;
+    %tmp.14 = lgetv %dc;
+    symbol [ dc %tmp.14 141 11 13 ];
+    %tmp.15 = lgetv %x;
+    symbol [ x %tmp.15 141 15 16 ];
+    %tmp.16 = 5;
+    %tmp.17 = add %tmp.15 %tmp.16;
+    %tmp.18 = lgetv %y;
+    symbol [ y %tmp.18 141 20 21 ];
+    %tmp.19 = 5;
+    %tmp.20 = add %tmp.18 %tmp.19;
+    %tmp.21 = lgetv %iconsFont;
+    symbol [ iconsFont %tmp.21 141 25 34 ];
+    %tmp.22 = lgetv %color;
+    symbol [ color %tmp.22 141 36 41 ];
+    symbol [ I_NOTIFICATIONS %tmp.24 141 43 58 ];
+    %tmp.24 = getv ? :I_NOTIFICATIONS;
+    symbol [ Graphics %tmp.25 141 60 68 ];
+    %tmp.25 = getm $.Toybox.Graphics;
+    symbol [ TEXT_JUSTIFY_CENTER %tmp.26 141 69 88 ];
+    %tmp.26 = getv %tmp.25 :TEXT_JUSTIFY_CENTER;
+    symbol [ Graphics %tmp.27 141 91 99 ];
+    %tmp.27 = getm $.Toybox.Graphics;
+    symbol [ TEXT_JUSTIFY_VCENTER %tmp.28 141 100 120 ];
+    %tmp.28 = getv %tmp.27 :TEXT_JUSTIFY_VCENTER;
+    %tmp.29 = bitor %tmp.26 %tmp.28;
+    invoke %tmp.12 %tmp.13(%tmp.14, %tmp.17, %tmp.20, %tmp.21, %tmp.22, %tmp.24, %tmp.29);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_37_142_2_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_2_145_2_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_2_145_2_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_143_6_145_2_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 144 3 ]
+    %tmp.30 = self;
+    symbol [ drawBluetoothIcon %tmp.31 144 3 20 ];
+    %tmp.31 = getv function %tmp.30 :drawBluetoothIcon;
+    %tmp.32 = lgetv %dc;
+    symbol [ dc %tmp.32 144 21 23 ];
+    %tmp.33 = lgetv %x;
+    symbol [ x %tmp.33 144 25 26 ];
+    %tmp.34 = lgetv %y;
+    symbol [ y %tmp.34 144 28 29 ];
+    symbol [ Graphics %tmp.35 144 31 39 ];
+    %tmp.35 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLUE %tmp.36 144 40 50 ];
+    %tmp.36 = getv %tmp.35 :COLOR_BLUE;
+    %tmp.37 = lgetv %bgColor;
+    symbol [ bgColor %tmp.37 144 52 59 ];
+    invoke %tmp.30 %tmp.31(%tmp.32, %tmp.33, %tmp.34, %tmp.36, %tmp.37);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_143_6_145_2_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_139_2_145_2_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_29_146_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_1_146_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_137_1_146_1_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_134_71_147_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 150; @symbol_functiondef = [drawStr,150,9,16]; @symbol_param<0> = [dc,150,17,19]; @symbol_param<1> = [x,150,21,22]; @symbol_param<2> = [y,150,24,25]; @symbol_param<3> = [font,150,27,31]; @symbol_param<4> = [color,150,33,38]; @symbol_param<5> = [str,150,40,43]; @symbol_param<6> = [alignment,150,45,54]; ]
+function drawStr(dc, x, y, font, color, str, alignment) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_150_56_153_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 151 1 ]
+    %tmp.1 = lgetv %dc;
+    symbol [ dc %tmp.1 151 1 3 ];
+    symbol [ setColor %tmp.2 151 4 12 ];
+    %tmp.2 = getv function %tmp.1 :setColor;
+    %tmp.3 = lgetv %color;
+    symbol [ color %tmp.3 151 13 18 ];
+    symbol [ Graphics %tmp.4 151 20 28 ];
+    %tmp.4 = getm $.Toybox.Graphics;
+    symbol [ COLOR_TRANSPARENT %tmp.5 151 29 46 ];
+    %tmp.5 = getv %tmp.4 :COLOR_TRANSPARENT;
+    invoke %tmp.1 %tmp.2(%tmp.3, %tmp.5);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 152 1 ]
+    %tmp.6 = lgetv %dc;
+    symbol [ dc %tmp.6 152 1 3 ];
+    symbol [ drawText %tmp.7 152 4 12 ];
+    %tmp.7 = getv function %tmp.6 :drawText;
+    %tmp.8 = lgetv %x;
+    symbol [ x %tmp.8 152 13 14 ];
+    %tmp.9 = lgetv %y;
+    symbol [ y %tmp.9 152 16 17 ];
+    %tmp.10 = lgetv %font;
+    symbol [ font %tmp.10 152 19 23 ];
+    %tmp.11 = lgetv %str;
+    symbol [ str %tmp.11 152 25 28 ];
+    %tmp.12 = lgetv %alignment;
+    symbol [ alignment %tmp.12 152 30 39 ];
+    invoke %tmp.6 %tmp.7(%tmp.8, %tmp.9, %tmp.10, %tmp.11, %tmp.12);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_150_56_153_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 155; @symbol_functiondef = [getColorCode,155,9,21]; @symbol_param<0> = [color,155,22,27]; @symbol_param<1> = [themeColor,155,29,39]; @symbol_return<0> = [Lang,155,44,48]; @symbol_return<1> = [Number,155,49,55]; ]
+function getColorCode(color, themeColor) as Lang.Number {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_155_55_247_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 176 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_155_55_247_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_155_55_247_0_stop" ]
+    %colorCode.1 = local;
+    symbol [ colorCode %colorCode.1 176 5 14 ];
+    symbol [ Graphics %tmp.1 176 17 25 ];
+    %tmp.1 = getm $.Toybox.Graphics;
+    symbol [ COLOR_WHITE %tmp.2 176 26 37 ];
+    %tmp.2 = getv %tmp.1 :COLOR_WHITE;
+    lputv %colorCode.1 %tmp.2;
+    symbol [ colorCode %colorCode.1 176 5 14 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 177 1 ]
+    %tmp.3 = lgetv %color;
+    symbol [ color %tmp.3 177 9 14 ];
+    push %tmp.3;
+    switch %tmp.3 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtBegin:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 178 2 ]
+    %tmp.4 = dup %tmp.3;
+    %tmp.5 = 0;
+    %tmp.6 = getv function %tmp.4 :equals;
+    %tmp.7 = invoke %tmp.4 %tmp.6 (%tmp.5);
+    bt %tmp.7 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_178_2_180_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 181 2 ]
+    %tmp.8 = dup %tmp.3;
+    %tmp.9 = 1;
+    %tmp.10 = getv function %tmp.8 :equals;
+    %tmp.11 = invoke %tmp.8 %tmp.10 (%tmp.9);
+    bt %tmp.11 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_181_2_183_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 184 2 ]
+    %tmp.12 = dup %tmp.3;
+    %tmp.13 = 2;
+    %tmp.14 = getv function %tmp.12 :equals;
+    %tmp.15 = invoke %tmp.12 %tmp.14 (%tmp.13);
+    bt %tmp.15 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_184_2_186_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 187 2 ]
+    %tmp.16 = dup %tmp.3;
+    %tmp.17 = 3;
+    %tmp.18 = getv function %tmp.16 :equals;
+    %tmp.19 = invoke %tmp.16 %tmp.18 (%tmp.17);
+    bt %tmp.19 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_187_2_189_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 190 2 ]
+    %tmp.20 = dup %tmp.3;
+    %tmp.21 = 4;
+    %tmp.22 = getv function %tmp.20 :equals;
+    %tmp.23 = invoke %tmp.20 %tmp.22 (%tmp.21);
+    bt %tmp.23 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_190_2_192_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 193 2 ]
+    %tmp.24 = dup %tmp.3;
+    %tmp.25 = 5;
+    %tmp.26 = getv function %tmp.24 :equals;
+    %tmp.27 = invoke %tmp.24 %tmp.26 (%tmp.25);
+    bt %tmp.27 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_193_2_195_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 196 2 ]
+    %tmp.28 = dup %tmp.3;
+    %tmp.29 = 6;
+    %tmp.30 = getv function %tmp.28 :equals;
+    %tmp.31 = invoke %tmp.28 %tmp.30 (%tmp.29);
+    bt %tmp.31 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_196_2_198_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 199 2 ]
+    %tmp.32 = dup %tmp.3;
+    %tmp.33 = 7;
+    %tmp.34 = getv function %tmp.32 :equals;
+    %tmp.35 = invoke %tmp.32 %tmp.34 (%tmp.33);
+    bt %tmp.35 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_199_2_201_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 202 2 ]
+    %tmp.36 = dup %tmp.3;
+    %tmp.37 = 8;
+    %tmp.38 = getv function %tmp.36 :equals;
+    %tmp.39 = invoke %tmp.36 %tmp.38 (%tmp.37);
+    bt %tmp.39 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_202_2_204_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 205 2 ]
+    %tmp.40 = dup %tmp.3;
+    %tmp.41 = 9;
+    %tmp.42 = getv function %tmp.40 :equals;
+    %tmp.43 = invoke %tmp.40 %tmp.42 (%tmp.41);
+    bt %tmp.43 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_205_2_207_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 208 2 ]
+    %tmp.44 = dup %tmp.3;
+    %tmp.45 = 10;
+    %tmp.46 = getv function %tmp.44 :equals;
+    %tmp.47 = invoke %tmp.44 %tmp.46 (%tmp.45);
+    bt %tmp.47 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_208_2_210_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 211 2 ]
+    %tmp.48 = dup %tmp.3;
+    %tmp.49 = 11;
+    %tmp.50 = getv function %tmp.48 :equals;
+    %tmp.51 = invoke %tmp.48 %tmp.50 (%tmp.49);
+    bt %tmp.51 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_211_2_213_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 214 2 ]
+    %tmp.52 = dup %tmp.3;
+    %tmp.53 = 12;
+    %tmp.54 = getv function %tmp.52 :equals;
+    %tmp.55 = invoke %tmp.52 %tmp.54 (%tmp.53);
+    bt %tmp.55 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_214_2_216_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 217 2 ]
+    %tmp.56 = dup %tmp.3;
+    %tmp.57 = 13;
+    %tmp.58 = getv function %tmp.56 :equals;
+    %tmp.59 = invoke %tmp.56 %tmp.58 (%tmp.57);
+    bt %tmp.59 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_217_2_219_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 220 2 ]
+    %tmp.60 = dup %tmp.3;
+    %tmp.61 = 14;
+    %tmp.62 = getv function %tmp.60 :equals;
+    %tmp.63 = invoke %tmp.60 %tmp.62 (%tmp.61);
+    bt %tmp.63 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_220_2_222_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 223 2 ]
+    %tmp.64 = dup %tmp.3;
+    %tmp.65 = 15;
+    %tmp.66 = getv function %tmp.64 :equals;
+    %tmp.67 = invoke %tmp.64 %tmp.66 (%tmp.65);
+    bt %tmp.67 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_223_2_225_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 226 2 ]
+    %tmp.68 = dup %tmp.3;
+    %tmp.69 = 16;
+    %tmp.70 = getv function %tmp.68 :equals;
+    %tmp.71 = invoke %tmp.68 %tmp.70 (%tmp.69);
+    bt %tmp.71 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_226_2_228_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 229 2 ]
+    %tmp.72 = dup %tmp.3;
+    %tmp.73 = 20;
+    %tmp.74 = getv function %tmp.72 :equals;
+    %tmp.75 = invoke %tmp.72 %tmp.74 (%tmp.73);
+    bt %tmp.75 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_229_2_231_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 232 2 ]
+    %tmp.76 = dup %tmp.3;
+    %tmp.77 = 21;
+    %tmp.78 = getv function %tmp.76 :equals;
+    %tmp.79 = invoke %tmp.76 %tmp.78 (%tmp.77);
+    bt %tmp.79 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_232_2_234_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 235 2 ]
+    %tmp.80 = dup %tmp.3;
+    %tmp.81 = 30;
+    %tmp.82 = getv function %tmp.80 :equals;
+    %tmp.83 = invoke %tmp.80 %tmp.82 (%tmp.81);
+    bt %tmp.83 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_235_2_237_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 238 2 ]
+    %tmp.84 = dup %tmp.3;
+    %tmp.85 = 99;
+    %tmp.86 = getv function %tmp.84 :equals;
+    %tmp.87 = invoke %tmp.84 %tmp.86 (%tmp.85);
+    bt %tmp.87 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_238_2_240_8_switchCase;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 241 2 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtDefault:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_defaultCodeBegin;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_178_2_180_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 179 3 ]
+    symbol [ COLOR_BABY_POO %tmp.89 179 15 29 ];
+    %tmp.89 = getv ? :COLOR_BABY_POO;
+    lputv %colorCode.1 %tmp.89;
+    symbol [ colorCode %colorCode.1 179 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 180 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_181_2_183_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 182 3 ]
+    symbol [ Graphics %tmp.90 182 15 23 ];
+    %tmp.90 = getm $.Toybox.Graphics;
+    symbol [ COLOR_WHITE %tmp.91 182 24 35 ];
+    %tmp.91 = getv %tmp.90 :COLOR_WHITE;
+    lputv %colorCode.1 %tmp.91;
+    symbol [ colorCode %colorCode.1 182 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 183 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_184_2_186_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 185 3 ]
+    symbol [ Graphics %tmp.92 185 15 23 ];
+    %tmp.92 = getm $.Toybox.Graphics;
+    symbol [ COLOR_LT_GRAY %tmp.93 185 24 37 ];
+    %tmp.93 = getv %tmp.92 :COLOR_LT_GRAY;
+    lputv %colorCode.1 %tmp.93;
+    symbol [ colorCode %colorCode.1 185 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 186 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_187_2_189_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 188 3 ]
+    symbol [ Graphics %tmp.94 188 15 23 ];
+    %tmp.94 = getm $.Toybox.Graphics;
+    symbol [ COLOR_YELLOW %tmp.95 188 24 36 ];
+    %tmp.95 = getv %tmp.94 :COLOR_YELLOW;
+    lputv %colorCode.1 %tmp.95;
+    symbol [ colorCode %colorCode.1 188 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 189 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_190_2_192_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 191 3 ]
+    symbol [ Graphics %tmp.96 191 15 23 ];
+    %tmp.96 = getm $.Toybox.Graphics;
+    symbol [ COLOR_RED %tmp.97 191 24 33 ];
+    %tmp.97 = getv %tmp.96 :COLOR_RED;
+    lputv %colorCode.1 %tmp.97;
+    symbol [ colorCode %colorCode.1 191 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 192 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_193_2_195_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 194 3 ]
+    symbol [ Graphics %tmp.98 194 15 23 ];
+    %tmp.98 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLUE %tmp.99 194 24 34 ];
+    %tmp.99 = getv %tmp.98 :COLOR_BLUE;
+    lputv %colorCode.1 %tmp.99;
+    symbol [ colorCode %colorCode.1 194 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 195 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_196_2_198_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 197 3 ]
+    symbol [ Graphics %tmp.100 197 15 23 ];
+    %tmp.100 = getm $.Toybox.Graphics;
+    symbol [ COLOR_GREEN %tmp.101 197 24 35 ];
+    %tmp.101 = getv %tmp.100 :COLOR_GREEN;
+    lputv %colorCode.1 %tmp.101;
+    symbol [ colorCode %colorCode.1 197 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 198 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_199_2_201_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 200 3 ]
+    symbol [ Graphics %tmp.102 200 15 23 ];
+    %tmp.102 = getm $.Toybox.Graphics;
+    symbol [ COLOR_ORANGE %tmp.103 200 24 36 ];
+    %tmp.103 = getv %tmp.102 :COLOR_ORANGE;
+    lputv %colorCode.1 %tmp.103;
+    symbol [ colorCode %colorCode.1 200 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 201 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_202_2_204_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 203 3 ]
+    symbol [ COLOR_PINK %tmp.105 203 15 25 ];
+    %tmp.105 = getv ? :COLOR_PINK;
+    lputv %colorCode.1 %tmp.105;
+    symbol [ colorCode %colorCode.1 203 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 204 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_205_2_207_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 206 3 ]
+    symbol [ Graphics %tmp.106 206 15 23 ];
+    %tmp.106 = getm $.Toybox.Graphics;
+    symbol [ COLOR_PURPLE %tmp.107 206 24 36 ];
+    %tmp.107 = getv %tmp.106 :COLOR_PURPLE;
+    lputv %colorCode.1 %tmp.107;
+    symbol [ colorCode %colorCode.1 206 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 207 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_208_2_210_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 209 3 ]
+    symbol [ Graphics %tmp.108 209 15 23 ];
+    %tmp.108 = getm $.Toybox.Graphics;
+    symbol [ COLOR_DK_GRAY %tmp.109 209 24 37 ];
+    %tmp.109 = getv %tmp.108 :COLOR_DK_GRAY;
+    lputv %colorCode.1 %tmp.109;
+    symbol [ colorCode %colorCode.1 209 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 210 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_211_2_213_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 212 3 ]
+    symbol [ COLOR_LIGHT_GREEN %tmp.111 212 16 33 ];
+    %tmp.111 = getv ? :COLOR_LIGHT_GREEN;
+    lputv %colorCode.1 %tmp.111;
+    symbol [ colorCode %colorCode.1 212 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 213 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_214_2_216_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 215 3 ]
+    symbol [ Graphics %tmp.112 215 15 23 ];
+    %tmp.112 = getm $.Toybox.Graphics;
+    symbol [ COLOR_DK_GREEN %tmp.113 215 24 38 ];
+    %tmp.113 = getv %tmp.112 :COLOR_DK_GREEN;
+    lputv %colorCode.1 %tmp.113;
+    symbol [ colorCode %colorCode.1 215 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 216 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_217_2_219_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 218 3 ]
+    symbol [ COLOR_LIGHT_BLUE %tmp.115 218 16 32 ];
+    %tmp.115 = getv ? :COLOR_LIGHT_BLUE;
+    lputv %colorCode.1 %tmp.115;
+    symbol [ colorCode %colorCode.1 218 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 219 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_220_2_222_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 221 3 ]
+    symbol [ Graphics %tmp.116 221 15 23 ];
+    %tmp.116 = getm $.Toybox.Graphics;
+    symbol [ COLOR_DK_BLUE %tmp.117 221 24 37 ];
+    %tmp.117 = getv %tmp.116 :COLOR_DK_BLUE;
+    lputv %colorCode.1 %tmp.117;
+    symbol [ colorCode %colorCode.1 221 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 222 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_223_2_225_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 224 3 ]
+    %tmp.118 = 0xFF0055;
+    lputv %colorCode.1 %tmp.118;
+    symbol [ colorCode %colorCode.1 224 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 225 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_226_2_228_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 227 3 ]
+    symbol [ Graphics %tmp.119 227 15 23 ];
+    %tmp.119 = getm $.Toybox.Graphics;
+    symbol [ COLOR_DK_RED %tmp.120 227 24 36 ];
+    %tmp.120 = getv %tmp.119 :COLOR_DK_RED;
+    lputv %colorCode.1 %tmp.120;
+    symbol [ colorCode %colorCode.1 227 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 228 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_229_2_231_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 230 3 ]
+    symbol [ COLOR_TURQUOISE %tmp.122 230 15 30 ];
+    %tmp.122 = getv ? :COLOR_TURQUOISE;
+    lputv %colorCode.1 %tmp.122;
+    symbol [ colorCode %colorCode.1 230 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 231 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_232_2_234_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 233 3 ]
+    symbol [ COLOR_AQUA %tmp.124 233 15 25 ];
+    %tmp.124 = getv ? :COLOR_AQUA;
+    lputv %colorCode.1 %tmp.124;
+    symbol [ colorCode %colorCode.1 233 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 234 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_235_2_237_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 236 3 ]
+    symbol [ Graphics %tmp.125 236 15 23 ];
+    %tmp.125 = getm $.Toybox.Graphics;
+    symbol [ COLOR_BLACK %tmp.126 236 24 35 ];
+    %tmp.126 = getv %tmp.125 :COLOR_BLACK;
+    lputv %colorCode.1 %tmp.126;
+    symbol [ colorCode %colorCode.1 236 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 237 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_238_2_240_8_switchCase:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 239 3 ]
+    %tmp.127 = self;
+    symbol [ getColorCode %tmp.128 239 15 27 ];
+    %tmp.128 = getv function %tmp.127 :getColorCode;
+    %tmp.129 = lgetv %themeColor;
+    symbol [ themeColor %tmp.129 239 28 38 ];
+    %tmp.130 = lgetv %themeColor;
+    symbol [ themeColor %tmp.130 239 40 50 ];
+    %tmp.131 = invoke %tmp.127 %tmp.128(%tmp.129, %tmp.130);
+    lputv %colorCode.1 %tmp.131;
+    symbol [ colorCode %colorCode.1 239 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 240 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_241_2_243_8_switchCase:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_defaultCodeBegin:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 242 3 ]
+    symbol [ Graphics %tmp.132 242 15 23 ];
+    %tmp.132 = getm $.Toybox.Graphics;
+    symbol [ COLOR_WHITE %tmp.133 242 24 35 ];
+    %tmp.133 = getv %tmp.132 :COLOR_WHITE;
+    lputv %colorCode.1 %tmp.133;
+    symbol [ colorCode %colorCode.1 242 3 12 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 243 3 ]
+    goto break @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_177_1_244_1_switchStmtEnd:
+    pop;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 246 1 ]
+    %tmp.134 = lgetv %colorCode.1;
+    symbol [ colorCode %tmp.134 246 8 17 ];
+    ret %tmp.134;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_155_55_247_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 249; @symbol_functiondef = [getHeartRate,249,9,21]; ]
+function getHeartRate() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_249_24_256_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 250 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_249_24_256_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_249_24_256_0_stop" ]
+    %hr.1 = local;
+    symbol [ hr %hr.1 250 5 7 ];
+    %tmp.1 = 0;
+    lputv %hr.1 %tmp.1;
+    symbol [ hr %hr.1 250 5 7 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 251 1 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_249_24_256_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_249_24_256_0_stop" ]
+    %temp.2 = local;
+    symbol [ temp %temp.2 251 5 9 ];
+    symbol [ Activity %tmp.2 251 12 20 ];
+    %tmp.2 = getm $.Toybox.Activity;
+    symbol [ getActivityInfo %tmp.3 251 21 36 ];
+    %tmp.3 = getv function %tmp.2 :getActivityInfo;
+    %tmp.4 = invoke %tmp.2 %tmp.3();
+    symbol [ currentHeartRate %tmp.5 251 39 55 ];
+    %tmp.5 = getv %tmp.4 :currentHeartRate;
+    lputv %temp.2 %tmp.5;
+    symbol [ temp %temp.2 251 5 9 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 252 1 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_1_254_1_if_stmt:
+    %tmp.6 = lgetv %temp.2;
+    symbol [ temp %tmp.6 252 5 9 ];
+    %tmp.7 = null;
+    %tmp.8 = ne %tmp.6 %tmp.7;
+    bf %tmp.8 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_1_254_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_1_254_1_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_19_254_1_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 253 2 ]
+    %tmp.9 = lgetv %temp.2;
+    symbol [ temp %tmp.9 253 7 11 ];
+    %tmp.10 = as %tmp.9 { (!Null) };
+    lputv %hr.1 %tmp.10;
+    symbol [ hr %hr.1 253 2 4 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_19_254_1_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_1_254_1_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_252_1_254_1_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 255 1 ]
+    %tmp.11 = lgetv %hr.1;
+    symbol [ hr %tmp.11 255 8 10 ];
+    ret %tmp.11;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_249_24_256_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 258; @symbol_functiondef = [drawHeartRate,258,9,22]; @symbol_param<0> = [hrClipCoordinates,258,24,41]; @symbol_param<1> = [hrCoordinates,258,43,56]; @symbol_param<2> = [iconsFont,258,58,67]; @symbol_param<3> = [iconsColor,258,69,79]; @symbol_param<4> = [isEconomyMode,258,81,94]; @symbol_param<5> = [bgColor,258,96,103]; @symbol_param<6> = [dc,258,105,107]; ]
+function drawHeartRate(hrClipCoordinates, hrCoordinates, iconsFont, iconsColor, isEconomyMode, bgColor, dc) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_258_109_273_0_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 260 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_258_109_273_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_258_109_273_0_stop" ]
+    %heartRate.1 = local;
+    symbol [ heartRate %heartRate.1 260 8 17 ];
+    %tmp.1 = self;
+    symbol [ getHeartRate %tmp.2 260 20 32 ];
+    %tmp.2 = getv function %tmp.1 :getHeartRate;
+    %tmp.3 = invoke %tmp.1 %tmp.2();
+    lputv %heartRate.1 %tmp.3;
+    symbol [ heartRate %heartRate.1 260 8 17 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 261 4 ]
+    [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_258_109_273_0_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_258_109_273_0_stop" ]
+    %hrString.2 = local;
+    symbol [ hrString %hrString.2 261 8 16 ];
+    %tmp.4 = lgetv %heartRate.1;
+    symbol [ heartRate %tmp.4 261 19 28 ];
+    symbol [ format %tmp.5 261 29 35 ];
+    %tmp.5 = getv function %tmp.4 :format;
+    %tmp.6 = "%.0f";
+    %tmp.7 = invoke %tmp.4 %tmp.5(%tmp.6);
+    lputv %hrString.2 %tmp.7;
+    symbol [ hrString %hrString.2 261 8 16 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 265 4 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_4_270_4_if_stmt:
+    %tmp.8 = lgetv %isEconomyMode;
+    symbol [ isEconomyMode %tmp.8 265 8 21 ];
+    bf %tmp.8 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_4_270_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_4_270_4_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_23_270_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 266 8 ]
+    %tmp.9 = lgetv %dc;
+    symbol [ dc %tmp.9 266 8 10 ];
+    symbol [ setClip %tmp.10 266 11 18 ];
+    %tmp.10 = getv function %tmp.9 :setClip;
+    %tmp.11 = lgetv %hrClipCoordinates;
+    symbol [ hrClipCoordinates %tmp.11 266 19 36 ];
+    %tmp.12 = 0;
+    %tmp.13 = agetv %tmp.11 %tmp.12;
+    %tmp.14 = lgetv %hrClipCoordinates;
+    symbol [ hrClipCoordinates %tmp.14 266 41 58 ];
+    %tmp.15 = 1;
+    %tmp.16 = agetv %tmp.14 %tmp.15;
+    %tmp.17 = lgetv %hrClipCoordinates;
+    symbol [ hrClipCoordinates %tmp.17 266 63 80 ];
+    %tmp.18 = 2;
+    %tmp.19 = agetv %tmp.17 %tmp.18;
+    %tmp.20 = lgetv %hrClipCoordinates;
+    symbol [ hrClipCoordinates %tmp.20 266 85 102 ];
+    %tmp.21 = 3;
+    %tmp.22 = agetv %tmp.20 %tmp.21;
+    invoke %tmp.9 %tmp.10(%tmp.13, %tmp.16, %tmp.19, %tmp.22);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 267 8 ]
+    %tmp.23 = lgetv %dc;
+    symbol [ dc %tmp.23 267 8 10 ];
+    symbol [ setColor %tmp.24 267 11 19 ];
+    %tmp.24 = getv function %tmp.23 :setColor;
+    %tmp.25 = lgetv %bgColor;
+    symbol [ bgColor %tmp.25 267 20 27 ];
+    %tmp.26 = lgetv %bgColor;
+    symbol [ bgColor %tmp.26 267 28 35 ];
+    invoke %tmp.23 %tmp.24(%tmp.25, %tmp.26);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 269 8 ]
+    %tmp.27 = lgetv %dc;
+    symbol [ dc %tmp.27 269 8 10 ];
+    symbol [ clear %tmp.28 269 11 16 ];
+    %tmp.28 = getv function %tmp.27 :clear;
+    invoke %tmp.27 %tmp.28();
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_23_270_4_stop:
+    goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_4_270_4_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_265_4_270_4_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 271 4 ]
+    %tmp.29 = self;
+    symbol [ drawStr %tmp.30 271 4 11 ];
+    %tmp.30 = getv function %tmp.29 :drawStr;
+    %tmp.31 = lgetv %dc;
+    symbol [ dc %tmp.31 271 12 14 ];
+    %tmp.32 = lgetv %hrCoordinates;
+    symbol [ hrCoordinates %tmp.32 271 16 29 ];
+    %tmp.33 = 0;
+    %tmp.34 = agetv %tmp.32 %tmp.33;
+    %tmp.35 = lgetv %hrCoordinates;
+    symbol [ hrCoordinates %tmp.35 271 34 47 ];
+    %tmp.36 = 2;
+    %tmp.37 = agetv %tmp.35 %tmp.36;
+    %tmp.38 = lgetv %iconsFont;
+    symbol [ iconsFont %tmp.38 271 52 61 ];
+    %tmp.39 = lgetv %iconsColor;
+    symbol [ iconsColor %tmp.39 271 63 73 ];
+    symbol [ I_HEARTRATE %tmp.41 271 75 86 ];
+    %tmp.41 = getv ? :I_HEARTRATE;
+    symbol [ Graphics %tmp.42 271 88 96 ];
+    %tmp.42 = getm $.Toybox.Graphics;
+    symbol [ TEXT_JUSTIFY_CENTER %tmp.43 271 97 116 ];
+    %tmp.43 = getv %tmp.42 :TEXT_JUSTIFY_CENTER;
+    symbol [ Graphics %tmp.44 271 119 127 ];
+    %tmp.44 = getm $.Toybox.Graphics;
+    symbol [ TEXT_JUSTIFY_VCENTER %tmp.45 271 128 148 ];
+    %tmp.45 = getv %tmp.44 :TEXT_JUSTIFY_VCENTER;
+    %tmp.46 = bitor %tmp.43 %tmp.45;
+    invoke %tmp.29 %tmp.30(%tmp.31, %tmp.34, %tmp.37, %tmp.38, %tmp.39, %tmp.41, %tmp.46);
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc" 272 4 ]
+    %tmp.47 = self;
+    symbol [ drawStr %tmp.48 272 4 11 ];
+    %tmp.48 = getv function %tmp.47 :drawStr;
+    %tmp.49 = lgetv %dc;
+    symbol [ dc %tmp.49 272 12 14 ];
+    %tmp.50 = lgetv %hrCoordinates;
+    symbol [ hrCoordinates %tmp.50 272 16 29 ];
+    %tmp.51 = 1;
+    %tmp.52 = agetv %tmp.50 %tmp.51;
+    %tmp.53 = lgetv %hrCoordinates;
+    symbol [ hrCoordinates %tmp.53 272 34 47 ];
+    %tmp.54 = 2;
+    %tmp.55 = agetv %tmp.53 %tmp.54;
+    %tmp.56 = lgetv %hrCoordinates;
+    symbol [ hrCoordinates %tmp.56 272 52 65 ];
+    %tmp.57 = 3;
+    %tmp.58 = agetv %tmp.56 %tmp.57;
+    %tmp.59 = lgetv %hrCoordinates;
+    symbol [ hrCoordinates %tmp.59 272 70 83 ];
+    %tmp.60 = 4;
+    %tmp.61 = agetv %tmp.59 %tmp.60;
+    %tmp.62 = lgetv %hrString.2;
+    symbol [ hrString %tmp.62 272 88 96 ];
+    symbol [ Graphics %tmp.63 272 98 106 ];
+    %tmp.63 = getm $.Toybox.Graphics;
+    symbol [ TEXT_JUSTIFY_LEFT %tmp.64 272 107 124 ];
+    %tmp.64 = getv %tmp.63 :TEXT_JUSTIFY_LEFT;
+    symbol [ Graphics %tmp.65 272 127 135 ];
+    %tmp.65 = getm $.Toybox.Graphics;
+    symbol [ TEXT_JUSTIFY_VCENTER %tmp.66 272 136 156 ];
+    %tmp.66 = getv %tmp.65 :TEXT_JUSTIFY_VCENTER;
+    %tmp.67 = bitor %tmp.64 %tmp.66;
+    invoke %tmp.47 %tmp.48(%tmp.49, %tmp.52, %tmp.55, %tmp.58, %tmp.61, %tmp.62, %tmp.67);
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonFunctions_mc_258_109_273_0_stop:
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonFunctions.mc"; @line = 1; ]
+<init> {
+}

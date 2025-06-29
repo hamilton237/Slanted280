@@ -1,0 +1,1409 @@
+{
+  "settings" : [ {
+    "key" : "AppVersion",
+    "valueType" : "string",
+    "defaultValue" : "2.4.1",
+    "configTitle" : "AppVersionTitle",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TopField",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "TopFieldTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Battery",
+      "value" : 0
+    }, {
+      "display" : "BatteryDays",
+      "value" : 17
+    }, {
+      "display" : "Date",
+      "value" : 1
+    }, {
+      "display" : "Temperature",
+      "value" : 2
+    }, {
+      "display" : "TempPlusFeelsLike",
+      "value" : 20
+    }, {
+      "display" : "Humidity",
+      "value" : 9
+    }, {
+      "display" : "DewPoint",
+      "value" : 10
+    }, {
+      "display" : "HumidityPlusHumidex",
+      "value" : 22
+    }, {
+      "display" : "DewPointPlusHumidex",
+      "value" : 23
+    }, {
+      "display" : "Wind",
+      "value" : 11
+    }, {
+      "display" : "WindChill",
+      "value" : 19
+    }, {
+      "display" : "WindPlusWindChill",
+      "value" : 21
+    }, {
+      "display" : "SunEvents",
+      "value" : 3
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "City",
+      "value" : 6
+    }, {
+      "display" : "ThreeHourRainForecast",
+      "value" : 7
+    }, {
+      "display" : "ThreeHourTempForecast",
+      "value" : 25
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Steps",
+      "value" : 12
+    }, {
+      "display" : "Calories",
+      "value" : 13
+    }, {
+      "display" : "Climb",
+      "value" : 14
+    }, {
+      "display" : "Distance",
+      "value" : 15
+    }, {
+      "display" : "Altitude",
+      "value" : 16
+    }, {
+      "display" : "RecoveryTime",
+      "value" : 26
+    }, {
+      "display" : "HeartRate",
+      "value" : 18
+    }, {
+      "display" : "None",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "UpperLeftField",
+    "valueType" : "number",
+    "defaultValue" : 7,
+    "configTitle" : "UpperLeftFieldTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Battery",
+      "value" : 0
+    }, {
+      "display" : "BatteryDays",
+      "value" : 17
+    }, {
+      "display" : "Date",
+      "value" : 1
+    }, {
+      "display" : "Temperature",
+      "value" : 2
+    }, {
+      "display" : "TempPlusFeelsLike",
+      "value" : 20
+    }, {
+      "display" : "Humidity",
+      "value" : 9
+    }, {
+      "display" : "DewPoint",
+      "value" : 10
+    }, {
+      "display" : "HumidityPlusHumidex",
+      "value" : 22
+    }, {
+      "display" : "DewPointPlusHumidex",
+      "value" : 23
+    }, {
+      "display" : "Wind",
+      "value" : 11
+    }, {
+      "display" : "WindChill",
+      "value" : 19
+    }, {
+      "display" : "WindPlusWindChill",
+      "value" : 21
+    }, {
+      "display" : "SunEvents",
+      "value" : 3
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "City",
+      "value" : 6
+    }, {
+      "display" : "ThreeHourRainForecast",
+      "value" : 7
+    }, {
+      "display" : "ThreeHourTempForecast",
+      "value" : 25
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Steps",
+      "value" : 12
+    }, {
+      "display" : "Calories",
+      "value" : 13
+    }, {
+      "display" : "Climb",
+      "value" : 14
+    }, {
+      "display" : "Distance",
+      "value" : 15
+    }, {
+      "display" : "Altitude",
+      "value" : 16
+    }, {
+      "display" : "RecoveryTime",
+      "value" : 26
+    }, {
+      "display" : "HeartRate",
+      "value" : 18
+    }, {
+      "display" : "None",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "UpperRightField",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "UpperRightFieldTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Date",
+      "value" : 1
+    }, {
+      "display" : "Temperature",
+      "value" : 2
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Humidity",
+      "value" : 9
+    }, {
+      "display" : "DewPoint",
+      "value" : 10
+    }, {
+      "display" : "WindChill",
+      "value" : 19
+    }, {
+      "display" : "HeartRate",
+      "value" : 18
+    }, {
+      "display" : "None",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "LowerLeftField",
+    "valueType" : "number",
+    "defaultValue" : 2,
+    "configTitle" : "LowerLeftFieldTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Date",
+      "value" : 1
+    }, {
+      "display" : "Temperature",
+      "value" : 2
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Humidity",
+      "value" : 9
+    }, {
+      "display" : "DewPoint",
+      "value" : 10
+    }, {
+      "display" : "WindChill",
+      "value" : 19
+    }, {
+      "display" : "HeartRate",
+      "value" : 18
+    }, {
+      "display" : "None",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "LowerRightField",
+    "valueType" : "number",
+    "defaultValue" : 12,
+    "configTitle" : "LowerRightFieldTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Battery",
+      "value" : 0
+    }, {
+      "display" : "BatteryDays",
+      "value" : 17
+    }, {
+      "display" : "Date",
+      "value" : 1
+    }, {
+      "display" : "Temperature",
+      "value" : 2
+    }, {
+      "display" : "TempPlusFeelsLike",
+      "value" : 20
+    }, {
+      "display" : "Humidity",
+      "value" : 9
+    }, {
+      "display" : "DewPoint",
+      "value" : 10
+    }, {
+      "display" : "HumidityPlusHumidex",
+      "value" : 22
+    }, {
+      "display" : "DewPointPlusHumidex",
+      "value" : 23
+    }, {
+      "display" : "Wind",
+      "value" : 11
+    }, {
+      "display" : "WindChill",
+      "value" : 19
+    }, {
+      "display" : "WindPlusWindChill",
+      "value" : 21
+    }, {
+      "display" : "SunEvents",
+      "value" : 3
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "City",
+      "value" : 6
+    }, {
+      "display" : "ThreeHourRainForecast",
+      "value" : 7
+    }, {
+      "display" : "ThreeHourTempForecast",
+      "value" : 25
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Steps",
+      "value" : 12
+    }, {
+      "display" : "Calories",
+      "value" : 13
+    }, {
+      "display" : "Climb",
+      "value" : 14
+    }, {
+      "display" : "Distance",
+      "value" : 15
+    }, {
+      "display" : "Altitude",
+      "value" : 16
+    }, {
+      "display" : "RecoveryTime",
+      "value" : 26
+    }, {
+      "display" : "HeartRate",
+      "value" : 18
+    }, {
+      "display" : "None",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "BottomField",
+    "valueType" : "number",
+    "defaultValue" : 4,
+    "configTitle" : "BottomFieldTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Battery",
+      "value" : 0
+    }, {
+      "display" : "BatteryDays",
+      "value" : 17
+    }, {
+      "display" : "Date",
+      "value" : 1
+    }, {
+      "display" : "Temperature",
+      "value" : 2
+    }, {
+      "display" : "TempPlusFeelsLike",
+      "value" : 20
+    }, {
+      "display" : "Humidity",
+      "value" : 9
+    }, {
+      "display" : "DewPoint",
+      "value" : 10
+    }, {
+      "display" : "HumidityPlusHumidex",
+      "value" : 22
+    }, {
+      "display" : "DewPointPlusHumidex",
+      "value" : 23
+    }, {
+      "display" : "Wind",
+      "value" : 11
+    }, {
+      "display" : "WindChill",
+      "value" : 19
+    }, {
+      "display" : "WindPlusWindChill",
+      "value" : 21
+    }, {
+      "display" : "SunEvents",
+      "value" : 3
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "City",
+      "value" : 6
+    }, {
+      "display" : "ThreeHourRainForecast",
+      "value" : 7
+    }, {
+      "display" : "ThreeHourTempForecast",
+      "value" : 25
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Steps",
+      "value" : 12
+    }, {
+      "display" : "Calories",
+      "value" : 13
+    }, {
+      "display" : "Climb",
+      "value" : 14
+    }, {
+      "display" : "Distance",
+      "value" : 15
+    }, {
+      "display" : "Altitude",
+      "value" : 16
+    }, {
+      "display" : "RecoveryTime",
+      "value" : 26
+    }, {
+      "display" : "HeartRate",
+      "value" : 18
+    }, {
+      "display" : "None",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TopProgressBar",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "TopProgressBarTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Battery",
+      "value" : 0
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Steps",
+      "value" : 12
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "BottomProgressBar",
+    "valueType" : "number",
+    "defaultValue" : 4,
+    "configTitle" : "BottomProgressBarTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Battery",
+      "value" : 0
+    }, {
+      "display" : "BodyBattery",
+      "value" : 4
+    }, {
+      "display" : "Pressure",
+      "value" : 8
+    }, {
+      "display" : "Steps",
+      "value" : 12
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ThemeColor",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "ThemeColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ThemeEnduro2",
+      "value" : 0
+    }, {
+      "display" : "ThemeSharks",
+      "value" : 1
+    }, {
+      "display" : "ThemeNature",
+      "value" : 2
+    }, {
+      "display" : "ThemeIce",
+      "value" : 3
+    }, {
+      "display" : "ThemeFire",
+      "value" : 4
+    }, {
+      "display" : "ThemeWhite",
+      "value" : 6
+    }, {
+      "display" : "ThemeOrange",
+      "value" : 5
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "MinutesColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "MinutesColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "SecondsColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "SecondsColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "MainFieldColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "MainFieldColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "SecondaryFieldColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "SecondaryFieldColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "GridColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "GridColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 10
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "IconsColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "IconsColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 10
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TopProgressBarColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "TopProgressBarColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "BottomProgressBarColor",
+    "valueType" : "number",
+    "defaultValue" : 99,
+    "configTitle" : "BottomProgressBarColorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorBabyPoo",
+      "value" : 0
+    }, {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorLightGray",
+      "value" : 2
+    }, {
+      "display" : "ColorYellow",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorBlue",
+      "value" : 5
+    }, {
+      "display" : "ColorGreen",
+      "value" : 6
+    }, {
+      "display" : "ColorOrange",
+      "value" : 7
+    }, {
+      "display" : "ColorPink",
+      "value" : 8
+    }, {
+      "display" : "ColorPurple",
+      "value" : 9
+    }, {
+      "display" : "ColorLightGreen",
+      "value" : 11
+    }, {
+      "display" : "ColorDarkGreen",
+      "value" : 12
+    }, {
+      "display" : "ColorLightBlue",
+      "value" : 13
+    }, {
+      "display" : "ColorDarkBlue",
+      "value" : 14
+    }, {
+      "display" : "ColorLightRed",
+      "value" : 15
+    }, {
+      "display" : "ColorDarkRed",
+      "value" : 16
+    }, {
+      "display" : "ColorTurquoise",
+      "value" : 20
+    }, {
+      "display" : "ColorAqua",
+      "value" : 21
+    }, {
+      "display" : "ColorBlack",
+      "value" : 30
+    }, {
+      "display" : "ColorTheme",
+      "value" : 99
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ProgressBarSpacing",
+    "valueType" : "number",
+    "defaultValue" : 27,
+    "configTitle" : "ProgressBarSpacingTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal0$",
+      "value" : 27
+    }, {
+      "display" : "$literal1$",
+      "value" : 30
+    }, {
+      "display" : "$literal2$",
+      "value" : 33
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "RefreshMinutes",
+    "valueType" : "number",
+    "defaultValue" : 30,
+    "configTitle" : "RefreshMinutesTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal3$",
+      "value" : 10
+    }, {
+      "display" : "$literal4$",
+      "value" : 20
+    }, {
+      "display" : "$literal5$",
+      "value" : 30
+    }, {
+      "display" : "$literal6$",
+      "value" : 60
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "Units",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "UnitsTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "Metric",
+      "value" : 0
+    }, {
+      "display" : "Imperial",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TimeDisplay",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "TimeDisplayTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "TwentyFourHour",
+      "value" : 0
+    }, {
+      "display" : "TwelveHour",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ShowSeconds",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "ShowSecondsTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "No",
+      "value" : 0
+    }, {
+      "display" : "Yes",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "NightBehavior",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "NightBehaviorTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "FullPower",
+      "value" : 0
+    }, {
+      "display" : "MediumPower",
+      "value" : 1
+    }, {
+      "display" : "LowPower",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  } ],
+  "supportsLiveValidation" : false,
+  "languages" : {
+    "valyrian" : {
+      "Wind" : "Wind",
+      "MinutesColorTitle" : "Minutes Color",
+      "ThemeColorTitle" : "Color Theme",
+      "IconsColorTitle" : "Icons Color",
+      "ThemeFire" : "Fire",
+      "ThemeNature" : "Nature",
+      "BottomProgressBarColorTitle" : "Bottom Prog. Bar Color",
+      "RecoveryTime" : "Recovery Time",
+      "ColorRed" : "Red",
+      "$literal0$" : "Small",
+      "LowerRightFieldTitle" : "Lower Right Field",
+      "$literal4$" : "20",
+      "SunEvents" : "Sun Events",
+      "Battery" : "Battery (%)",
+      "ThemeWhite" : "White Background",
+      "ColorTurquoise" : "Turquoise",
+      "BodyBattery" : "Body Battery",
+      "TopProgressBarColorTitle" : "Top Prog. Bar Color",
+      "ColorWhite" : "White",
+      "Distance" : "Distance",
+      "BatteryDays" : "Battery in days",
+      "AppVersionTitle" : "App Version",
+      "GridColorTitle" : "Grid Color",
+      "ThemeSharks" : "Sharks",
+      "City" : "City",
+      "ColorOrange" : "Orange",
+      "TimeDisplayTitle" : "Time display type",
+      "Pressure" : "Pressure",
+      "NightBehaviorTitle" : "Night time energetic behavior",
+      "FullPower" : "No Power Economy (Everything stays On)",
+      "UpperRightFieldTitle" : "Upper Right Field",
+      "LowerLeftFieldTitle" : "Lower Left Field",
+      "$literal3$" : "10",
+      "TopFieldTitle" : "Top Field",
+      "ThreeHourTempForecast" : "Temperature Forecast (2 or 3 hours)",
+      "RefreshMinutesTitle" : "Refresh data every X minutes",
+      "ColorPurple" : "Purple",
+      "BottomFieldTitle" : "Bottom Field",
+      "Steps" : "Steps",
+      "ColorBlue" : "Blue",
+      "Temperature" : "Temperature",
+      "HeartRate" : "Heart Rate",
+      "ColorBabyPoo" : "Baby Poo",
+      "ColorDarkRed" : "Dark Red",
+      "TwentyFourHour" : "24 hour",
+      "DewPointPlusHumidex" : "Dew Point + Humidex",
+      "Yes" : "Yes",
+      "SecondaryFieldColorTitle" : "Secondary Fields Color",
+      "WindPlusWindChill" : "Wind Speed + Wind Chill",
+      "WindChill" : "Wind Chill Index",
+      "ColorYellow" : "Yellow",
+      "UnitsTitle" : "Units",
+      "AppName" : "Slanted 280",
+      "ColorDarkGreen" : "Dark Green",
+      "TwelveHour" : "12 hour (AM-PM)",
+      "ThemeIce" : "Ice",
+      "ThreeHourRainForecast" : "Rain Forecast (3 hour)",
+      "ThemeEnduro2" : "Enduro 2",
+      "$literal2$" : "Large",
+      "SecondsColorTitle" : "Seconds Color",
+      "MainFieldColorTitle" : "Main Fields Color",
+      "ColorTheme" : "Use Theme",
+      "Humidity" : "Humidity",
+      "Days" : "d",
+      "$literal6$" : "60",
+      "ColorPink" : "Pink",
+      "ColorGreen" : "Green",
+      "MediumPower" : "Small Power Economy (No secs and no HR)",
+      "ColorLightGray" : "Light Gray",
+      "No" : "No",
+      "ColorAqua" : "Aqua",
+      "ColorDarkGray" : "Dark Gray",
+      "ColorDarkBlue" : "Dark Blue",
+      "ColorLightRed" : "Light Red",
+      "ColorBlack" : "Black",
+      "LowPower" : "Maximal Power Economy (HH:MM and Date only)",
+      "DewPoint" : "Dew Point",
+      "Date" : "Date",
+      "Calories" : "Calories",
+      "ThemeOrange" : "Orange",
+      "$literal1$" : "Medium",
+      "BottomProgressBarTitle" : "Bottom Progress Bar",
+      "ShowSecondsTitle" : "Show seconds",
+      "$literal5$" : "30",
+      "Climb" : "Floors climbed",
+      "UpperLeftFieldTitle" : "Upper Left Field",
+      "ProgressBarSpacingTitle" : "Progress Bar Spacing",
+      "Metric" : "Metric",
+      "TopProgressBarTitle" : "Top Progress Bar",
+      "Imperial" : "Imperial",
+      "HumidityPlusHumidex" : "Humidity + Humidex",
+      "ColorLightGreen" : "Light Green",
+      "TempPlusFeelsLike" : "Temperature + Feels Like",
+      "None" : "None",
+      "ColorLightBlue" : "Light Blue",
+      "Altitude" : "Altitude"
+    }
+  }
+}

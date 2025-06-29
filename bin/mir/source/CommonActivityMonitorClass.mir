@@ -1,0 +1,400 @@
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [ActivityMonitor,1,14,29]; ]
+import Toybox.ActivityMonitor;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Lang,2,14,18]; ]
+import Toybox.Lang;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 4; @symbol_classdef = [ActivityMon,4,6,17]; ]
+class ActivityMon {
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 4; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 5; @position = 16; @symbol_vardef = [_activityMonitor,5,16,32]; @symbol_type<0> = [ActivityMonitor,5,36,51]; @symbol_type<1> = [Info,5,52,56]; ]
+    private
+    var _activityMonitor as ActivityMonitor.Info;
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 6; @position = 16; @symbol_vardef = [_isIcons,6,16,24]; @symbol_type<0> = [Boolean,6,28,35]; ]
+    private
+    var _isIcons as Boolean;
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 8; @symbol_functiondef = [initialize,8,20,30]; @symbol_param<0> = [isIcons,8,31,38]; @symbol_param<0>_type<0> = [Boolean,8,42,49]; ]
+    public
+    function initialize(isIcons as Boolean) as Void {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_8_51_12_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 10 8 ]
+        symbol [ ActivityMonitor %tmp.1 10 27 42 ];
+        %tmp.1 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.2 10 43 50 ];
+        %tmp.2 = getv function %tmp.1 :getInfo;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        symbol [ _activityMonitor ? 10 8 24 ];
+        putv self :_activityMonitor %tmp.3;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 11 8 ]
+        %tmp.4 = lgetv %isIcons;
+        symbol [ isIcons %tmp.4 11 19 26 ];
+        symbol [ _isIcons ? 11 8 16 ];
+        putv self :_isIcons %tmp.4;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_8_51_12_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 14; @symbol_functiondef = [getSteps,14,20,28]; ]
+    public
+    function getSteps() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_14_31_23_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 15 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_14_31_23_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_14_31_23_4_stop" ]
+        %returnString.1 = local;
+        symbol [ returnString %returnString.1 15 12 24 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_begin:
+        symbol [ _activityMonitor %tmp.2 15 27 43 ];
+        %tmp.2 = getv ? :_activityMonitor;
+        symbol [ steps %tmp.3 15 44 49 ];
+        %tmp.3 = getv %tmp.2 :steps;
+        %tmp.4 = null;
+        %tmp.5 = ne %tmp.3 %tmp.4;
+        bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_true:
+        symbol [ _activityMonitor %tmp.7 15 60 76 ];
+        %tmp.7 = getv ? :_activityMonitor;
+        symbol [ steps %tmp.8 15 77 82 ];
+        %tmp.8 = getv %tmp.7 :steps;
+        symbol [ format %tmp.9 15 83 89 ];
+        %tmp.9 = getv function %tmp.8 :format;
+        %tmp.10 = "%.0f";
+        %tmp.11 = invoke %tmp.8 %tmp.9(%tmp.10);
+        push %tmp.11;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_false:
+        %tmp.12 = "NA";
+        push %tmp.12;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_end:
+        %tmp.13 = phi [%tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_begin] [%tmp.11 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_true] [%tmp.12 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_false] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_15_27_15_100_end];
+        lputv %returnString.1 %tmp.13;
+        symbol [ returnString %returnString.1 15 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 17 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_8_22_8_if_stmt:
+        symbol [ _isIcons %tmp.15 17 12 20 ];
+        %tmp.15 = getv ? :_isIcons;
+        bf %tmp.15 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_8_22_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_8_22_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_22_19_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 18 12 ]
+        %tmp.16 = newa 2;
+        %tmp.17 = lgetv %returnString.1;
+        symbol [ returnString %tmp.17 18 20 32 ];
+        %tmp.18 = dup %tmp.16;
+        %tmp.19 = aputv %tmp.18 0 %tmp.17;
+        symbol [ I_STEPS %tmp.21 18 34 41 ];
+        %tmp.21 = getv ? :I_STEPS;
+        %tmp.22 = dup %tmp.19;
+        %tmp.23 = aputv %tmp.22 1 %tmp.21;
+        ret %tmp.23;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_22_19_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_8_22_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_8_22_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_20_13_22_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 21 12 ]
+        %tmp.24 = lgetv %returnString.1;
+        symbol [ returnString %tmp.24 21 19 31 ];
+        ret %tmp.24;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_20_13_22_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_17_8_22_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_14_31_23_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 25; @symbol_functiondef = [getCalories,25,20,31]; ]
+    public
+    function getCalories() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_25_34_34_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 26 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_25_34_34_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_25_34_34_4_stop" ]
+        %returnString.1 = local;
+        symbol [ returnString %returnString.1 26 12 24 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_begin:
+        symbol [ _activityMonitor %tmp.2 26 27 43 ];
+        %tmp.2 = getv ? :_activityMonitor;
+        symbol [ calories %tmp.3 26 44 52 ];
+        %tmp.3 = getv %tmp.2 :calories;
+        %tmp.4 = null;
+        %tmp.5 = ne %tmp.3 %tmp.4;
+        bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_true:
+        symbol [ _activityMonitor %tmp.7 26 63 79 ];
+        %tmp.7 = getv ? :_activityMonitor;
+        symbol [ calories %tmp.8 26 80 88 ];
+        %tmp.8 = getv %tmp.7 :calories;
+        symbol [ format %tmp.9 26 89 95 ];
+        %tmp.9 = getv function %tmp.8 :format;
+        %tmp.10 = "%.0f";
+        %tmp.11 = invoke %tmp.8 %tmp.9(%tmp.10);
+        push %tmp.11;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_false:
+        %tmp.12 = "NA";
+        push %tmp.12;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_end:
+        %tmp.13 = phi [%tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_begin] [%tmp.11 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_true] [%tmp.12 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_false] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_26_27_26_106_end];
+        lputv %returnString.1 %tmp.13;
+        symbol [ returnString %returnString.1 26 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 28 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_8_33_8_if_stmt:
+        symbol [ _isIcons %tmp.15 28 12 20 ];
+        %tmp.15 = getv ? :_isIcons;
+        bf %tmp.15 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_8_33_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_8_33_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_22_30_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 29 12 ]
+        %tmp.16 = newa 2;
+        %tmp.17 = lgetv %returnString.1;
+        symbol [ returnString %tmp.17 29 20 32 ];
+        %tmp.18 = dup %tmp.16;
+        %tmp.19 = aputv %tmp.18 0 %tmp.17;
+        symbol [ I_CALORIES %tmp.21 29 34 44 ];
+        %tmp.21 = getv ? :I_CALORIES;
+        %tmp.22 = dup %tmp.19;
+        %tmp.23 = aputv %tmp.22 1 %tmp.21;
+        ret %tmp.23;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_22_30_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_8_33_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_8_33_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_31_13_33_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 32 12 ]
+        %tmp.24 = lgetv %returnString.1;
+        symbol [ returnString %tmp.24 32 19 31 ];
+        ret %tmp.24;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_31_13_33_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_28_8_33_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_25_34_34_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 36; @symbol_functiondef = [getFloorsClimbed,36,20,36]; ]
+    public
+    function getFloorsClimbed() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_36_40_46_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 37 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_36_40_46_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_36_40_46_4_stop" ]
+        %returnString.1 = local;
+        symbol [ returnString %returnString.1 37 12 24 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_begin:
+        symbol [ _activityMonitor %tmp.2 37 27 43 ];
+        %tmp.2 = getv ? :_activityMonitor;
+        symbol [ floorsClimbed %tmp.3 37 44 57 ];
+        %tmp.3 = getv %tmp.2 :floorsClimbed;
+        %tmp.4 = null;
+        %tmp.5 = ne %tmp.3 %tmp.4;
+        bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_true:
+        symbol [ _activityMonitor %tmp.7 37 68 84 ];
+        %tmp.7 = getv ? :_activityMonitor;
+        symbol [ floorsClimbed %tmp.8 37 85 98 ];
+        %tmp.8 = getv %tmp.7 :floorsClimbed;
+        symbol [ format %tmp.9 37 99 105 ];
+        %tmp.9 = getv function %tmp.8 :format;
+        %tmp.10 = "%.0f";
+        %tmp.11 = invoke %tmp.8 %tmp.9(%tmp.10);
+        push %tmp.11;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_false:
+        %tmp.12 = "NA";
+        push %tmp.12;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_end:
+        %tmp.13 = phi [%tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_begin] [%tmp.11 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_true] [%tmp.12 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_false] [%tmp.13 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_37_27_37_116_end];
+        lputv %returnString.1 %tmp.13;
+        symbol [ returnString %returnString.1 37 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 39 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_8_44_8_if_stmt:
+        symbol [ _isIcons %tmp.15 39 12 20 ];
+        %tmp.15 = getv ? :_isIcons;
+        bf %tmp.15 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_8_44_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_8_44_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_22_41_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 40 12 ]
+        %tmp.16 = newa 2;
+        %tmp.17 = lgetv %returnString.1;
+        symbol [ returnString %tmp.17 40 20 32 ];
+        %tmp.18 = dup %tmp.16;
+        %tmp.19 = aputv %tmp.18 0 %tmp.17;
+        symbol [ I_FLOORSCLIMBED %tmp.21 40 34 49 ];
+        %tmp.21 = getv ? :I_FLOORSCLIMBED;
+        %tmp.22 = dup %tmp.19;
+        %tmp.23 = aputv %tmp.22 1 %tmp.21;
+        ret %tmp.23;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_22_41_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_8_44_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_8_44_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_42_13_44_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 43 12 ]
+        %tmp.24 = lgetv %returnString.1;
+        symbol [ returnString %tmp.24 43 19 31 ];
+        ret %tmp.24;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_42_13_44_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_39_8_44_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_36_40_46_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 48; @symbol_functiondef = [getDistance,48,20,31]; @symbol_param<0> = [isMetric,48,33,41]; ]
+    public
+    function getDistance(isMetric) {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_48_43_61_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 49 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_48_43_61_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_48_43_61_4_stop" ]
+        %distance.1 = local;
+        symbol [ distance %distance.1 49 12 20 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_begin:
+        symbol [ _activityMonitor %tmp.2 49 23 39 ];
+        %tmp.2 = getv ? :_activityMonitor;
+        symbol [ distance %tmp.3 49 40 48 ];
+        %tmp.3 = getv %tmp.2 :distance;
+        %tmp.4 = null;
+        %tmp.5 = ne %tmp.3 %tmp.4;
+        bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_true:
+        symbol [ _activityMonitor %tmp.7 49 59 75 ];
+        %tmp.7 = getv ? :_activityMonitor;
+        symbol [ distance %tmp.8 49 76 84 ];
+        %tmp.8 = getv %tmp.7 :distance;
+        %tmp.9 = 100000;
+        %tmp.10 = div %tmp.8 %tmp.9;
+        push %tmp.10;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_false:
+        %tmp.11 = 0;
+        push %tmp.11;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_end:
+        %tmp.12 = phi [%tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_begin] [%tmp.10 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_true] [%tmp.11 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_false] [%tmp.12 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_49_23_49_96_end];
+        lputv %distance.1 %tmp.12;
+        symbol [ distance %distance.1 49 12 20 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 50 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_8_52_8_if_stmt:
+        %tmp.13 = lgetv %isMetric;
+        symbol [ isMetric %tmp.13 50 13 21 ];
+        %tmp.14 = not %tmp.13;
+        bf %tmp.14 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_8_52_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_8_52_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_22_52_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 51 12 ]
+        %tmp.15 = lgetv %distance.1;
+        symbol [ distance %tmp.15 51 23 31 ];
+        %tmp.16 = 0.62137119;
+        %tmp.17 = mul %tmp.15 %tmp.16;
+        lputv %distance.1 %tmp.17;
+        symbol [ distance %distance.1 51 12 20 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_22_52_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_8_52_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_50_8_52_8_if_end:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 53 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_48_43_61_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_48_43_61_4_stop" ]
+        %returnString.2 = local;
+        symbol [ returnString %returnString.2 53 12 24 ];
+        %tmp.18 = lgetv %distance.1;
+        symbol [ distance %tmp.18 53 27 35 ];
+        symbol [ format %tmp.19 53 36 42 ];
+        %tmp.19 = getv function %tmp.18 :format;
+        %tmp.20 = "%.0f";
+        %tmp.21 = invoke %tmp.18 %tmp.19(%tmp.20);
+        lputv %returnString.2 %tmp.21;
+        symbol [ returnString %returnString.2 53 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 55 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_8_60_8_if_stmt:
+        symbol [ _isIcons %tmp.23 55 12 20 ];
+        %tmp.23 = getv ? :_isIcons;
+        bf %tmp.23 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_8_60_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_8_60_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_22_57_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 56 12 ]
+        %tmp.24 = newa 2;
+        %tmp.25 = lgetv %returnString.2;
+        symbol [ returnString %tmp.25 56 20 32 ];
+        %tmp.26 = dup %tmp.24;
+        %tmp.27 = aputv %tmp.26 0 %tmp.25;
+        symbol [ I_DISTANCE %tmp.29 56 34 44 ];
+        %tmp.29 = getv ? :I_DISTANCE;
+        %tmp.30 = dup %tmp.27;
+        %tmp.31 = aputv %tmp.30 1 %tmp.29;
+        ret %tmp.31;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_22_57_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_8_60_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_8_60_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_58_13_60_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 59 12 ]
+        %tmp.32 = lgetv %returnString.2;
+        symbol [ returnString %tmp.32 59 19 31 ];
+        ret %tmp.32;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_58_13_60_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_55_8_60_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_48_43_61_4_stop:
+    }
+    [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 63; @symbol_functiondef = [getRecoveryTime,63,20,35]; ]
+    public
+    function getRecoveryTime() {
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_63_39_74_4_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 64 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_63_39_74_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_63_39_74_4_stop" ]
+        %recTime.1 = local;
+        symbol [ recTime %recTime.1 64 12 19 ];
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_begin:
+        symbol [ _activityMonitor %tmp.2 64 22 38 ];
+        %tmp.2 = getv ? :_activityMonitor;
+        symbol [ timeToRecovery %tmp.3 64 39 53 ];
+        %tmp.3 = getv %tmp.2 :timeToRecovery;
+        %tmp.4 = null;
+        %tmp.5 = ne %tmp.3 %tmp.4;
+        bf %tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_true:
+        symbol [ _activityMonitor %tmp.7 64 64 80 ];
+        %tmp.7 = getv ? :_activityMonitor;
+        symbol [ timeToRecovery %tmp.8 64 81 95 ];
+        %tmp.8 = getv %tmp.7 :timeToRecovery;
+        push %tmp.8;
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_false:
+        %tmp.9 = 0;
+        push %tmp.9;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_end:
+        %tmp.10 = phi [%tmp.5 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_begin] [%tmp.8 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_true] [%tmp.9 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_false] [%tmp.10 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_64_22_64_98_end];
+        lputv %recTime.1 %tmp.10;
+        symbol [ recTime %recTime.1 64 12 19 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 66 8 ]
+        [ "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_63_39_74_4_start" "C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_63_39_74_4_stop" ]
+        %returnString.2 = local;
+        symbol [ returnString %returnString.2 66 12 24 ];
+        %tmp.11 = lgetv %recTime.1;
+        symbol [ recTime %tmp.11 66 27 34 ];
+        symbol [ format %tmp.12 66 35 41 ];
+        %tmp.12 = getv function %tmp.11 :format;
+        %tmp.13 = "%.0f";
+        %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
+        %tmp.15 = " h";
+        %tmp.16 = add %tmp.14 %tmp.15;
+        lputv %returnString.2 %tmp.16;
+        symbol [ returnString %returnString.2 66 12 24 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 68 8 ]
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_8_73_8_if_stmt:
+        symbol [ _isIcons %tmp.18 68 12 20 ];
+        %tmp.18 = getv ? :_isIcons;
+        bf %tmp.18 @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_8_73_8_if_else_false;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_8_73_8_if_true:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_22_70_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 69 12 ]
+        %tmp.19 = newa 2;
+        %tmp.20 = lgetv %returnString.2;
+        symbol [ returnString %tmp.20 69 20 32 ];
+        %tmp.21 = dup %tmp.19;
+        %tmp.22 = aputv %tmp.21 0 %tmp.20;
+        symbol [ I_RECOVERYTIME %tmp.24 69 34 48 ];
+        %tmp.24 = getv ? :I_RECOVERYTIME;
+        %tmp.25 = dup %tmp.22;
+        %tmp.26 = aputv %tmp.25 1 %tmp.24;
+        ret %tmp.26;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_22_70_8_stop:
+        goto @C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_8_73_8_if_end;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_8_73_8_if_else_false:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_71_13_73_8_start:
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc" 72 12 ]
+        %tmp.27 = lgetv %returnString.2;
+        symbol [ returnString %tmp.27 72 19 31 ];
+        ret %tmp.27;
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_71_13_73_8_stop:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_68_8_73_8_if_end:
+C__Users_hamil_OneDrive_Documents_GitHub_Slanted280_source_CommonActivityMonitorClass_mc_63_39_74_4_stop:
+    }
+}
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonActivityMonitorClass.mc"; @line = 1; ]
+<init> {
+}

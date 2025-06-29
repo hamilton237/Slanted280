@@ -1,0 +1,105 @@
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 5; @position = 6; @symbol_constdef = [DEGREE_SYMBOL,5,6,19]; ]
+const DEGREE_SYMBOL = "\u00B0";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 8; @position = 6; @symbol_constdef = [C_BATTERY,8,6,15]; ]
+const C_BATTERY = 0;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 9; @position = 6; @symbol_constdef = [C_DATE,9,6,12]; ]
+const C_DATE = 1;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 10; @position = 6; @symbol_constdef = [C_TEMPERATURE,10,6,19]; ]
+const C_TEMPERATURE = 2;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 11; @position = 6; @symbol_constdef = [C_SUNEVENTS,11,6,17]; ]
+const C_SUNEVENTS = 3;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 12; @position = 6; @symbol_constdef = [C_BODYBATTERY,12,6,19]; ]
+const C_BODYBATTERY = 4;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 13; @position = 6; @symbol_constdef = [C_STRESS,13,6,14]; ]
+const C_STRESS = 5;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 14; @position = 6; @symbol_constdef = [C_CITY,14,6,12]; ]
+const C_CITY = 6;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 15; @position = 6; @symbol_constdef = [C_THREEHOURFORECAST,15,6,25]; ]
+const C_THREEHOURFORECAST = 7;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 16; @position = 6; @symbol_constdef = [C_PRESSURE,16,6,16]; ]
+const C_PRESSURE = 8;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 17; @position = 6; @symbol_constdef = [C_HUMIDITY,17,6,16]; ]
+const C_HUMIDITY = 9;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 18; @position = 6; @symbol_constdef = [C_DEWPOINT,18,6,16]; ]
+const C_DEWPOINT = 10;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 19; @position = 6; @symbol_constdef = [C_WIND,19,6,12]; ]
+const C_WIND = 11;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 20; @position = 6; @symbol_constdef = [C_STEPS,20,6,13]; ]
+const C_STEPS = 12;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 21; @position = 6; @symbol_constdef = [C_CALORIES,21,6,16]; ]
+const C_CALORIES = 13;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 22; @position = 6; @symbol_constdef = [C_FLOORSCLIMBED,22,6,21]; ]
+const C_FLOORSCLIMBED = 14;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 23; @position = 6; @symbol_constdef = [C_DISTANCE,23,6,16]; ]
+const C_DISTANCE = 15;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 24; @position = 6; @symbol_constdef = [C_ALTITUDE,24,6,16]; ]
+const C_ALTITUDE = 16;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 25; @position = 6; @symbol_constdef = [C_BATTERYDAYS,25,6,19]; ]
+const C_BATTERYDAYS = 17;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 26; @position = 6; @symbol_constdef = [C_HEARTRATE,26,6,17]; ]
+const C_HEARTRATE = 18;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 27; @position = 6; @symbol_constdef = [C_WINDCHILL,27,6,17]; ]
+const C_WINDCHILL = 19;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 28; @position = 6; @symbol_constdef = [C_TEMPPLUSFEELSLIKE,28,6,25]; ]
+const C_TEMPPLUSFEELSLIKE = 20;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 29; @position = 6; @symbol_constdef = [C_WINDPLUSWINDCHILL,29,6,25]; ]
+const C_WINDPLUSWINDCHILL = 21;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 30; @position = 6; @symbol_constdef = [C_HUMIDITYPLUSHUMIDEX,30,6,27]; ]
+const C_HUMIDITYPLUSHUMIDEX = 22;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 31; @position = 6; @symbol_constdef = [C_DEWPOINTPLUSHUMIDEX,31,6,27]; ]
+const C_DEWPOINTPLUSHUMIDEX = 23;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 32; @position = 6; @symbol_constdef = [C_THREEHOURTEMPFORECAST,32,6,29]; ]
+const C_THREEHOURTEMPFORECAST = 25;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 33; @position = 6; @symbol_constdef = [C_RECOVERYTIME,33,6,20]; ]
+const C_RECOVERYTIME = 26;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 34; @position = 6; @symbol_constdef = [C_NONE,34,6,12]; ]
+const C_NONE = 99;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 37; @position = 6; @symbol_constdef = [I_NOICON,37,6,14]; ]
+const I_NOICON = "";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 38; @position = 6; @symbol_constdef = [I_BATTERY,38,6,15]; ]
+const I_BATTERY = "b";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 39; @position = 6; @symbol_constdef = [I_TEMPERATURE,39,6,19]; ]
+const I_TEMPERATURE = "t";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 40; @position = 6; @symbol_constdef = [I_PRESSURE,40,6,16]; ]
+const I_PRESSURE = "p";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 41; @position = 6; @symbol_constdef = [I_HUMIDITY,41,6,16]; ]
+const I_HUMIDITY = "h";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 42; @position = 6; @symbol_constdef = [I_NOTIFICATIONS,42,6,21]; ]
+const I_NOTIFICATIONS = "n";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 43; @position = 6; @symbol_constdef = [I_BODYBATTERY,43,6,19]; ]
+const I_BODYBATTERY = "e";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 44; @position = 6; @symbol_constdef = [I_WIND,44,6,12]; ]
+const I_WIND = "w";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 45; @position = 6; @symbol_constdef = [I_DEWPOINT,45,6,16]; ]
+const I_DEWPOINT = "d";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 46; @position = 6; @symbol_constdef = [I_WINDCHILL,46,6,17]; ]
+const I_WINDCHILL = "c";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 47; @position = 6; @symbol_constdef = [I_STEPS,47,6,13]; ]
+const I_STEPS = "s";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 48; @position = 6; @symbol_constdef = [I_CALORIES,48,6,16]; ]
+const I_CALORIES = "a";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 49; @position = 6; @symbol_constdef = [I_FLOORSCLIMBED,49,6,21]; ]
+const I_FLOORSCLIMBED = "f";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 50; @position = 6; @symbol_constdef = [I_DISTANCE,50,6,16]; ]
+const I_DISTANCE = "k";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 51; @position = 6; @symbol_constdef = [I_ALTITUDE,51,6,16]; ]
+const I_ALTITUDE = "m";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 52; @position = 6; @symbol_constdef = [I_HEARTRATE,52,6,17]; ]
+const I_HEARTRATE = "r";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 53; @position = 6; @symbol_constdef = [I_RECOVERYTIME,53,6,20]; ]
+const I_RECOVERYTIME = "z";
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 56; @position = 6; @symbol_constdef = [COLOR_LIGHT_GREEN,56,6,23]; ]
+const COLOR_LIGHT_GREEN = 0x55FF55;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 57; @position = 6; @symbol_constdef = [COLOR_LIGHT_BLUE,57,6,22]; ]
+const COLOR_LIGHT_BLUE = 0x00FFFF;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 58; @position = 6; @symbol_constdef = [COLOR_PINK,58,6,16]; ]
+const COLOR_PINK = 0xFF55FF;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 59; @position = 6; @symbol_constdef = [COLOR_BABY_POO,59,6,20]; ]
+const COLOR_BABY_POO = 0xAAFF00;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 60; @position = 6; @symbol_constdef = [COLOR_TURQUOISE,60,6,21]; ]
+const COLOR_TURQUOISE = 0x00AAAA;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 61; @position = 6; @symbol_constdef = [COLOR_AQUA,61,6,16]; ]
+const COLOR_AQUA = 0x00FFAA;
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\CommonConstants.mc"; @line = 5; ]
+<init> {
+}
