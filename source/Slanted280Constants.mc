@@ -68,13 +68,14 @@ const T_FIRE = [7,7,1,4,7,4,3,3,30];
 const T_ORANGE = [7,7,1,1,2,2,3,4,30];
 
 
-//const FONT_HOUR_MINUTES = Graphics.FONT_SYSTEM_NUMBER_THAI_HOT;
-const FONT_HOUR_MINUTES = Graphics.FONT_AUX1;
+// Fonts used in the watch face
+const FONT_HOUR_MINUTES = Graphics.FONT_SYSTEM_NUMBER_THAI_HOT; //Never referenced
 const FONT_SECONDS = Graphics.FONT_SYSTEM_SMALL;
 const FONT_AMPM = Graphics.FONT_SYSTEM_XTINY;
 const FONT_FIELD = Graphics.FONT_SYSTEM_TINY;
 
-const TIME_FONT = Graphics.FONT_NUMBER_THAI_HOT;
+// Fonts used in the time fields
+const TIME_FONT = Graphics.FONT_SYSTEM_NUMBER_THAI_HOT;
 const SECONDS_FONT = Graphics.FONT_SYSTEM_SMALL;
 const FIELD_FONT = Graphics.FONT_SYSTEM_TINY;
 

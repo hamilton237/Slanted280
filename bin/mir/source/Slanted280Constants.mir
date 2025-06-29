@@ -70,11 +70,11 @@ const FONT_SECONDS;
 const FONT_AMPM;
 [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 75; @position = 6; @symbol_constdef = [FONT_FIELD,75,6,16]; ]
 const FONT_FIELD;
-[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 77; @position = 6; @symbol_constdef = [TIME_FONT,77,6,15]; ]
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 78; @position = 6; @symbol_constdef = [TIME_FONT,78,6,15]; ]
 const TIME_FONT;
-[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 78; @position = 6; @symbol_constdef = [SECONDS_FONT,78,6,18]; ]
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 79; @position = 6; @symbol_constdef = [SECONDS_FONT,79,6,18]; ]
 const SECONDS_FONT;
-[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 79; @position = 6; @symbol_constdef = [FIELD_FONT,79,6,16]; ]
+[ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 80; @position = 6; @symbol_constdef = [FIELD_FONT,80,6,16]; ]
 const FIELD_FONT;
 [ @file = "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc"; @line = 1; ]
 <init> {
@@ -291,8 +291,8 @@ const FIELD_FONT;
 [ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 72 6 ]
     symbol [ Graphics %tmp.197 72 26 34 ];
     %tmp.197 = getm $.Toybox.Graphics;
-    symbol [ FONT_AUX1 %tmp.198 72 35 44 ];
-    %tmp.198 = getv %tmp.197 :FONT_AUX1;
+    symbol [ FONT_SYSTEM_NUMBER_THAI_HOT %tmp.198 72 35 62 ];
+    %tmp.198 = getv %tmp.197 :FONT_SYSTEM_NUMBER_THAI_HOT;
     putv self :FONT_HOUR_MINUTES %tmp.198;
 [ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 73 6 ]
     symbol [ Graphics %tmp.199 73 21 29 ];
@@ -312,22 +312,22 @@ const FIELD_FONT;
     symbol [ FONT_SYSTEM_TINY %tmp.204 75 28 44 ];
     %tmp.204 = getv %tmp.203 :FONT_SYSTEM_TINY;
     putv self :FONT_FIELD %tmp.204;
-[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 77 6 ]
-    symbol [ Graphics %tmp.205 77 18 26 ];
-    %tmp.205 = getm $.Toybox.Graphics;
-    symbol [ FONT_NUMBER_THAI_HOT %tmp.206 77 27 47 ];
-    %tmp.206 = getv %tmp.205 :FONT_NUMBER_THAI_HOT;
-    putv self :TIME_FONT %tmp.206;
 [ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 78 6 ]
-    symbol [ Graphics %tmp.207 78 21 29 ];
+    symbol [ Graphics %tmp.205 78 18 26 ];
+    %tmp.205 = getm $.Toybox.Graphics;
+    symbol [ FONT_SYSTEM_NUMBER_THAI_HOT %tmp.206 78 27 54 ];
+    %tmp.206 = getv %tmp.205 :FONT_SYSTEM_NUMBER_THAI_HOT;
+    putv self :TIME_FONT %tmp.206;
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 79 6 ]
+    symbol [ Graphics %tmp.207 79 21 29 ];
     %tmp.207 = getm $.Toybox.Graphics;
-    symbol [ FONT_SYSTEM_SMALL %tmp.208 78 30 47 ];
+    symbol [ FONT_SYSTEM_SMALL %tmp.208 79 30 47 ];
     %tmp.208 = getv %tmp.207 :FONT_SYSTEM_SMALL;
     putv self :SECONDS_FONT %tmp.208;
-[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 79 6 ]
-    symbol [ Graphics %tmp.209 79 19 27 ];
+[ "C:\Users\hamil\OneDrive\Documents\GitHub\Slanted280\source\Slanted280Constants.mc" 80 6 ]
+    symbol [ Graphics %tmp.209 80 19 27 ];
     %tmp.209 = getm $.Toybox.Graphics;
-    symbol [ FONT_SYSTEM_TINY %tmp.210 79 28 44 ];
+    symbol [ FONT_SYSTEM_TINY %tmp.210 80 28 44 ];
     %tmp.210 = getv %tmp.209 :FONT_SYSTEM_TINY;
     putv self :FIELD_FONT %tmp.210;
 }
