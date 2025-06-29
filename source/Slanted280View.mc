@@ -304,8 +304,6 @@ class Slanted280View extends WatchUi.WatchFace {
             calculateHrCoordinates(dc);
         }
 
-
-
         // Some stuff needs to be refreshed only occasionnally
         var tempTime = Time.Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
         var tempDuration = getTimeDiff(tempTime, batSaverTime);
@@ -341,37 +339,45 @@ class Slanted280View extends WatchUi.WatchFace {
             refreshBatSaverData(dc);
         }
 
-        // Draw the watch face
-        // Time
-        drawTime(dc,true);
+        //check if AOD is in-active - High Power Mode
+        // If AOD is active only draw the time
+        // IF AOD is inactive, draw the full watch face
+        if (System.DISPLAY_MODE_HIGH_POWER == System.getDisplayMode()) {
+            // Draw the Time with seconds (per setting)
+            drawTime(dc,true,false);
 
-        // Fields
-        var color = Graphics.COLOR_WHITE;
-        var alignment = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
+            // Fields
+            var color = Graphics.COLOR_WHITE;
+            var alignment = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
 
-        drawField (fieldValue[TOP_FIELD], TOP_X, TOP_Y, secondaryColor, iconsFont, iconsColor, dc); 
-        drawField (fieldValue[UPPER_LEFT_FIELD], UPPER_LEFT_X, UPPER_LEFT_Y, secondaryColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[UPPER_RIGHT_FIELD], UPPER_RIGHT_X, UPPER_RIGHT_Y, mainColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[LOWER_LEFT_FIELD], LOWER_LEFT_X, LOWER_LEFT_Y, mainColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[LOWER_RIGHT_FIELD], LOWER_RIGHT_X, LOWER_RIGHT_Y, secondaryColor, iconsFont, iconsColor, dc);
-        drawField (fieldValue[BOTTOM_FIELD], BOTTOM_X, BOTTOM_Y, secondaryColor, iconsFont, iconsColor, dc); 
+            drawField (fieldValue[TOP_FIELD], TOP_X, TOP_Y, secondaryColor, iconsFont, iconsColor, dc); 
+            drawField (fieldValue[UPPER_LEFT_FIELD], UPPER_LEFT_X, UPPER_LEFT_Y, secondaryColor, iconsFont, iconsColor, dc);
+            drawField (fieldValue[UPPER_RIGHT_FIELD], UPPER_RIGHT_X, UPPER_RIGHT_Y, mainColor, iconsFont, iconsColor, dc);
+            drawField (fieldValue[LOWER_LEFT_FIELD], LOWER_LEFT_X, LOWER_LEFT_Y, mainColor, iconsFont, iconsColor, dc);
+            drawField (fieldValue[LOWER_RIGHT_FIELD], LOWER_RIGHT_X, LOWER_RIGHT_Y, secondaryColor, iconsFont, iconsColor, dc);
+            drawField (fieldValue[BOTTOM_FIELD], BOTTOM_X, BOTTOM_Y, secondaryColor, iconsFont, iconsColor, dc); 
 
-        if (isDayTime || nightBehavior < 2) {
-            // Bluetooth/Notifications
-            drawStatusIcon(dc, getPosFromPercent(3, W), getPosFromPercent(50, H), iconsColor, bgColor, 1, iconsFont);
-            // Grid
-            drawGrid(dc, gridColor, bgColor);
-            // Top progress Bar
-            drawStatusBar(dc, getPosFromPercent(UPPER_BAR_Y, H), progressBarSpacing, topBarValue.toNumber(), barColor, topProgressBarColor, bgColor, W);
-            // Bottom progress bar 
-            drawStatusBar(dc, getPosFromPercent(LOWER_BAR_Y, H), progressBarSpacing, bottomBarValue.toNumber(), barColor, bottomProgressBarColor, bgColor, W);
+            if (isDayTime || nightBehavior < 2) {
+                // Bluetooth/Notifications
+                drawStatusIcon(dc, getPosFromPercent(3, W), getPosFromPercent(50, H), iconsColor, bgColor, 1, iconsFont);
+                // Grid
+                drawGrid(dc, gridColor, bgColor);
+                // Top progress Bar
+                drawStatusBar(dc, getPosFromPercent(UPPER_BAR_Y, H), progressBarSpacing, topBarValue.toNumber(), barColor, topProgressBarColor, bgColor, W);
+                // Bottom progress bar 
+                drawStatusBar(dc, getPosFromPercent(LOWER_BAR_Y, H), progressBarSpacing, bottomBarValue.toNumber(), barColor, bottomProgressBarColor, bgColor, W);
+            }
+
+             // HR related
+            if ( isHeartRate && (isDayTime || nightBehavior == 0) ) {
+                drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
+            }
+        }else {
+            // Draw the Time without seconds regardless of user setting
+            // Time for AOD
+            drawTime(dc,true,true);
         }
 
-        // HR related
-        if ( isHeartRate && (isDayTime || nightBehavior == 0) ) {
-            drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
-        }
-    
     }
 
     // 
@@ -381,8 +387,8 @@ class Slanted280View extends WatchUi.WatchFace {
             drawHeartRate(hrClipCoordinates, hrCoordinates,  iconsFont, iconsColor, isEconomyMode, bgColor, dc);
         }
         
-        if (showSeconds && (isDayTime || nightBehavior == 0) ) {
-            drawTime(dc,false); 
+        if (showSeconds && (isDayTime || nightBehavior == 0)) {
+            drawTime(dc,false,false); 
         }
     }
 
@@ -434,7 +440,7 @@ class Slanted280View extends WatchUi.WatchFace {
         isEconomyMode = true;
     }
 
-    function drawTime(dc, isFull){
+    function drawTime(dc, isFull, isAOD){
         
         //clock.setTime();
         var clockTime = System.getClockTime();
@@ -480,10 +486,10 @@ class Slanted280View extends WatchUi.WatchFace {
             // Draw Time
             drawStr(dc, hourStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, hourColor, hoursString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             drawStr(dc, minStringXPosition, getPosFromPercent(TIME_Y_POS, H), TIME_FONT, minutesColor, minutesString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-            if (showSeconds && (isDayTime || nightBehavior == 0) ) {
+            if (showSeconds && (isDayTime || nightBehavior == 0) && (isAOD == false) ) {
                 drawStr(dc, secStringXPosition, getPosFromPercent(SEC_Y_POS, H), SECONDS_FONT, secondsColor, secondsString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             }
-            if (!is24Hour){
+            if (!is24Hour && (isAOD == false)) {
                 drawStr(dc, secStringXPosition, getPosFromPercent(AMPM_Y_POS, H), Graphics.FONT_SYSTEM_XTINY, secondsColor, amPm, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             }
             
