@@ -6,7 +6,7 @@
         to update the application attributes.
     -->
     <!--<iq:application id="a94560f8-d236-4ba9-8ac0-d0cac7caabb0" type="watchface" name="@Strings.AppName" entry="Slanted280App" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0">-->
-    <iq:application minApiLevel="3.2.0" type="watchface" name="@Strings.AppName" entry="Slanted280App" launcherIcon="@Drawables.LauncherIcon" id="da0fa2c2-fba2-4140-9017-cc8cae6b45fd">
+    <iq:application minApiLevel="4.2.0" type="watchface" name="@Strings.AppName" entry="Slanted280App" launcherIcon="@Drawables.LauncherIcon" id="da0fa2c2-fba2-4140-9017-cc8cae6b45fd">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
@@ -15,13 +15,6 @@
             "Monkey C: Edit Products" - Lets you add or remove any product
         -->
         <iq:products>
-            <iq:product id="descentmk2"/>
-            <iq:product id="enduro"/>
-            <iq:product id="fenix6"/>
-            <iq:product id="fenix6pro"/>
-            <iq:product id="fenix6s"/>
-            <iq:product id="fenix6spro"/>
-            <iq:product id="fenix6xpro"/>
             <iq:product id="fenix7"/>
             <iq:product id="fenix7s"/>
             <iq:product id="fenix7x"/>

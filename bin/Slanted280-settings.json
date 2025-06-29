@@ -2,7 +2,7 @@
   "settings" : [ {
     "key" : "AppVersion",
     "valueType" : "string",
-    "defaultValue" : "2.4.1",
+    "defaultValue" : "3.0.1",
     "configTitle" : "AppVersionTitle",
     "configPrompt" : null,
     "configType" : "alphaNumeric",
