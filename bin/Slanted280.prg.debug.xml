@@ -184,7 +184,7 @@
 <entry filename="C:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\source\\CommonFunctions.mc" id="15" lineNum="127" parent="globals" pc="268437347" symbol="convertMsToSpeed"/>
 <entry filename="C:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\source\\CommonFunctions.mc" id="16" lineNum="130" parent="globals" pc="268437350" symbol="celciusToFarenheit"/>
 <entry filename="C:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\source\\CommonFunctions.mc" id="16" lineNum="131" parent="globals" pc="268437360" symbol="celciusToFarenheit"/>
-<entry filename="c:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\bin\\gen\\006-B4565-00\\source\\Rez.mcgen" id="17" lineNum="7" parent="globals/Rez" pc="268437372" symbol="&lt;init&gt;"/>
+<entry filename="c:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="17" lineNum="7" parent="globals/Rez" pc="268437372" symbol="&lt;init&gt;"/>
 <entry filename="C:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\source\\CommonMiscDataFields.mc" id="18" lineNum="27" parent="globals" pc="268437392" symbol="getBaroPressureField"/>
 <entry filename="C:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\source\\CommonMiscDataFields.mc" id="18" lineNum="28" parent="globals" pc="268437403" symbol="getBaroPressureField"/>
 <entry filename="C:\\Users\\hamil\\OneDrive\\Documents\\GitHub\\Slanted280\\source\\CommonMiscDataFields.mc" id="18" lineNum="30" parent="globals" pc="268437411" symbol="getBaroPressureField"/>
@@ -1629,7 +1629,7 @@
 <entry endPc="268450553" name="recTime" stackId="1" startPc="268450476"/>
 <entry endPc="268450553" name="returnString" stackId="2" startPc="268450476"/>
 </localVars>
-<deviceInfo deviceVersion="f91f75238cd4e0caecf35d130465364989a746a3" partNumber="006-B4565-00"/>
+<deviceInfo deviceVersion="0ed082a335bbf00c12e5da810e92d4f89288090c" partNumber="006-B4024-00"/>
 <annotations>
 <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="RefreshMinutesTitle"/>
 <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="TopFieldTitle"/>
