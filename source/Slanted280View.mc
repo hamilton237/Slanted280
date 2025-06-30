@@ -38,6 +38,8 @@ class Slanted280View extends WatchUi.WatchFace {
     var dayString;
     var iconsFont;
     var H, W;
+    var IsAMOLED as Lang.Boolean = false; //default to non AMOLED
+    var IsHighPower as Lang.Boolean = true; //default to High Power Mode
 
     // Night time behavior
     var sleepTime, wakeTime;
@@ -339,10 +341,17 @@ class Slanted280View extends WatchUi.WatchFace {
             refreshBatSaverData(dc);
         }
 
-        //check if AOD is in-active - High Power Mode
+        //check if watch is AMOLED/LCD and AOD is inactive -  High Power Mode
+        var sSettings = System.getDeviceSettings();
+        if(sSettings.requiresBurnInProtection == true) {       
+        	IsHighPower = System.getDisplayMode() == System.DISPLAY_MODE_HIGH_POWER;    	
+        }else {
+        	IsHighPower = true; // Assume High Power Mode if not AMOLED
+        }
+
         // If AOD is active only draw the time
         // IF AOD is inactive, draw the full watch face
-        if (System.DISPLAY_MODE_HIGH_POWER == System.getDisplayMode()) {
+        if (IsHighPower) {
             // Draw the Time with seconds (per setting)
             drawTime(dc,true,false);
 
